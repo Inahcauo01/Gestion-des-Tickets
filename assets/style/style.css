@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+.footer{
+    background-color: #8A1538;
+    width: 100%;
+}
+.footer *{
+    color: white;
+    padding-top: 10px;
+}
+a{
+    text-decoration: none;
+}
+.part-title{
+    font-family: 'Roboto', sans-serif;
+}
+.image-groupes{
+    width: 100%;
+}
