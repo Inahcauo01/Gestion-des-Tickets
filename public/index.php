@@ -1,3 +1,6 @@
+<?php
+require_once('../app/view/loader.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -181,6 +184,6 @@
 </main>
 
 <!-- Footer -->
-<?php include_once 'pages/components/footer.php'; ?>
+<?php include_once 'components/footer.php'; ?>
 </body>
 </html>
