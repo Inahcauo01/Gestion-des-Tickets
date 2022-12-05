@@ -6,5 +6,4 @@ define('DB_PASSWORD','');
 define('DB_USER','root');
 
 
-
 ?>

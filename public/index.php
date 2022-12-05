@@ -1,5 +1,5 @@
 <?php
-require_once('../app/view/loader.php');
+require_once('../app/loader.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
