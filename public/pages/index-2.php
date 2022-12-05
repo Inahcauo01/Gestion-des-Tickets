@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
     <meta charset="utf-8">
     <meta name="keywords" content="">
 	<meta name="author" content="">
@@ -13,17 +12,16 @@
 	<meta property="og:description" content="Zenix - Crypto Admin Dashboard">
 	<meta property="og:image" content="https://zenix.dexignzone.com/xhtml/social-image.png">
 	<meta name="format-detection" content="telephone=no">
-    <title>Zenix -  Crypto Admin Dashboard </title>
+    <title>Zenix - Crypto Admin Dashboard </title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
-
-    <link href="vendor/fullcalendar/css/main.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="vendor/chartist/css/chartist.min.css">
     <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+	<link href="vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-	
-	
-</head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+</head>
 <body>
 
     <!--*******************
@@ -40,7 +38,6 @@
         Preloader end
     ********************-->
 
-
     <!--**********************************
         Main wrapper start
     ***********************************-->
@@ -50,7 +47,7 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="index.html" class="brand-logo">
+            <a href="index.php" class="brand-logo">
                 <svg class="logo-abbr" width="50" height="50" viewbox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<rect class="svg-logo-rect" width="50" height="50" rx="6" fill="#EB8153"></rect>
 					<path class="svg-logo-path" d="M17.5158 25.8619L19.8088 25.2475L14.8746 11.1774C14.5189 9.84988 15.8701 9.0998 16.8205 9.75055L33.0924 22.2055C33.7045 22.5589 33.8512 24.0717 32.6444 24.3951L30.3514 25.0095L35.2856 39.0796C35.6973 40.1334 34.4431 41.2455 33.3397 40.5064L17.0678 28.0515C16.2057 27.2477 16.5504 26.1205 17.5158 25.8619ZM18.685 14.2955L22.2224 24.6007L29.4633 22.6605L18.685 14.2955ZM31.4751 35.9615L27.8171 25.6886L20.5762 27.6288L31.4751 35.9615Z" fill="white"></path>
@@ -571,11 +568,8 @@
 		<!--**********************************
             Chat box End
         ***********************************-->
-
-
 		
-		
-        <!--**********************************
+		<!--**********************************
             Header start
         ***********************************-->
         <div class="header">
@@ -767,15 +761,15 @@
 									</div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="app-profile.html" class="dropdown-item ai-icon">
+                                    <a href="app-profile.php" class="dropdown-item ai-icon">
                                         <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                         <span class="ml-2">Profile </span>
                                     </a>
-                                    <a href="email-inbox.html" class="dropdown-item ai-icon">
+                                    <a href="email-inbox.php" class="dropdown-item ai-icon">
                                         <svg id="icon-inbox" xmlns="http://www.w3.org/2000/svg" class="text-success" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                                         <span class="ml-2">Inbox </span>
                                     </a>
-                                    <a href="page-login.html" class="dropdown-item ai-icon">
+                                    <a href="page-login.php" class="dropdown-item ai-icon">
                                         <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
                                         <span class="ml-2">Logout </span>
                                     </a>
@@ -800,7 +794,7 @@
             Header end ti-comment-alt
         ***********************************-->
 
-<!--**********************************
+        <!--**********************************
             Sidebar start
         ***********************************-->
         <div class="deznav">
@@ -811,7 +805,7 @@
 						<a href="javascript:void(0);"><i class="fa fa-cog" aria-hidden="true"></i></a>
 					</div>
 					<h5 class="name"><span class="font-w400">Hello,</span> Marquez</h5>
-					<p class="email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6805091a191d0d121212122805090104460b0705">[email&#160;protected]</a></p>
+					<p class="email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="89e4e8fbf8fcecf3f3f3f3c9e4e8e0e5a7eae6e4">[email&#160;protected]</a></p>
 				</div>
 				<ul class="metismenu" id="menu">
 					<li class="nav-label first">Main Menu</li>
@@ -820,70 +814,33 @@
 							<span class="nav-text">Dashboard</span>
 						</a>
                         <ul aria-expanded="false">
-							<li><a href="index.html">Dashboard Light</a></li>
-							<li><a href="index-2.html">Dashboard Dark</a></li>
-							<li><a href="my-wallets.html">Wallet</a></li>
-							<li><a href="tranasactions.html">Transactions</a></li>
-							<li><a href="coin-details.html">Coin Details</a></li>
-							<li><a href="portofolio.html">Portofolio</a></li>
-							<li><a href="market-capital.html">Market Capital</a></li>
-						</ul>
+							<li><a href="index.php">Dashboard Light</a></li>
+							<li><a href="index-2.php">Dashboard Dark</a></li>
+							</ul>
 
-                    </li>
-					<li class="nav-label">Apps</li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-						<i class="flaticon-077-menu-1"></i>
-							<span class="nav-text">Apps</span>
-						</a>
-                        <ul aria-expanded="false">
-                            <li><a href="app-profile.html">Profile</a></li>
-							<li><a href="post-details.html">Post Details</a></li>
-							<li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">User<span class="badge badge-xs badge-danger">New</span></a>
-                                <ul aria-expanded="false">
-                                    <li><a href="user-list-datatable.html">User List</a></li>
-                                    <li><a href="user-list-column.html">User Card</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="app-calender.html">Calendar</a></li>
-                        </ul>
                     </li>
 					
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<i class="flaticon-061-puzzle"></i>
+					<i class="fa-solid fa-chart-simple"></i>
 							<span class="nav-text">Charts</span>
 						</a>
                         <ul aria-expanded="false">
-                            
-                            <li><a href="chart-chartjs.html">Chartjs</a></li>
+                            <li><a href="chart-chartjs.php">Chartjs</a></li>
                         </ul>
                     </li>
-			
-               
+					
+        
+                  
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 							<i class="flaticon-381-network"></i>
 							<span class="nav-text">Table</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="table-bootstrap-basic.html">Bootstrap</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<i class="flaticon-049-copy"></i>
-							<span class="nav-text">Pages</span>
-						</a>
-                        <ul aria-expanded="false">
-                            <li><a href="page-register.html">Register</a></li>
-                            <li><a href="page-login.html">Login</a></li>
-                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Error</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="page-error-400.html">Error 400</a></li>
-                                    <li><a href="page-error-403.html">Error 403</a></li>
-                                    <li><a href="page-error-404.html">Error 404</a></li>
-                                    <li><a href="page-error-500.html">Error 500</a></li>
-                                    <li><a href="page-error-503.html">Error 503</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="page-lock-screen.html">Lock Screen</a></li>
+						    <li><a href="user-list-datatable.php">Users</a></li>
+                            <li><a href="Equipe-list-datatable.php">Equipes</a></li>
+                            <li><a href="Matches-list-datatable.php">Matches</a></li>
+                            <li><a href="Ticketes-list-datatable.php">Ticketes</a></li>
+							<li><a href="Stades-list-datatable.php">Stades</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -896,171 +853,55 @@
         <!--**********************************
             Sidebar end
         ***********************************-->
-
-        <!--**********************************
+		
+		<!--**********************************
             Content body start
         ***********************************-->
         <div class="content-body">
 			<div class="container-fluid">
-				<!-- Add Project -->
-				<div class="modal fade" id="addProjectSidebar">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title">Create Project</h5>
-								<button type="button" class="close" data-dismiss="modal"><span>&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<form>
-									<div class="form-group">
-										<label class="text-black font-w500">Project Name</label>
-										<input type="text" class="form-control">
-									</div>
-									<div class="form-group">
-										<label class="text-black font-w500">Deadline</label>
-										<input type="date" class="form-control">
-									</div>
-									<div class="form-group">
-										<label class="text-black font-w500">Client Name</label>
-										<input type="text" class="form-control">
-									</div>
-									<div class="form-group">
-										<button type="button" class="btn btn-primary">CREATE</button>
-									</div>
-								</form>
-							</div>
-						</div>
+				<div class="form-head mb-sm-5 mb-3 d-flex flex-wrap align-items-center">
+					<h2 class="font-w600 title mb-2 mr-auto ">Dashboard</h2>
+					<div class="weather-btn mb-2">
+						<span class="mr-3 font-w600 text-black"><i class="fa fa-cloud mr-2"></i>21</span>
+						<select class="form-control style-1 default-select  mr-3 ">
+							<option>Medan, IDN</option>
+							<option>Jakarta, IDN</option>
+							<option>Surabaya, IDN</option>
+						</select>
 					</div>
+					<a href="javascript:void(0);" class="btn btn-secondary mb-2"><i class="las la-calendar scale5 mr-3"></i>Filter Periode</a>
 				</div>
-                <div class="row page-titles mx-0">
-                    <div class="col-sm-6 p-md-0">
-                        <div class="welcome-text">
-                            <h4>Hi, welcome back!</h4>
-                            <p class="mb-0">Your business dashboard template</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">App</a></li>
-                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Calendar</a></li>
-                        </ol>
-                    </div>
-                </div>
-                <!-- row -->
-
-
-                <div class="row">
-                    <div class="col-xl-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-intro-title">Calendar</h4>
-
-                                <div class="">
-                                    <div id="external-events" class="my-3">
-                                        <p>Drag and drop your event or click in the calendar</p>
-                                        <div class="external-event btn-primary light" data-class="bg-primary"><i class="fa fa-move"></i><span>New Theme Release</span></div>
-                                        <div class="external-event btn-warning light" data-class="bg-warning"><i class="fa fa-move"></i>My Event
-                                        </div>
-                                        <div class="external-event btn-danger light" data-class="bg-danger"><i class="fa fa-move"></i>Meet manager</div>
-                                        <div class="external-event btn-info light" data-class="bg-info"><i class="fa fa-move"></i>Create New theme</div>
-                                        <div class="external-event btn-dark light" data-class="bg-dark"><i class="fa fa-move"></i>Project Launch</div>
-                                        <div class="external-event btn-secondary light" data-class="bg-secondary"><i class="fa fa-move"></i>Meeting</div>
-                                    </div>
-                                    <!-- checkbox -->
-									<div class="checkbox custom-control checkbox-event custom-checkbox pt-3 pb-5">
-										<input type="checkbox" class="custom-control-input" id="drop-remove">
-										<label class="custom-control-label" for="drop-remove">Remove After Drop</label>
-									</div>
-                                    <a href="javascript:void()" data-toggle="modal" data-target="#add-category" class="btn btn-primary btn-event w-100">
-                                        <span class="align-middle"><i class="ti-plus"></i></span> Create New
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-9">
-                        <div class="card">
-                            <div class="card-body">
-                                <div id="calendar" class="app-fullcalendar"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- BEGIN MODAL -->
-                    <div class="modal fade none-border" id="event-modal">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title"><strong>Add New Event</strong></h4>
-                                </div>
-                                <div class="modal-body"></div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-success save-event waves-effect waves-light">Create
-                                        event</button>
-
-                                    <button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-dismiss="modal">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Modal Add Category -->
-                    <div class="modal fade none-border" id="add-category">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title"><strong>Add a category</strong></h4>
-                                </div>
-                                <div class="modal-body">
-                                    <form>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label class="control-label">Category Name</label>
-                                                <input class="form-control form-white" placeholder="Enter name" type="text" name="category-name">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label class="control-label">Choose Category Color</label>
-                                                <select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
-                                                    <option value="success">Success</option>
-                                                    <option value="danger">Danger</option>
-                                                    <option value="info">Info</option>
-                                                    <option value="pink">Pink</option>
-                                                    <option value="primary">Primary</option>
-                                                    <option value="warning">Warning</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal">Save</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+			
+			</div>
+		</div>
         <!--**********************************
             Content body end
         ***********************************-->
-
 
         <!--**********************************
             Footer start
         ***********************************-->
         <div class="footer">
-            <div class="copyright">
-                <p>Copyright © Designed &amp; Developed by <a href="../index.htm" target="_blank">DexignZone</a> 2021</p>
-            </div>
+		<div class="copyright">
+					<p><strong>World cup tickets</strong> © 2022 All Rights Reserved</p>
+					<p class="fs-12">Made with <span class="heart"></span> by Namek</p>
+				</div>
         </div>
         <!--**********************************
             Footer end
         ***********************************-->
+		
+		
+		
+		
+		
+		<!--**********************************
+           Support ticket button start
+        ***********************************-->
 
-        
+        <!--**********************************
+           Support ticket button end
+        ***********************************-->
 
 
     </div>
@@ -1074,15 +915,30 @@
     <!-- Required vendors -->
     <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="vendor/global/global.min.js"></script>
 	<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-    <script src="vendor/moment/moment.min.js"></script>
-
-    <script src="vendor/fullcalendar/js/main.min.js"></script>
-	<script src="js/plugins-init/fullcalendar-init.js"></script>
+	<script src="vendor/chart.js/Chart.bundle.min.js"></script>
 	
+	<!-- Chart piety plugin files -->
+    <script src="vendor/peity/jquery.peity.min.js"></script>
+	
+	<!-- Apex Chart -->
+	<script src="vendor/apexchart/apexchart.js"></script>
+	
+	<!-- Dashboard 1 -->
+	<script src="js/dashboard/dashboard-1.js"></script>
+	
+	<script src="vendor/owl-carousel/owl.carousel.js"></script>
     <script src="js/custom.min.js"></script>
 	<script src="js/deznav-init.js"></script>
     <script src="js/demo.js"></script>
     <script src="js/styleSwitcher.js"></script>
+	<script>
+		jQuery(document).ready(function(){
+			setTimeout(function() {
+				dezSettingsOptions.version = 'dark';
+				new dezSettings(dezSettingsOptions);
+			},1500)
+		});
+	</script>
 
 </body>
 </html>
