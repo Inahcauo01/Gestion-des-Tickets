@@ -37,14 +37,14 @@ class Database{
     }
     // fetch All row 
     public function getAllrows($query)
-    {   echo $query;
-        // try {
-        //     $sqlstatment = $this->pdo->prepare($query);
-        //     $sqlstatment->execute();
-        //     return $sqlstatment->fetchAll();
-        // } catch (PDOException $e) {
-        //     "Erreur" . $e->getMessage();
-        // }
+    {   
+        try {
+            $sqlstatment = $this->pdo->prepare($query);
+            $sqlstatment->execute();
+            return $sqlstatment->fetchAll();
+        } catch (PDOException $e) {
+            "Erreur" . $e->getMessage();
+        }
     }
     // insert function  
     public function insertData($query,$param=[])
