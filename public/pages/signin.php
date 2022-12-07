@@ -1,3 +1,10 @@
+<?php
+require_once("../../app/loader.php");
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,36 +32,45 @@
         </div>
       </div>
       <div class=" login-form ">
-        <form action="" method="" class="my-5 d-flex flex-column align-items-center " id="loginForm">
+        <form action="" method="post" class="my-5 d-flex flex-column align-items-center" id="loginForm" >
+             
+            <p id="erreur-displaylogin" class="text-danger fw-bolder"><?php echo $erreurSignin; ?></p>
+
             <div class=" w-75 d-flex align-items-center  flex-column ">
               <label for="exampleInputEmail1" class="form-label ">Email address</label>
-              <input type="email" class="form-control w-100 " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name@example.com">
-              
+              <input type="email" name="email" class="form-control w-100 " id="email-login"  placeholder="name@example.com">
+              <p id="erreur-signinpemail" class="w-100 d-none fw-bolder text-danger">Enter a valid email</p>
               <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" class="form-control w-100 " id="exampleInputPassword1" placeholder="password">
-              <button type="submit" class="btn btn-primary w-75" id="btn-login" name="login">Log in</button>
+              <input type="password" name="password" class="form-control w-100 " id="password-login" placeholder="password">
+              <p id="erreur-signinpassword" class="w-100 d-none fw-bolder text-danger">password must containes at list 8 charcters,one upperCase,lowercase and special charcter</p>
+              <input type="submit"  class="btn btn-primary w-75 btn-login" id="btn-login" name="login" value="log in">
             </div>
-            
         </form>
-          <form action="" method=""  class="my-5 d-flex flex-column align-items-center d-none" id="signupForm">
-            <div class=" w-75 d-flex align-items-center  flex-column ">
+          <form action="" method="post"  class="my-5 d-flex flex-column align-items-center d-none" id="signupForm">
+            <div class="w-75 d-flex align-items-center  flex-column">
+              <p class="text-danger fs-5" id="erreur-message"><?php echo $erreur;?></p>
               <div class="d-flex justify-content-between gap-3">
                 <div>
-                  <label for="exampleInputEmail1" class="form-label">First Name</label>
-                  <input type="email" class="form-control " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your first name">
+                  <label for="fisrt-name" class="form-label">First Name</label>
+                  <input type="text" name="first-name" id="fisrt-name"  class="form-control "   placeholder="Your first name">
+                  <p id="firstName-erreur" class="d-none text-danger fs-5">Invalid first-name</p>
                 </div>
                 <div>
-                  <label for="exampleInputEmail1" class="form-label">Last Name</label>
-                  <input type="email" class="form-control " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your last name">
+                  <label for="last-name" class="form-label">Last Name</label>
+                  <input type="text" name="last-name" id="last-name" class="form-control"   placeholder="Your last name">
+                  <p id="lastName-erreur" class="d-none text-danger fs-5">Invalid last-name</p>
                 </div>
               </div>
-              <label for="exampleInputEmail1" class="form-label">Phone Number</label>
-              <input type="email" class="form-control w-100" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your phone number">
+              <label for="telephone" class="form-label">Phone Number</label>
+              <input  type="tel" class="form-control w-100" name="telephone" id="telephone" placeholder="+1230384394">
+               <p id="telephone-erreur" class="w-100 d-none text-danger fs-5">Invalid telephone number</p>
               <label for="exampleInputEmail1" class="form-label">Email address</label>
-              <input type="email" class="form-control w-100 mb-2" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name@example.com">
-              <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" class="form-control w-100 " id="exampleInputPassword1" placeholder="password">
-              <button type="submit" class="btn btn-primary w-75" id="btn-login" name="signup">Sign up</button>
+              <input type="email" class="form-control w-100 mb-2" name="signupemail" id="signupemail" placeholder="name@example.com">
+              <p id="email-erreur" class="w-100 d-none text-danger fs-5">Invalid Email address</p>
+              <label for="signuppassword" class="form-label">Password</label>
+              <input type="password" class="form-control w-100 " name="signuppassword" id="signuppassword" placeholder="password">
+              <p id="password-erreur" class="w-100 d-none text-danger fs-5">Invalid password</p>
+              <input type="submit" class="btn btn-primary w-75 btn-login" id="btn-signin" name="signup" value="Sign up">
             </div>
         </form>
             </div>    
@@ -64,3 +80,4 @@
     <script src="../assets/js/js.js"></script>
 </body>
 </html>
+
