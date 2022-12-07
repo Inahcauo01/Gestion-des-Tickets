@@ -31,20 +31,21 @@ class Database{
         try {
             $sqlstatment = $this->pdo->prepare($query);
             $sqlstatment->execute($param);
+            return $sqlstatment->fetch();
         } catch (PDOException $e) {
             "Erreur" . $e->getMessage();
         }
     }
     // fetch All row 
     public function getAllrows($query)
-    {   echo $query;
-        // try {
-        //     $sqlstatment = $this->pdo->prepare($query);
-        //     $sqlstatment->execute();
-        //     return $sqlstatment->fetchAll();
-        // } catch (PDOException $e) {
-        //     "Erreur" . $e->getMessage();
-        // }
+    {   
+        try {
+            $sqlstatment = $this->pdo->prepare($query);
+            $sqlstatment->execute();
+            return $sqlstatment->fetchAll();
+        } catch (PDOException $e) {
+            "Erreur" . $e->getMessage();
+        }
     }
     // insert function  
     public function insertData($query,$param=[])
@@ -57,18 +58,18 @@ class Database{
         }
     }
     // update function
-    public function updatData($query, $param = [])
+    public function updateData($query, $param = [])
     {
         try{
            $sqlstatment=$this->pdo->prepare($query);
            $sqlstatment->execute($param);
-           return true;
+
         }catch(PDOException $e){
-            "Erreur".$e->getMessage();
+           "Erreur".$e->getMessage();
         }
     }
     // delete function 
-    public function deletData($query, $param = [])
+    public function deleteData($query, $param = [])
     {
         try{
            $sqlstatment=$this->pdo->prepare($query);

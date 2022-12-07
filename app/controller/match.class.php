@@ -1,5 +1,4 @@
 <?php
 
-require_once '../model/Database.class.php';
-$match = new Database();
-$match->getAllrows("hii ");
+require_once 'C:\xampp\htdocs\Gestion-des-Tickets\app\model\Database.class.php';
+$instance = new Database();

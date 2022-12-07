@@ -4,4 +4,6 @@
 
 require_once ('config/config.php');
 require_once ('controller/match.class.php');
+require_once ('controller/stade.class.php');
+
 ?>
