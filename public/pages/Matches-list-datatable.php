@@ -531,19 +531,17 @@ include '../../app/loader.php';
 	});
 
 	function updateButton(id, equipe1, equipe2, date, stade, resultat){
-		
 		document.getElementById("modalTitle").innerHTML   = "Modifier le jeu";
 		document.getElementById('btnSave').style.display  = 'none';
 		document.getElementById('btnUpdate').style.display= 'block';
 
 		document.getElementById("match-id").value          = id;
-		document.getElementById("equipe-title1").value     = equipe1;
-		document.getElementById("equipe-title2").value     = equipe2;
 		document.getElementById("match-date").value        = date;
-		document.getElementById("match-stade").value 	   = stade;
 		document.getElementById("resultat").value     	   = resultat;
+		document.getElementById(stade).selected = true;
 
-	document.getElementById(id_cat).selected = true;
+		document.getElementById(equipe1).selected = true;
+		document.getElementById(equipe2).selected = true;
 
 	}
 
