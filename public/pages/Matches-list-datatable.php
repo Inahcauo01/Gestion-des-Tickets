@@ -388,36 +388,47 @@ include '../../app/loader.php';
 							<?php
 								foreach($resultMatch as $match){
 									echo "<tr>";
+								$sql1="SELECT nom_equipe FROM equipe where id_equipe= ? ";
+								$equipeNom1 = $match_parent->getRow($sql1, [$match["id_equipe1"]]);
+
+								$sql2="SELECT nom_equipe FROM equipe where id_equipe= ? ";
+								$equipeNom2 = $match_parent->getRow($sql2, [$match["id_equipe2"]]);
 							?>
 									
 										<td>
 											<span><?php echo $match["id_match"] ?></span>
 										</td>
 										<td>
-											<span><?php echo $match["id_equipe1"] ?></span>
+											<span><?php echo $equipeNom1["nom_equipe"] ?></span>
 										</td>
 										<td>
-											<span><?php echo $match["id_equipe2"] ?></span>
+											<span><?php echo $equipeNom2["nom_equipe"] ?></span>
 										</td>
 										<td>
 											<span><?php echo $match["date_match"] ?></span>
 										</td>
 										<td>
-											<span><?php echo $match["stade_id"] ?></span>
+											<span><?php echo $match["nom_stade"] ?></span>
 										</td>
 										<td>
 											<span><?php echo $match["result_match"] ?></span>
 										</td>
 										<td>
 											<div class="d-flex action-button">
-												<a class="btn btn-info btn-xs light px-2" data-bs-toggle="modal" data-bs-target="#modal-match">
+											<?php
+											echo "<a class=\"btn btn-info btn-xs light px-2\" data-bs-toggle=\"modal\" data-bs-target=\"#modal-match\" 
+												onclick=\"updateButton(".$match["id_match"].", ".$match["id_equipe1"].", ".$match["id_equipe2"].", '".$match["date_match"]."', ".$match["stade_id"]." ,'".$match["result_match"]."')\"
+											>";
+											?>
+											
 													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 														<path d="M17 3C17.2626 2.73735 17.5744 2.52901 17.9176 2.38687C18.2608 2.24473 18.6286 2.17157 19 2.17157C19.3714 2.17157 19.7392 2.24473 20.0824 2.38687C20.4256 2.52901 20.7374 2.73735 21 3C21.2626 3.26264 21.471 3.57444 21.6131 3.9176C21.7553 4.26077 21.8284 4.62856 21.8284 5C21.8284 5.37143 21.7553 5.73923 21.6131 6.08239C21.471 6.42555 21.2626 6.73735 21 7L7.5 20.5L2 22L3.5 16.5L17 3Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 													</svg>
 												</a>
-												<a  href="../scripts.php?suppMatch=<?php echo $ ?>" id="deleteclick".$match["id"]."" hidden></a>
-          										  <button  onclick=\"confirmSupp(".$row["j_id"].")\" class=\"btn btn-sm rounded-pill\"><i class=\"fas fa-trash-alt text-secondary\"></i></a>
-												<a href="javascript:void(0);" class="ml-2 btn btn-xs px-2 light btn-danger">
+												<?php
+												echo "<a  href=\"#".$match["id_match"]."\" id=\"deleteclick".$match["id_match"]."\" hidden></a>
+												<a onclick=\"confirmSupp(".$match["id_match"].")\" class=\"ml-2 btn btn-xs px-2 light btn-danger\">"
+												?>
 													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 														<path d="M3 6H5H21" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 														<path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -441,9 +452,9 @@ include '../../app/loader.php';
 <div class="modal fade" id="modal-match">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form action="scripts.php" method="POST" id="form-match">
+				<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" id="form-match">
 					<div class="modal-header">
-						<h5 id="modalTitle">Add Task</h5>
+						<h5 id="modalTitle">Add match</h5>
 						<a href="#" class="btn-close" data-bs-dismiss="modal"></a>
 					</div>
 					<div class="modal-body">
@@ -451,37 +462,50 @@ include '../../app/loader.php';
 							<input type="hidden" name="match-id" id="match-id">
 							<div class="mb-3">
 								<label class="form-label">Nom de l'equipe 1</label>
-								<input type="text" class="form-control" id="equipe-title1" name="equipe-title1" required/>
+								<select class="form-select" name="match-equipe1">
+									<option value="">choisir l'equipe 1</option>
+									<?php
+										$sql="SELECT * FROM equipe";
+										$equipelist = $match_parent->getAllrows($sql);
+										foreach($equipelist as $e_list){ 
+												echo "<option class=\"text-secondary fw-light\"  value=". $e_list['id_equipe'] ." id=".$e_list['id_equipe'].">".$e_list['nom_equipe']."</option>";
+										}
+									?>
+								</select>
 							</div>
 							<div class="mb-3">
 								<label class="form-label">Nom de l'equipe 2</label>
-								<input type="text" class="form-control" id="equipe-title2" name="equipe-title2" required/>
-							</div>
-							<div class="mb-3">
-								<label class="form-label">Priority</label>
-								<select class="form-select" id="match-priority" name="match-priority">
-									<option value="">Please select</option>
-									<option id="low" 	value="1">Low</option>
-									<option id="medium" value="2">Medium</option>
-									<option id="high" 	value="3">High</option>
+								<select class="form-select" name="match-equipe2">
+									<option value="">choisir l'equipe 1</option>
+									<?php
+										$sql="SELECT * FROM equipe";
+										$equipelist = $match_parent->getAllrows($sql);
+										foreach($equipelist as $e_list){ 
+												echo "<option class=\"text-secondary fw-light\"  value=". $e_list['id_equipe'] ." id=".$e_list['id_equipe'].">".$e_list['nom_equipe']."</option>";
+										}
+									?>
 								</select>
 							</div>
 							<div class="mb-3">
-								<label class="form-label">Status</label>
-								<select class="form-select" id="match-status" name="match-status">
-									<option value="">Please select</option>
-									<option id="todo" 		value="1">To Do</option>
-									<option id="inProgress" value="2">In Progress</option>
-									<option id="done" 		value="3">Done</option>
-								</select>
-							</div>
-							<div class="mb-3">
-								<label class="form-label">Date</label>
+								<label class="form-label">Date & heure</label>
 								<input type="datetime-local" class="form-control" id="match-date" name="match-date" required/>
 							</div>
+							<div class="mb-3">
+								<label class="form-label">Stade</label>
+								<select class="form-select" id="match-stade" name="match-stade">
+									<option value="">choisir un stade</option>
+									<?php
+										$sql="SELECT * FROM stade";
+										$stadeliste = $match_parent->getAllrows($sql);
+										foreach($stadeliste as $s_list){ 
+												echo "<option class=\"text-secondary fw-light\"  value=". $s_list['id_stade'] ." id=".$s_list['id_stade'].">".$s_list['nom_stade']."</option>";
+										}
+									?>
+								</select>
+							</div>
 							<div class="mb-0">
-								<label class="form-label">Description</label>
-								<textarea class="form-control" rows="2" id="match-description" name="match-description" required></textarea>
+								<label class="form-label">Resultat</label>
+								<input type="text" class="form-control" id="resultat" name="resultat" required/>
 							</div>
 					</div>
 					<div class="modal-footer">
@@ -495,13 +519,44 @@ include '../../app/loader.php';
 	</div>
 
 
+</div>
 
+    <!--Scripts-->
+	<script>
+	// vider les champs lorsqu'on click sur ajouter jeu
+	document.getElementById('addmatch').addEventListener('click', ()=>{
+			document.getElementById('form-match').reset();
+			document.getElementById('btnSave').style.display   = 'block';
+			document.getElementById('btnUpdate').style.display = 'none';
+	});
 
-    <!--**********************************
-        Scripts
-    ***********************************-->
+	function updateButton(id, equipe1, equipe2, date, stade, resultat){
+		
+		document.getElementById("modalTitle").innerHTML   = "Modifier le jeu";
+		document.getElementById('btnSave').style.display  = 'none';
+		document.getElementById('btnUpdate').style.display= 'block';
+
+		document.getElementById("match-id").value          = id;
+		document.getElementById("equipe-title1").value     = equipe1;
+		document.getElementById("equipe-title2").value     = equipe2;
+		document.getElementById("match-date").value        = date;
+		document.getElementById("match-stade").value 	   = stade;
+		document.getElementById("resultat").value     	   = resultat;
+
+	document.getElementById(id_cat).selected = true;
+
+	}
+
+	// confirmer la suppression
+     function confirmSupp(id){
+		if(confirm("voulez vous vraiment supprimer ce jeu ?"))
+		document.getElementById("deleteclick"+$id).click();
+	}
+	</script>
+
     <!-- Required vendors -->
-    <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="vendor/global/global.min.js"></script>
+    <!-- <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> -->
+	<script src="vendor/global/global.min.js"></script>
 	<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 	<script src="vendor/chart.js/Chart.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/dbe94a6a5a.js" crossorigin="anonymous"></script>
@@ -516,6 +571,8 @@ include '../../app/loader.php';
 	<script src="js/deznav-init.js"></script>
     <script src="js/demo.js"></script>
     <script src="js/styleSwitcher.js"></script>
+
+	
 
 </body>
 </html>
