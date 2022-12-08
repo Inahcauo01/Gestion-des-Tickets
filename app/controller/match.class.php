@@ -24,5 +24,9 @@ if(isset($_POST['update'])){
     $result_match = $_POST["resultat"];
     $dbMatch->updatData($sql , [$id_equipe1, $id_equipe2, $date_match, $stade_id, $result_match, $id_match]);
 }
-
+if(isset($_GET['SuppMatch'])){
+    $dbMatch = new Database();
+    $sql="DELETE from matchs where id_match= ?";
+    $dbMatch->deletData($sql, [$_GET['SuppMatch']]);
+}
 ?>
