@@ -46,6 +46,7 @@ if(isset($_POST["signup"])){
     $so2=$db->numberRow("SELECT * FROM utilisateur WHERE telephone=?",array($telephone));
     if($so1!=0){
         $erreur="this email are exist";
+       
     }
     if($so2!=0){
         $erreur.="this telephone number are exist";
