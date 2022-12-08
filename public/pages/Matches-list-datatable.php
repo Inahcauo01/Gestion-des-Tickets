@@ -1,3 +1,7 @@
+<?php
+include '../../app/loader.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,11 +16,12 @@
 	<meta property="og:description" content="Zenix - Crypto Admin Dashboard">
 	<meta property="og:image" content="https://zenix.dexignzone.com/xhtml/social-image.png">
 	<meta name="format-detection" content="telephone=no">
-    <title>Zenix - Crypto Admin Dashboard </title>
+    <title>Gesion Matches</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
 	<link rel="stylesheet" href="vendor/chartist/css/chartist.min.css">
     <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
 	<link href="vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -65,508 +70,6 @@
         </div>
         <!--**********************************
             Nav header end
-        ***********************************-->
-		
-		<!--**********************************
-            Chat box start
-        ***********************************-->
-		<div class="chatbox">
-			<div class="chatbox-close"></div>
-			<div class="custom-tab-1">
-				<ul class="nav nav-tabs">
-					<li class="nav-item">
-						<a class="nav-link" data-toggle="tab" href="#notes">Notes</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" data-toggle="tab" href="#alerts">Alerts</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link active" data-toggle="tab" href="#chat">Chat</a>
-					</li>
-				</ul>
-				<div class="tab-content">
-					<div class="tab-pane fade active show" id="chat" role="tabpanel">
-						<div class="card mb-sm-3 mb-md-0 contacts_card dz-chat-user-box">
-							<div class="card-header chat-list-header text-center">
-								<a href="#"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect fill="#000000" x="4" y="11" width="16" height="2" rx="1"></rect><rect fill="#000000" opacity="0.3" transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000) " x="4" y="11" width="16" height="2" rx="1"></rect></g></svg></a>
-								<div>
-									<h6 class="mb-1">Chat List</h6>
-									<p class="mb-0">Show All</p>
-								</div>
-								<a href="#"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></a>
-							</div>
-							<div class="card-body contacts_body p-0 dz-scroll  " id="DZ_W_Contacts_Body">
-								<ul class="contacts">
-									<li class="name-first-letter">A</li>
-									<li class="active dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/1.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon"></span>
-											</div>
-											<div class="user_info">
-												<span>Archie Parker</span>
-												<p>Kalid is online</p>
-											</div>
-										</div>
-									</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/2.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon offline"></span>
-											</div>
-											<div class="user_info">
-												<span>Alfie Mason</span>
-												<p>Taherah left 7 mins ago</p>
-											</div>
-										</div>
-									</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/3.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon"></span>
-											</div>
-											<div class="user_info">
-												<span>AharlieKane</span>
-												<p>Sami is online</p>
-											</div>
-										</div>
-									</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/4.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon offline"></span>
-											</div>
-											<div class="user_info">
-												<span>Athan Jacoby</span>
-												<p>Nargis left 30 mins ago</p>
-											</div>
-										</div>
-									</li>
-									<li class="name-first-letter">B</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/5.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon offline"></span>
-											</div>
-											<div class="user_info">
-												<span>Bashid Samim</span>
-												<p>Rashid left 50 mins ago</p>
-											</div>
-										</div>
-									</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/1.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon"></span>
-											</div>
-											<div class="user_info">
-												<span>Breddie Ronan</span>
-												<p>Kalid is online</p>
-											</div>
-										</div>
-									</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/2.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon offline"></span>
-											</div>
-											<div class="user_info">
-												<span>Ceorge Carson</span>
-												<p>Taherah left 7 mins ago</p>
-											</div>
-										</div>
-									</li>
-									<li class="name-first-letter">D</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/3.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon"></span>
-											</div>
-											<div class="user_info">
-												<span>Darry Parker</span>
-												<p>Sami is online</p>
-											</div>
-										</div>
-									</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/4.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon offline"></span>
-											</div>
-											<div class="user_info">
-												<span>Denry Hunter</span>
-												<p>Nargis left 30 mins ago</p>
-											</div>
-										</div>
-									</li>
-									<li class="name-first-letter">J</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/5.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon offline"></span>
-											</div>
-											<div class="user_info">
-												<span>Jack Ronan</span>
-												<p>Rashid left 50 mins ago</p>
-											</div>
-										</div>
-									</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/1.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon"></span>
-											</div>
-											<div class="user_info">
-												<span>Jacob Tucker</span>
-												<p>Kalid is online</p>
-											</div>
-										</div>
-									</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/2.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon offline"></span>
-											</div>
-											<div class="user_info">
-												<span>James Logan</span>
-												<p>Taherah left 7 mins ago</p>
-											</div>
-										</div>
-									</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/3.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon"></span>
-											</div>
-											<div class="user_info">
-												<span>Joshua Weston</span>
-												<p>Sami is online</p>
-											</div>
-										</div>
-									</li>
-									<li class="name-first-letter">O</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/4.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon offline"></span>
-											</div>
-											<div class="user_info">
-												<span>Oliver Acker</span>
-												<p>Nargis left 30 mins ago</p>
-											</div>
-										</div>
-									</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/5.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon offline"></span>
-											</div>
-											<div class="user_info">
-												<span>Oscar Weston</span>
-												<p>Rashid left 50 mins ago</p>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="card chat dz-chat-history-box d-none">
-							<div class="card-header chat-list-header text-center">
-								<a href="#" class="dz-chat-history-back">
-									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><polygon points="0 0 24 0 24 24 0 24"></polygon><rect fill="#000000" opacity="0.3" transform="translate(15.000000, 12.000000) scale(-1, 1) rotate(-90.000000) translate(-15.000000, -12.000000) " x="14" y="7" width="2" height="10" rx="1"></rect><path d="M3.7071045,15.7071045 C3.3165802,16.0976288 2.68341522,16.0976288 2.29289093,15.7071045 C1.90236664,15.3165802 1.90236664,14.6834152 2.29289093,14.2928909 L8.29289093,8.29289093 C8.67146987,7.914312 9.28105631,7.90106637 9.67572234,8.26284357 L15.6757223,13.7628436 C16.0828413,14.136036 16.1103443,14.7686034 15.7371519,15.1757223 C15.3639594,15.5828413 14.7313921,15.6103443 14.3242731,15.2371519 L9.03007346,10.3841355 L3.7071045,15.7071045 Z" fill="#000000" fill-rule="nonzero" transform="translate(9.000001, 11.999997) scale(-1, -1) rotate(90.000000) translate(-9.000001, -11.999997) "></path></g></svg>
-								</a>
-								<div>
-									<h6 class="mb-1">Chat with Khelesh</h6>
-									<p class="mb-0 text-success">Online</p>
-								</div>							
-								<div class="dropdown">
-									<a href="#" data-toggle="dropdown" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></a>
-									<ul class="dropdown-menu dropdown-menu-right">
-										<li class="dropdown-item"><i class="fa fa-user-circle text-primary mr-2"></i> View profile</li>
-										<li class="dropdown-item"><i class="fa fa-users text-primary mr-2"></i> Add to close friends</li>
-										<li class="dropdown-item"><i class="fa fa-plus text-primary mr-2"></i> Add to group</li>
-										<li class="dropdown-item"><i class="fa fa-ban text-primary mr-2"></i> Block</li>
-									</ul>
-								</div>
-							</div>
-							<div class="card-body msg_card_body dz-scroll" id="DZ_W_Contacts_Body3">
-								<div class="d-flex justify-content-start mb-4">
-									<div class="img_cont_msg">
-										<img src="images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-									<div class="msg_cotainer">
-										Hi, how are you samim?
-										<span class="msg_time">8:40 AM, Today</span>
-									</div>
-								</div>
-								<div class="d-flex justify-content-end mb-4">
-									<div class="msg_cotainer_send">
-										Hi Khalid i am good tnx how about you?
-										<span class="msg_time_send">8:55 AM, Today</span>
-									</div>
-									<div class="img_cont_msg">
-								<img src="images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-								</div>
-								<div class="d-flex justify-content-start mb-4">
-									<div class="img_cont_msg">
-										<img src="images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-									<div class="msg_cotainer">
-										I am good too, thank you for your chat template
-										<span class="msg_time">9:00 AM, Today</span>
-									</div>
-								</div>
-								<div class="d-flex justify-content-end mb-4">
-									<div class="msg_cotainer_send">
-										You are welcome
-										<span class="msg_time_send">9:05 AM, Today</span>
-									</div>
-									<div class="img_cont_msg">
-								<img src="images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-								</div>
-								<div class="d-flex justify-content-start mb-4">
-									<div class="img_cont_msg">
-										<img src="images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-									<div class="msg_cotainer">
-										I am looking for your next templates
-										<span class="msg_time">9:07 AM, Today</span>
-									</div>
-								</div>
-								<div class="d-flex justify-content-end mb-4">
-									<div class="msg_cotainer_send">
-										Ok, thank you have a good day
-										<span class="msg_time_send">9:10 AM, Today</span>
-									</div>
-									<div class="img_cont_msg">
-										<img src="images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-								</div>
-								<div class="d-flex justify-content-start mb-4">
-									<div class="img_cont_msg">
-										<img src="images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-									<div class="msg_cotainer">
-										Bye, see you
-										<span class="msg_time">9:12 AM, Today</span>
-									</div>
-								</div>
-								<div class="d-flex justify-content-start mb-4">
-									<div class="img_cont_msg">
-										<img src="images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-									<div class="msg_cotainer">
-										Hi, how are you samim?
-										<span class="msg_time">8:40 AM, Today</span>
-									</div>
-								</div>
-								<div class="d-flex justify-content-end mb-4">
-									<div class="msg_cotainer_send">
-										Hi Khalid i am good tnx how about you?
-										<span class="msg_time_send">8:55 AM, Today</span>
-									</div>
-									<div class="img_cont_msg">
-								<img src="images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-								</div>
-								<div class="d-flex justify-content-start mb-4">
-									<div class="img_cont_msg">
-										<img src="images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-									<div class="msg_cotainer">
-										I am good too, thank you for your chat template
-										<span class="msg_time">9:00 AM, Today</span>
-									</div>
-								</div>
-								<div class="d-flex justify-content-end mb-4">
-									<div class="msg_cotainer_send">
-										You are welcome
-										<span class="msg_time_send">9:05 AM, Today</span>
-									</div>
-									<div class="img_cont_msg">
-								<img src="images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-								</div>
-								<div class="d-flex justify-content-start mb-4">
-									<div class="img_cont_msg">
-										<img src="images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-									<div class="msg_cotainer">
-										I am looking for your next templates
-										<span class="msg_time">9:07 AM, Today</span>
-									</div>
-								</div>
-								<div class="d-flex justify-content-end mb-4">
-									<div class="msg_cotainer_send">
-										Ok, thank you have a good day
-										<span class="msg_time_send">9:10 AM, Today</span>
-									</div>
-									<div class="img_cont_msg">
-										<img src="images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-								</div>
-								<div class="d-flex justify-content-start mb-4">
-									<div class="img_cont_msg">
-										<img src="images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-									<div class="msg_cotainer">
-										Bye, see you
-										<span class="msg_time">9:12 AM, Today</span>
-									</div>
-								</div>
-							</div>
-							<div class="card-footer type_msg">
-								<div class="input-group">
-									<textarea class="form-control" placeholder="Type your message..."></textarea>
-									<div class="input-group-append">
-										<button type="button" class="btn btn-primary"><i class="fa fa-location-arrow"></i></button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="tab-pane fade" id="alerts" role="tabpanel">
-						<div class="card mb-sm-3 mb-md-0 contacts_card">
-							<div class="card-header chat-list-header text-center">
-								<a href="#"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></a>
-								<div>
-									<h6 class="mb-1">Notications</h6>
-									<p class="mb-0">Show All</p>
-								</div>
-								<a href="#"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><path d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"></path><path d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z" fill="#000000" fill-rule="nonzero"></path></g></svg></a>
-							</div>
-							<div class="card-body contacts_body p-0 dz-scroll" id="DZ_W_Contacts_Body1">
-								<ul class="contacts">
-									<li class="name-first-letter">SEVER STATUS</li>
-									<li class="active">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont primary">KK</div>
-											<div class="user_info">
-												<span>David Nester Birthday</span>
-												<p class="text-primary">Today</p>
-											</div>
-										</div>
-									</li>
-									<li class="name-first-letter">SOCIAL</li>
-									<li>
-										<div class="d-flex bd-highlight">
-											<div class="img_cont success">RU<i class="icon fa-birthday-cake"></i></div>
-											<div class="user_info">
-												<span>Perfection Simplified</span>
-												<p>Jame Smith commented on your status</p>
-											</div>
-										</div>
-									</li>
-									<li class="name-first-letter">SEVER STATUS</li>
-									<li>
-										<div class="d-flex bd-highlight">
-											<div class="img_cont primary">AU<i class="icon fa fa-user-plus"></i></div>
-											<div class="user_info">
-												<span>AharlieKane</span>
-												<p>Sami is online</p>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="d-flex bd-highlight">
-											<div class="img_cont info">MO<i class="icon fa fa-user-plus"></i></div>
-											<div class="user_info">
-												<span>Athan Jacoby</span>
-												<p>Nargis left 30 mins ago</p>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<div class="card-footer"></div>
-						</div>
-					</div>
-					<div class="tab-pane fade" id="notes">
-						<div class="card mb-sm-3 mb-md-0 note_card">
-							<div class="card-header chat-list-header text-center">
-								<a href="#"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect fill="#000000" x="4" y="11" width="16" height="2" rx="1"></rect><rect fill="#000000" opacity="0.3" transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000) " x="4" y="11" width="16" height="2" rx="1"></rect></g></svg></a>
-								<div>
-									<h6 class="mb-1">Notes</h6>
-									<p class="mb-0">Add New Nots</p>
-								</div>
-								<a href="#"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><path d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"></path><path d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z" fill="#000000" fill-rule="nonzero"></path></g></svg></a>
-							</div>
-							<div class="card-body contacts_body p-0 dz-scroll" id="DZ_W_Contacts_Body2">
-								<ul class="contacts">
-									<li class="active">
-										<div class="d-flex bd-highlight">
-											<div class="user_info">
-												<span>New order placed..</span>
-												<p>10 Aug 2020</p>
-											</div>
-											<div class="ml-auto">
-												<a href="#" class="btn btn-primary btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="btn btn-danger btn-xs sharp"><i class="fa fa-trash"></i></a>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="d-flex bd-highlight">
-											<div class="user_info">
-												<span>Youtube, a video-sharing website..</span>
-												<p>10 Aug 2020</p>
-											</div>
-											<div class="ml-auto">
-												<a href="#" class="btn btn-primary btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="btn btn-danger btn-xs sharp"><i class="fa fa-trash"></i></a>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="d-flex bd-highlight">
-											<div class="user_info">
-												<span>john just buy your product..</span>
-												<p>10 Aug 2020</p>
-											</div>
-											<div class="ml-auto">
-												<a href="#" class="btn btn-primary btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="btn btn-danger btn-xs sharp"><i class="fa fa-trash"></i></a>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="d-flex bd-highlight">
-											<div class="user_info">
-												<span>Athan Jacoby</span>
-												<p>10 Aug 2020</p>
-											</div>
-											<div class="ml-auto">
-												<a href="#" class="btn btn-primary btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="btn btn-danger btn-xs sharp"><i class="fa fa-trash"></i></a>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--**********************************
-            Chat box End
         ***********************************-->
 		
 		<!--**********************************
@@ -765,10 +268,6 @@
                                         <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                         <span class="ml-2">Profile </span>
                                     </a>
-                                    <a href="email-inbox.php" class="dropdown-item ai-icon">
-                                        <svg id="icon-inbox" xmlns="http://www.w3.org/2000/svg" class="text-success" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                                        <span class="ml-2">Inbox </span>
-                                    </a>
                                     <a href="page-login.php" class="dropdown-item ai-icon">
                                         <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
                                         <span class="ml-2">Logout </span>
@@ -850,7 +349,7 @@
                 </ul>
 				<div class="copyright">
 					<p><strong>World cup tickets</strong> © 2022 All Rights Reserved</p>
-					<p class="fs-12">Made with <span class="heart"></span> by Namek</p>
+					<p class="fs-12">Made with <span class="heart">❤️</span> by Namek</p>
 				</div>
 			</div>
         </div>
@@ -866,11 +365,11 @@
 				<div class="card">
 					<div class="card-header d-sm-flex d-block">
 						<div class="mr-auto mb-sm-0 mb-3">
-							<h4 class="card-title mb-2">User Listing</h4>
-							<span>Lorem Ipsum sit amet</span>
+							<h4 class="card-title mb-2">Liste des matches</h4>
+							<!-- <span>Lorem Ipsum sit amet</span> -->
 						</div>
-						<a href="javascript:void(0);" class="btn btn-info light mr-3"><i class="las la-download scale3 mr-2"></i>Import Csv</a>
-						<a href="javascript:void(0);" class="btn btn-info">+ Add Customer</a>
+						<button class="btn rounded-pill text-white" style="background:#8A1538" id="addmatch" data-bs-toggle="modal" data-bs-target="#modal-match">
+						<i class="fa fa-plus"></i> ADD MATCH</button>
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">
@@ -878,659 +377,56 @@
 								<thead>
 									<tr>
 										<th>#</th>
-										<th>CUSTOMER</th>
-										<th>COUNTRY</th>
-										<th>DATE</th>
-										<th>COMPANY NAME</th>
-										<th>STATUS</th>
-										<th>ACTION</th>
+										<th>Equipe 1</th>
+										<th>Equipe 2</th>
+										<th>Date</th>
+										<th>Lieu</th>
+										<th>Resultat</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
+							<?php
+								foreach($resultMatch as $match){
+									echo "<tr>";
+							?>
+									
 										<td>
-											<h6>1.</h6>
+											<span><?php echo $match["id_match"] ?></span>
 										</td>
 										<td>
-											<div class="media style-1">
-												<img src="images/avatar/1.jpg" class="img-fluid mr-2" alt="">
-												<div class="media-body">
-													<h6>John Doe</h6>
-													<span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6c060304020803092c0b010d0500420f0301">[email&#160;protected]</a></span>
-												</div>
-											</div>
+											<span><?php echo $match["id_equipe1"] ?></span>
 										</td>
 										<td>
-											<div>
-												<h6>England</h6>
-												<span>COde:En</span>
-											</div>
+											<span><?php echo $match["id_equipe2"] ?></span>
 										</td>
 										<td>
-											<div>
-												<h6 class="text-primary">10/21/2016</h6>
-												<span>Paid</span>
-											</div>
+											<span><?php echo $match["date_match"] ?></span>
 										</td>
 										<td>
-											Abbott-Jacobs
+											<span><?php echo $match["stade_id"] ?></span>
 										</td>
-										<td><span class="badge badge-warning">Pending</span></td>
+										<td>
+											<span><?php echo $match["result_match"] ?></span>
+										</td>
 										<td>
 											<div class="d-flex action-button">
-												<a href="javascript:void(0);" class="btn btn-info btn-xs light px-2">
+												<a class="btn btn-info btn-xs light px-2" data-bs-toggle="modal" data-bs-target="#modal-match">
 													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 														<path d="M17 3C17.2626 2.73735 17.5744 2.52901 17.9176 2.38687C18.2608 2.24473 18.6286 2.17157 19 2.17157C19.3714 2.17157 19.7392 2.24473 20.0824 2.38687C20.4256 2.52901 20.7374 2.73735 21 3C21.2626 3.26264 21.471 3.57444 21.6131 3.9176C21.7553 4.26077 21.8284 4.62856 21.8284 5C21.8284 5.37143 21.7553 5.73923 21.6131 6.08239C21.471 6.42555 21.2626 6.73735 21 7L7.5 20.5L2 22L3.5 16.5L17 3Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 													</svg>
-												</a>
+												</a>	
 												<a href="javascript:void(0);" class="ml-2 btn btn-xs px-2 light btn-danger">
 													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 														<path d="M3 6H5H21" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 														<path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 													</svg>
-
 												</a>
 											</div>
 										</td>
-									</tr>
-									<tr>
-										<td>
-											<h6>2.</h6>
-										</td>
-										<td>
-											<div class="media style-1">
-												<span class="icon-name mr-2 bgl-success text-success">m</span>
-												<div class="media-body">
-													<h6>Martin Chuaks</h6>
-													<span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f895998a8c91969b908d99938bb89f95999194d69b9795">[email&#160;protected]</a></span>
-												</div>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6>Indonasia</h6>
-												<span>COde:In</span>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6 class="text-primary">05/11/2016</h6>
-												<span>Pending</span>
-											</div>
-										</td>
-										<td>
-											Loyto-Farik
-										</td>
-										<td><span class="badge badge-danger">Danger</span></td>
-										<td>
-											<div class="d-flex action-button">
-												<a href="javascript:void(0);" class="btn btn-info btn-xs light px-2">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M17 3C17.2626 2.73735 17.5744 2.52901 17.9176 2.38687C18.2608 2.24473 18.6286 2.17157 19 2.17157C19.3714 2.17157 19.7392 2.24473 20.0824 2.38687C20.4256 2.52901 20.7374 2.73735 21 3C21.2626 3.26264 21.471 3.57444 21.6131 3.9176C21.7553 4.26077 21.8284 4.62856 21.8284 5C21.8284 5.37143 21.7553 5.73923 21.6131 6.08239C21.471 6.42555 21.2626 6.73735 21 7L7.5 20.5L2 22L3.5 16.5L17 3Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-												</a>
-												<a href="javascript:void(0);" class="ml-2 btn btn-xs px-2 light btn-danger">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M3 6H5H21" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-														<path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-
-												</a>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<h6>3.</h6>
-										</td>
-										<td>
-											<div class="media style-1">
-												<img src="images/avatar/2.jpg" class="img-fluid mr-2" alt="">
-												<div class="media-body">
-													<h6>Oliver Jean</h6>
-													<span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1d7271746b786f77787c735d7a707c7471337e7270">[email&#160;protected]</a></span>
-												</div>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6>Malesia</h6>
-												<span>COde:Ml</span>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6 class="text-primary">08/15/2016</h6>
-												<span>Paid</span>
-											</div>
-										</td>
-										<td>
-											Uno-Matrics
-										</td>
-										<td><span class="badge badge-info">Info</span></td>
-										<td>
-											<div class="d-flex action-button">
-												<a href="javascript:void(0);" class="btn btn-info btn-xs light px-2">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M17 3C17.2626 2.73735 17.5744 2.52901 17.9176 2.38687C18.2608 2.24473 18.6286 2.17157 19 2.17157C19.3714 2.17157 19.7392 2.24473 20.0824 2.38687C20.4256 2.52901 20.7374 2.73735 21 3C21.2626 3.26264 21.471 3.57444 21.6131 3.9176C21.7553 4.26077 21.8284 4.62856 21.8284 5C21.8284 5.37143 21.7553 5.73923 21.6131 6.08239C21.471 6.42555 21.2626 6.73735 21 7L7.5 20.5L2 22L3.5 16.5L17 3Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-												</a>
-												<a href="javascript:void(0);" class="ml-2 btn btn-xs px-2 light btn-danger">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M3 6H5H21" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-														<path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-
-												</a>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<h6>4.</h6>
-										</td>
-										<td>
-											<div class="media style-1">
-												<img src="images/avatar/3.jpg" class="img-fluid mr-2" alt="">
-												<div class="media-body">
-													<h6>John Doe</h6>
-													<span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="305a5f585e545f5570575d51595c1e535f5d">[email&#160;protected]</a></span>
-												</div>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6>England</h6>
-												<span>COde:En</span>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6 class="text-primary">11/05/2016</h6>
-												<span>Paid</span>
-											</div>
-										</td>
-										<td>
-											Walter-Cummings
-										</td>
-										<td><span class="badge badge-success">Success</span></td>
-										<td>
-											<div class="d-flex action-button">
-												<a href="javascript:void(0);" class="btn btn-info btn-xs light px-2">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M17 3C17.2626 2.73735 17.5744 2.52901 17.9176 2.38687C18.2608 2.24473 18.6286 2.17157 19 2.17157C19.3714 2.17157 19.7392 2.24473 20.0824 2.38687C20.4256 2.52901 20.7374 2.73735 21 3C21.2626 3.26264 21.471 3.57444 21.6131 3.9176C21.7553 4.26077 21.8284 4.62856 21.8284 5C21.8284 5.37143 21.7553 5.73923 21.6131 6.08239C21.471 6.42555 21.2626 6.73735 21 7L7.5 20.5L2 22L3.5 16.5L17 3Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-												</a>
-												<a href="javascript:void(0);" class="ml-2 btn btn-xs px-2 light btn-danger">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M3 6H5H21" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-														<path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-
-												</a>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<h6>5.</h6>
-										</td>
-										<td>
-											<div class="media style-1">
-												<span class="icon-name mr-2 bgl-info text-info">p</span>
-												<div class="media-body">
-													<h6>Post Melone</h6>
-													<span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="30405f43445d555c5f5e5570575d51595c1e535f5d">[email&#160;protected]</a></span>
-												</div>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6>China</h6>
-												<span>COde:Ch</span>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6 class="text-primary">10/21/2016</h6>
-												<span>Approved</span>
-											</div>
-										</td>
-										<td>
-											Abbott-Jacobs
-										</td>
-										<td><span class="badge badge-danger">Danger</span></td>
-										<td>
-											<div class="d-flex action-button">
-												<a href="javascript:void(0);" class="btn btn-info btn-xs light px-2">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M17 3C17.2626 2.73735 17.5744 2.52901 17.9176 2.38687C18.2608 2.24473 18.6286 2.17157 19 2.17157C19.3714 2.17157 19.7392 2.24473 20.0824 2.38687C20.4256 2.52901 20.7374 2.73735 21 3C21.2626 3.26264 21.471 3.57444 21.6131 3.9176C21.7553 4.26077 21.8284 4.62856 21.8284 5C21.8284 5.37143 21.7553 5.73923 21.6131 6.08239C21.471 6.42555 21.2626 6.73735 21 7L7.5 20.5L2 22L3.5 16.5L17 3Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-												</a>
-												<a href="javascript:void(0);" class="ml-2 btn btn-xs px-2 light btn-danger">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M3 6H5H21" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-														<path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-
-												</a>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<h6>6.</h6>
-										</td>
-										<td>
-											<div class="media style-1">
-												<img src="images/avatar/5.jpg" class="img-fluid mr-2" alt="">
-												<div class="media-body">
-													<h6>Kevin Mandala</h6>
-													<span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7f141a091611121e111b1e131e3f18121e1613511c1012">[email&#160;protected]</a></span>
-												</div>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6>Africa</h6>
-												<span>COde:Af</span>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6 class="text-primary">10/21/2016</h6>
-												<span>Pending</span>
-											</div>
-										</td>
-										<td>
-											Abbott-Jacobs
-										</td>
-										<td><span class="badge badge-danger">Canceled</span></td>
-										<td>
-											<div class="d-flex action-button">
-												<a href="javascript:void(0);" class="btn btn-info btn-xs light px-2">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M17 3C17.2626 2.73735 17.5744 2.52901 17.9176 2.38687C18.2608 2.24473 18.6286 2.17157 19 2.17157C19.3714 2.17157 19.7392 2.24473 20.0824 2.38687C20.4256 2.52901 20.7374 2.73735 21 3C21.2626 3.26264 21.471 3.57444 21.6131 3.9176C21.7553 4.26077 21.8284 4.62856 21.8284 5C21.8284 5.37143 21.7553 5.73923 21.6131 6.08239C21.471 6.42555 21.2626 6.73735 21 7L7.5 20.5L2 22L3.5 16.5L17 3Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-												</a>
-												<a href="javascript:void(0);" class="ml-2 btn btn-xs px-2 light btn-danger">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M3 6H5H21" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-														<path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-
-												</a>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<h6>7.</h6>
-										</td>
-										<td>
-											<div class="media style-1">
-												<span class="icon-name mr-2 bgl-danger text-danger">m</span>
-												<div class="media-body">
-													<h6>Mc. Kowalski</h6>
-													<span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="076d686f6963686247606a666e6b2964686a">[email&#160;protected]</a></span>
-												</div>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6>England</h6>
-												<span>COde:En</span>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6 class="text-primary">10/21/2016</h6>
-												<span>Paid</span>
-											</div>
-										</td>
-										<td>
-											Abbott-Jacobs
-										</td>
-										<td><span class="badge badge-warning">Pending</span></td>
-										<td>
-											<div class="d-flex action-button">
-												<a href="javascript:void(0);" class="btn btn-info btn-xs light px-2">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M17 3C17.2626 2.73735 17.5744 2.52901 17.9176 2.38687C18.2608 2.24473 18.6286 2.17157 19 2.17157C19.3714 2.17157 19.7392 2.24473 20.0824 2.38687C20.4256 2.52901 20.7374 2.73735 21 3C21.2626 3.26264 21.471 3.57444 21.6131 3.9176C21.7553 4.26077 21.8284 4.62856 21.8284 5C21.8284 5.37143 21.7553 5.73923 21.6131 6.08239C21.471 6.42555 21.2626 6.73735 21 7L7.5 20.5L2 22L3.5 16.5L17 3Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-												</a>
-												<a href="javascript:void(0);" class="ml-2 btn btn-xs px-2 light btn-danger">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M3 6H5H21" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-														<path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-
-												</a>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<h6>8.</h6>
-										</td>
-										<td>
-											<div class="media style-1">
-												<img src="images/avatar/7.jpg" class="img-fluid mr-2" alt="">
-												<div class="media-body">
-													<h6>John Doe</h6>
-													<span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f19b9e999f959e94b1969c90989ddf929e9c">[email&#160;protected]</a></span>
-												</div>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6>England</h6>
-												<span>COde:En</span>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6 class="text-primary">10/21/2016</h6>
-												<span>Paid</span>
-											</div>
-										</td>
-										<td>
-											Dare-Conn
-										</td>
-										<td><span class="badge badge-warning">Pending</span></td>
-										<td>
-											<div class="d-flex action-button">
-												<a href="javascript:void(0);" class="btn btn-info btn-xs light px-2">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M17 3C17.2626 2.73735 17.5744 2.52901 17.9176 2.38687C18.2608 2.24473 18.6286 2.17157 19 2.17157C19.3714 2.17157 19.7392 2.24473 20.0824 2.38687C20.4256 2.52901 20.7374 2.73735 21 3C21.2626 3.26264 21.471 3.57444 21.6131 3.9176C21.7553 4.26077 21.8284 4.62856 21.8284 5C21.8284 5.37143 21.7553 5.73923 21.6131 6.08239C21.471 6.42555 21.2626 6.73735 21 7L7.5 20.5L2 22L3.5 16.5L17 3Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-												</a>
-												<a href="javascript:void(0);" class="ml-2 btn btn-xs px-2 light btn-danger">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M3 6H5H21" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-														<path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-
-												</a>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<h6>9.</h6>
-										</td>
-										<td>
-											<div class="media style-1">
-												<span class="icon-name mr-2 bgl-warning text-warning">t</span>
-												<div class="media-body">
-													<h6>Thomas Djons</h6>
-													<span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="44302c2b292537202e2b2a37042329252d286a272b29">[email&#160;protected]</a></span>
-												</div>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6>England</h6>
-												<span>COde:En</span>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6 class="text-primary">10/21/2016</h6>
-												<span>Paid</span>
-											</div>
-										</td>
-										<td>
-											Abbott-Jacobs
-										</td>
-										<td><span class="badge badge-info">Info</span></td>
-										<td>
-											<div class="d-flex action-button">
-												<a href="javascript:void(0);" class="btn btn-info btn-xs light px-2">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M17 3C17.2626 2.73735 17.5744 2.52901 17.9176 2.38687C18.2608 2.24473 18.6286 2.17157 19 2.17157C19.3714 2.17157 19.7392 2.24473 20.0824 2.38687C20.4256 2.52901 20.7374 2.73735 21 3C21.2626 3.26264 21.471 3.57444 21.6131 3.9176C21.7553 4.26077 21.8284 4.62856 21.8284 5C21.8284 5.37143 21.7553 5.73923 21.6131 6.08239C21.471 6.42555 21.2626 6.73735 21 7L7.5 20.5L2 22L3.5 16.5L17 3Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-												</a>
-												<a href="javascript:void(0);" class="ml-2 btn btn-xs px-2 light btn-danger">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M3 6H5H21" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-														<path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-
-												</a>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<h6>10.</h6>
-										</td>
-										<td>
-											<div class="media style-1">
-												<img src="images/avatar/8.jpg" class="img-fluid mr-2" alt="">
-												<div class="media-body">
-													<h6>Chintya Laudia</h6>
-													<span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="294a4140475d504845485c4d4048694e44484045074a4644">[email&#160;protected]</a></span>
-												</div>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6>England</h6>
-												<span>COde:En</span>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6 class="text-primary">10/21/2016</h6>
-												<span>Paid</span>
-											</div>
-										</td>
-										<td>
-											Abbott-Jacobs
-										</td>
-										<td><span class="badge badge-danger">Danger</span></td>
-										<td>
-											<div class="d-flex action-button">
-												<a href="javascript:void(0);" class="btn btn-info btn-xs light px-2">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M17 3C17.2626 2.73735 17.5744 2.52901 17.9176 2.38687C18.2608 2.24473 18.6286 2.17157 19 2.17157C19.3714 2.17157 19.7392 2.24473 20.0824 2.38687C20.4256 2.52901 20.7374 2.73735 21 3C21.2626 3.26264 21.471 3.57444 21.6131 3.9176C21.7553 4.26077 21.8284 4.62856 21.8284 5C21.8284 5.37143 21.7553 5.73923 21.6131 6.08239C21.471 6.42555 21.2626 6.73735 21 7L7.5 20.5L2 22L3.5 16.5L17 3Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-												</a>
-												<a href="javascript:void(0);" class="ml-2 btn btn-xs px-2 light btn-danger">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M3 6H5H21" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-														<path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-
-												</a>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<h6>11.</h6>
-										</td>
-										<td>
-											<div class="media style-1">
-												<img src="images/avatar/1.jpg" class="img-fluid mr-2" alt="">
-												<div class="media-body">
-													<h6>Yonna</h6>
-													<span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="255c4a4b4b44654248444c490b464a48">[email&#160;protected]</a></span>
-												</div>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6>England</h6>
-												<span>COde:En</span>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6 class="text-primary">10/21/2016</h6>
-												<span>Paid</span>
-											</div>
-										</td>
-										<td>
-											Dare-Conn
-										</td>
-										<td><span class="badge badge-warning">Pending</span></td>
-										<td>
-											<div class="d-flex action-button">
-												<a href="javascript:void(0);" class="btn btn-info btn-xs light px-2">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M17 3C17.2626 2.73735 17.5744 2.52901 17.9176 2.38687C18.2608 2.24473 18.6286 2.17157 19 2.17157C19.3714 2.17157 19.7392 2.24473 20.0824 2.38687C20.4256 2.52901 20.7374 2.73735 21 3C21.2626 3.26264 21.471 3.57444 21.6131 3.9176C21.7553 4.26077 21.8284 4.62856 21.8284 5C21.8284 5.37143 21.7553 5.73923 21.6131 6.08239C21.471 6.42555 21.2626 6.73735 21 7L7.5 20.5L2 22L3.5 16.5L17 3Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-												</a>
-												<a href="javascript:void(0);" class="ml-2 btn btn-xs px-2 light btn-danger">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M3 6H5H21" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-														<path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-
-												</a>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<h6>12.</h6>
-										</td>
-										<td>
-											<div class="media style-1">
-												<span class="icon-name mr-2 bgl-success text-success">r</span>
-												<div class="media-body">
-													<h6>Roberto Cr.</h6>
-													<span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5f2d303d3a2d2b301f38323e3633713c3032">[email&#160;protected]</a></span>
-												</div>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6>England</h6>
-												<span>COde:En</span>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6 class="text-primary">10/21/2016</h6>
-												<span>Paid</span>
-											</div>
-										</td>
-										<td>
-											Abbott-Jacobs
-										</td>
-										<td><span class="badge badge-warning">Pending</span></td>
-										<td>
-											<div class="d-flex action-button">
-												<a href="javascript:void(0);" class="btn btn-info btn-xs light px-2">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M17 3C17.2626 2.73735 17.5744 2.52901 17.9176 2.38687C18.2608 2.24473 18.6286 2.17157 19 2.17157C19.3714 2.17157 19.7392 2.24473 20.0824 2.38687C20.4256 2.52901 20.7374 2.73735 21 3C21.2626 3.26264 21.471 3.57444 21.6131 3.9176C21.7553 4.26077 21.8284 4.62856 21.8284 5C21.8284 5.37143 21.7553 5.73923 21.6131 6.08239C21.471 6.42555 21.2626 6.73735 21 7L7.5 20.5L2 22L3.5 16.5L17 3Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-												</a>
-												<a href="javascript:void(0);" class="ml-2 btn btn-xs px-2 light btn-danger">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M3 6H5H21" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-														<path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-
-												</a>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<h6>13.</h6>
-										</td>
-										<td>
-											<div class="media style-1">
-												<img src="images/avatar/1.jpg" class="img-fluid mr-2" alt="">
-												<div class="media-body">
-													<h6>Tonni Sblak</h6>
-													<span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c4b0abaaaaadb7a6a8a5af84a3a9a5ada8eaa7aba9">[email&#160;protected]</a></span>
-												</div>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6>England</h6>
-												<span>COde:En</span>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6 class="text-primary">10/21/2016</h6>
-												<span>Paid</span>
-											</div>
-										</td>
-										<td>
-											Abbott-Jacobs
-										</td>
-										<td><span class="badge badge-warning">Pending</span></td>
-										<td>
-											<div class="d-flex action-button">
-												<a href="javascript:void(0);" class="btn btn-info btn-xs light px-2">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M17 3C17.2626 2.73735 17.5744 2.52901 17.9176 2.38687C18.2608 2.24473 18.6286 2.17157 19 2.17157C19.3714 2.17157 19.7392 2.24473 20.0824 2.38687C20.4256 2.52901 20.7374 2.73735 21 3C21.2626 3.26264 21.471 3.57444 21.6131 3.9176C21.7553 4.26077 21.8284 4.62856 21.8284 5C21.8284 5.37143 21.7553 5.73923 21.6131 6.08239C21.471 6.42555 21.2626 6.73735 21 7L7.5 20.5L2 22L3.5 16.5L17 3Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-												</a>
-												<a href="javascript:void(0);" class="ml-2 btn btn-xs px-2 light btn-danger">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M3 6H5H21" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-														<path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-
-												</a>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<h6>14.</h6>
-										</td>
-										<td>
-											<div class="media style-1">
-												<span class="icon-name mr-2 bgl-danger text-danger">k</span>
-												<div class="media-body">
-													<h6>Keanu Repes</h6>
-													<span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5d36383c33282f382d382e1d3a303c3431733e3230">[email&#160;protected]</a></span>
-												</div>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6>England</h6>
-												<span>COde:En</span>
-											</div>
-										</td>
-										<td>
-											<div>
-												<h6 class="text-primary">10/21/2016</h6>
-												<span>Paid</span>
-											</div>
-										</td>
-										<td>
-											Abbott-Jacobs
-										</td>
-										<td><span class="badge badge-warning">Pending</span></td>
-										<td>
-											<div class="d-flex action-button">
-												<a href="javascript:void(0);" class="btn btn-info btn-xs light px-2">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M17 3C17.2626 2.73735 17.5744 2.52901 17.9176 2.38687C18.2608 2.24473 18.6286 2.17157 19 2.17157C19.3714 2.17157 19.7392 2.24473 20.0824 2.38687C20.4256 2.52901 20.7374 2.73735 21 3C21.2626 3.26264 21.471 3.57444 21.6131 3.9176C21.7553 4.26077 21.8284 4.62856 21.8284 5C21.8284 5.37143 21.7553 5.73923 21.6131 6.08239C21.471 6.42555 21.2626 6.73735 21 7L7.5 20.5L2 22L3.5 16.5L17 3Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-												</a>
-												<a href="javascript:void(0);" class="ml-2 btn btn-xs px-2 light btn-danger">
-													<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M3 6H5H21" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-														<path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-													</svg>
-
-												</a>
-											</div>
-										</td>
-									</tr>
+	<?php
+	echo "</tr>";
+		}
+	?>
 								</tbody>
 							</table>
 						</div>
@@ -1538,39 +434,66 @@
 				</div>
 			</div>
 		</div>
-        <!--**********************************
-            Content body end
-        ***********************************-->
+        
+<!-- MATCHE MODAL -->
+<div class="modal fade" id="modal-match">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form action="scripts.php" method="POST" id="form-match">
+					<div class="modal-header">
+						<h5 id="modalTitle">Add Task</h5>
+						<a href="#" class="btn-close" data-bs-dismiss="modal"></a>
+					</div>
+					<div class="modal-body">
+							<!-- This Input Allows Storing match Index  -->
+							<input type="hidden" name="match-id" id="match-id">
+							<div class="mb-3">
+								<label class="form-label">Nom de l'equipe 1</label>
+								<input type="text" class="form-control" id="equipe-title1" name="equipe-title1" required/>
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Nom de l'equipe 2</label>
+								<input type="text" class="form-control" id="equipe-title2" name="equipe-title2" required/>
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Priority</label>
+								<select class="form-select" id="match-priority" name="match-priority">
+									<option value="">Please select</option>
+									<option id="low" 	value="1">Low</option>
+									<option id="medium" value="2">Medium</option>
+									<option id="high" 	value="3">High</option>
+								</select>
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Status</label>
+								<select class="form-select" id="match-status" name="match-status">
+									<option value="">Please select</option>
+									<option id="todo" 		value="1">To Do</option>
+									<option id="inProgress" value="2">In Progress</option>
+									<option id="done" 		value="3">Done</option>
+								</select>
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Date</label>
+								<input type="datetime-local" class="form-control" id="match-date" name="match-date" required/>
+							</div>
+							<div class="mb-0">
+								<label class="form-label">Description</label>
+								<textarea class="form-control" rows="2" id="match-description" name="match-description" required></textarea>
+							</div>
+					</div>
+					<div class="modal-footer">
+						<a href="#" class="btn btn-white" data-bs-dismiss="modal">Cancel</a>
+						<button type="submit" name="update" class="btn btn-warning task-action-btn" id="btnUpdate">Update</button>
+						<button type="submit" name="save" 	class="btn btn-primary task-action-btn" id="btnSave">Save</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 
-        <!--**********************************
-            Footer start
-        ***********************************-->
-        <div class="footer">
-            <div class="copyright">
-                <p>Copyright © Designed &amp; Developed by <a href="../index.htm" target="_blank">DexignZone</a> 2021</p>
-            </div>
-        </div>
-        <!--**********************************
-            Footer end
-        ***********************************-->
-		
-		
-		
-		
-		
-		<!--**********************************
-           Support ticket button start
-        ***********************************-->
-
-        <!--**********************************
-           Support ticket button end
-        ***********************************-->
 
 
-    </div>
-    <!--**********************************
-        Main wrapper end
-    ***********************************-->
 
     <!--**********************************
         Scripts
@@ -1579,6 +502,8 @@
     <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="vendor/global/global.min.js"></script>
 	<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 	<script src="vendor/chart.js/Chart.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/dbe94a6a5a.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 	
 	
 	<!-- Datatable -->
