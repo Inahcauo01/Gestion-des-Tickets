@@ -1,17 +1,31 @@
 <?php
-require_once '../../app/model/Database.class.php';
+require_once 'C:\xampp\htdocs\Gestion-des-Tickets\app\model\Database.class.php';
 
 if(isset($_POST['save'])){
     
     $dbMatch = new Database();
-    $sql="INSERT INTO matchs (id_equipe1, id_equipe2, date_match, stade_id, result_match) VALUES (?,?,?,?,?)";
+    $sql="INSERT INTO matchs (id_equipe1, id_equipe2, date_match, stade_id, result_match, image_match) VALUES (?,?,?,?,?,?)";
     $id_equipe1   = $_POST["match-equipe1"];
     $id_equipe2   = $_POST["match-equipe2"];
     $date_match   = $_POST["match-date"];
     $stade_id     = $_POST["match-stade"];
     $result_match = $_POST["resultat"];
-    $dbMatch->insertData($sql , [$id_equipe1, $id_equipe2, $date_match, $stade_id, $result_match]);
+
+    $filename = $_FILES['image']['name'];
+
+    if(!empty($filename)){
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        $new_filename = time().'.'.$ext;
+        move_uploaded_file($_FILES['image']['tmp_name'], './images/uploads/'.$new_filename);
+    }
+    else{
+        $new_filename = '';
+    }
+
+    $dbMatch->insertData($sql , [$id_equipe1, $id_equipe2, $date_match, $stade_id, $result_match, $new_filename]);
 }
+
+
 if(isset($_POST['update'])){
     
     $dbMatch = new Database();

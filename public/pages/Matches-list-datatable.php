@@ -377,10 +377,12 @@ include '../../app/loader.php';
 								<thead>
 									<tr>
 										<th>#</th>
+										<th>Image</th>
 										<th>Equipe 1</th>
 										<th>Equipe 2</th>
 										<th>Date</th>
 										<th>Lieu</th>
+										<th>Prix</th>
 										<th>Resultat</th>
 									</tr>
 								</thead>
@@ -393,10 +395,17 @@ include '../../app/loader.php';
 
 								$sql2="SELECT nom_equipe FROM equipe where id_equipe= ? ";
 								$equipeNom2 = $match_parent->getRow($sql2, [$match["id_equipe2"]]);
+
+
+								$image = (!empty($row['image'])) ? './images/uploads/'.$row["image"] : './images/uploads/aucune.jpg';
+																	
 							?>
 									
 										<td>
 											<span><?php echo $match["id_match"] ?></span>
+										</td>
+										<td>
+											<span><?php echo "<img src='".$image."' height='35px' width='55px'>" ?></span>
 										</td>
 										<td>
 											<span><?php echo $equipeNom1["nom_equipe"] ?></span>
@@ -409,6 +418,9 @@ include '../../app/loader.php';
 										</td>
 										<td>
 											<span><?php echo $match["nom_stade"] ?></span>
+										</td>
+										<td>
+											<span><?php echo $match["prix_match"] ?> $</span>
 										</td>
 										<td>
 											<span><?php echo $match["result_match"] ?></span>
@@ -456,7 +468,7 @@ include '../../app/loader.php';
 <div class="modal fade" id="modal-match">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" id="form-match">
+				<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" id="form-match"  enctype="multipart/form-data">
 					<div class="modal-header">
 						<h5 id="modalTitle">Add match</h5>
 						<a href="#" class="btn-close" data-bs-dismiss="modal"></a>
@@ -506,6 +518,14 @@ include '../../app/loader.php';
 										}
 									?>
 								</select>
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Prix</label>
+								<input type="number" step="0.01" placeholder="$" class="form-control" id="match-prix" name="match-prix" required/>
+							</div>
+                            <div class="mb-3">
+								<label class="form-label text-dark">Image du match</label>
+								<input type="file" class="form-control" id="image" name="image" />
 							</div>
 							<div class="mb-0">
 								<label class="form-label">Resultat</label>

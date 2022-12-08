@@ -58,62 +58,41 @@ require_once('../app/loader.php');
 <!-- matches -->
 <div class="d-flex justify-content-between align-items-center">
     <h2 class="part-title">Upcoming Matchs</h2>
-    <span>View All <i class="fa-solid fa-angle-right"></i></span>
+    <a href="#" class="text-dark">View All <i class="fa-solid fa-angle-right"></i></a>
 </div>
-<div class="d-flex row">
-    <div class="col-md-3 my-3">
-        <div class="card">
-            <img class="card-img-top" src="assets/images/matches/BEL_MAR_F_FWC22_THUMB_V2.webp" alt="nom-jeu">
-            <div class="card-body d-flex">
-                <div class="text-center p-3">NOV<br>23</div>
-                <div>
-                    <div>Morocco vs Croitia</div>
-                    <div>$ 150</div>
-                    <div><i class="fa-solid fa-location-dot text-secondary"></i> Ahmad Bin Ali Staduim</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 my-3">
-        <div class="card">
-            <img class="card-img-top" src="assets/images/matches/IRN_USA_B_FWC22_THUMB.webp" alt="nom-jeu">
-            <div class="card-body d-flex">
-                <div class="text-center p-3">NOV<br>23</div>
-                <div>
-                    <div>Iran vs USA</div>
-                    <div>$ 150</div>
-                    <div><i class="fa-solid fa-location-dot text-secondary"></i> Al Bayt Staduim</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 my-3">
-        <div class="card">
-            <img class="card-img-top" src="assets/images/matches/BEL_MAR_F_FWC22_THUMB_V2.webp" alt="nom-jeu">
-            <div class="card-body d-flex">
-                <div class="text-center p-3">NOV<br>23</div>
-                <div>
-                    <div>Morocco vs Croitia</div>
-                    <div>$ 150</div>
-                    <div><i class="fa-solid fa-location-dot text-secondary"></i> Ahmad Bin Ali Staduim</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 my-3">
-        <div class="card">
-            <img class="card-img-top" src="assets/images/matches/BEL_MAR_F_FWC22_THUMB_V2.webp" alt="nom-jeu">
-            <div class="card-body d-flex">
-                <div class="text-center p-3">NOV<br>23</div>
-                <div>
-                    <div>Morocco vs Croitia</div>
-                    <div>$ 150</div>
-                    <div><i class="fa-solid fa-location-dot text-secondary"></i> Ahmad Bin Ali Staduim</div>
-                </div>
-            </div>
-        </div>
-    </div>
 
+
+<div class="d-flex row">
+<?php
+    foreach($resultMatch as $match){
+    $sql1="SELECT nom_equipe FROM equipe where id_equipe= ? limit 4";
+    $equipeNom1 = $match_parent->getRow($sql1, [$match["id_equipe1"]]);
+
+    $sql2="SELECT nom_equipe FROM equipe where id_equipe= ? ";
+    $equipeNom2 = $match_parent->getRow($sql2, [$match["id_equipe2"]]);
+?>
+    <a href="#" class="col-md-3 my-3 a-card">
+        <div class="card">
+            <img class="card-img-top" src="assets/images/matches/BEL_MAR_F_FWC22_THUMB_V2.webp" alt="nom-jeu">
+            <div class="card-body d-flex">
+                <div class="text-center p-3">
+                    <?php 
+                    $date = new DateTime($match["date_match"]);
+                    echo $date->format('M')."<br>".$date->format('d');
+                    ?>
+                </div>
+                <div>
+                    <div><?php echo $equipeNom1["nom_equipe"]." vs ".$equipeNom2["nom_equipe"]?></div>
+                    <div>$ <?php echo $match["prix_match"] ?></div>
+                    <div><i class="fa-solid fa-location-dot text-secondary"></i> Ahmad Bin Ali Staduim</div>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <?php
+    }
+?>
 </div>
 <!-- image groupes -->
 <img class="image-groupes" src="assets/images/FIFA-World-Cup-Qatar-2022-Final-groups.avif" alt="groupes">
@@ -121,10 +100,10 @@ require_once('../app/loader.php');
 <!-- natioal teams -->
 <div class="d-flex justify-content-between align-items-center">
     <h2 class="part-title">Browse National Teams</h2>
-    <span>View All <i class="fa-solid fa-angle-right"></i></span>
+    <a href="#" class="text-dark">View All <i class="fa-solid fa-angle-right"></i></a>
 </div>
 <div class="d-flex row">
-    <div class="col-md-3 my-3">
+    <a href="#" class="col-md-3 my-3 a-card">
         <div class="card">
             <img class="card-img-top" src="assets/images/equipes/equipemaroc.jpg" alt="nom-jeu">
             <div class="card-body">
@@ -133,8 +112,8 @@ require_once('../app/loader.php');
                 <div><i class="fa-solid fa-location-dot text-secondary"></i> Morocco</div>
             </div>
         </div>
-    </div>
-    <div class="col-md-3 my-3">
+    </a>
+    <a href="#" class="col-md-3 my-3 a-card">
         <div class="card">
             <img class="card-img-top" src="assets/images/equipes/equipemaroc.jpg" alt="nom-jeu">
             <div class="card-body">
@@ -143,8 +122,8 @@ require_once('../app/loader.php');
                 <div><i class="fa-solid fa-location-dot text-secondary"></i> Morocco</div>
             </div>
         </div>
-    </div>
-    <div class="col-md-3 my-3">
+    </a>
+    <a href="#" class="col-md-3 my-3 a-card">
         <div class="card">
             <img class="card-img-top" src="assets/images/equipes/equipemaroc.jpg" alt="nom-jeu">
             <div class="card-body">
@@ -153,8 +132,8 @@ require_once('../app/loader.php');
                 <div><i class="fa-solid fa-location-dot text-secondary"></i> Morocco</div>
             </div>
         </div>
-    </div>
-    <div class="col-md-3 my-3">
+    </a>
+    <a href="#" class="col-md-3 my-3 a-card">
         <div class="card">
             <img class="card-img-top" src="assets/images/equipes/equipemaroc.jpg" alt="nom-jeu">
             <div class="card-body">
@@ -163,15 +142,15 @@ require_once('../app/loader.php');
                 <div><i class="fa-solid fa-location-dot text-secondary"></i> Morocco</div>
             </div>
         </div>
-    </div>
+    </a>
 </div>
 <!-- staduims -->
 <div class="d-flex justify-content-between align-items-center mt-4">
     <h2 class="part-title">Browse Available Staduims</h2>
-    <span>View All <i class="fa-solid fa-angle-right"></i></span>
+    <a href="#" class="text-dark">View All <i class="fa-solid fa-angle-right"></i></a>
 </div>
 <div class="d-flex row mb-5">
-    <div class="col-md-3 my-3">
+    <a href="#" class="col-md-3 my-3 a-card">
         <div class="card">
             <img class="card-img-top" src="assets/images/stades/Ahmad-Bin-Ali-Stadium.jpg" alt="nom-jeu">
             <div class="card-body">
@@ -180,8 +159,8 @@ require_once('../app/loader.php');
                 <div><i class="fa-solid fa-location-dot text-secondary"></i> Next to the Mall of Qatar</div>
             </div>
         </div>
-    </div>
-    <div class="col-md-3 my-3">
+    </a>
+    <a href="#" class="col-md-3 my-3 a-card">
         <div class="card">
             <img class="card-img-top" src="assets/images/stades/Khalifa-International-Stadium.jpg" alt="nom-jeu">
             <div class="card-body">
@@ -190,8 +169,8 @@ require_once('../app/loader.php');
                 <div><i class="fa-solid fa-location-dot text-secondary"></i> Next to the Mall of Qatar</div>
             </div>
         </div>
-    </div>
-    <div class="col-md-3 my-3">
+    </a>
+    <a href="#" class="col-md-3 my-3 a-card">
         <div class="card">
             <img class="card-img-top" src="assets/images/stades/Stadium-974.jpg" alt="nom-jeu">
             <div class="card-body">
@@ -200,8 +179,8 @@ require_once('../app/loader.php');
                 <div><i class="fa-solid fa-location-dot text-secondary"></i> Next to the Mall of Qatar</div>
             </div>
         </div>
-    </div>
-    <div class="col-md-3 my-3">
+    </a>
+    <a href="#" class="col-md-3 my-3 a-card">
         <div class="card">
             <img class="card-img-top" src="assets/images/stades/Al-Bayt-Stadium.webp" alt="nom-jeu">
             <div class="card-body">
@@ -210,7 +189,7 @@ require_once('../app/loader.php');
                 <div><i class="fa-solid fa-location-dot text-secondary"></i> Next to the Mall of Qatar</div>
             </div>
         </div>
-    </div>
+    </a>
 </div>
 
 </main>
