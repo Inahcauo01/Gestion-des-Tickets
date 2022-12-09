@@ -11,6 +11,9 @@
 
 </head>
 <body>
+    <?php
+        require_once('C:\xampp\htdocs\Gestion-des-Tickets\app\loader.php')
+    ?>
     <div class="container mt-5">
         <div class="row  d-flex flex-column flex-lg-row align-items-start">
             <div class="  col-1 fs-3 d-flex flex-lg-column text-center">
@@ -33,7 +36,7 @@
                     <!-- section match -->
                     <div class=" res d-flex flex-column  justify-content-center ">
                         <div class="  d-flex justify-content-center text-white">
-                            <h2 class="gol rounded">00:00</h2>
+                            <h2 class="gol rounded" id="match-counter">00:00</h2>
                         </div>
                         <div class="d-flex justify-content-around align-items-center">
                             <div class="drapo d-flex flex-column align-items-center">
@@ -55,14 +58,14 @@
                     <div class=" ms-2 ms-lg-0 my-3  d-flex flex-column align-items-between ">
                         <h3 class=" ">Morocco vs Canada</h3>
                         <div class="mb-3"><i class="me-2  my-1 py-2 mr-2 bi bi-geo-alt"></i><span>Al Thumama Stadium</span></div>
-                        <div><i class=" me-2 my-2 py-2 mr-2 bi bi-calendar4-week"></i><span>December 01, 2022 · 20.00 </span></div>
+                        <div><i class=" me-2 my-2 py-2 mr-2 bi bi-calendar4-week"></i><span id="match-date"><?=$res['date_match'] ?></span></div>
                         <p class="my-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus debitis repudiandae non! Laborum</p>
                     </div>
                     <div class="cardhover ticketshadow h-75 card border border-2 rounded-3 " style="  width: 15rem;">
                         <div class="card-body ">
                             <h5 class=" text-center card-title">Tickets starting at</h5>
                             <h6 class=" text-center card-subtitle mb-2 text-muted">220$</h6>
-                            <button class=" ticket  border border-0 rounded text-light text-center btn-ticket w-100 " >Reserve your  E-Tickets</button>
+                            <button class=" ticket  border border-0 rounded text-light text-center btn-ticket w-100 " id="reserve-btn" >Reserve your  E-Tickets</button>
                         </div>
                     </div>
                 </div>
@@ -87,18 +90,44 @@
     </div>    
 
     
-    
-   
-  
-                 
-        
-   
+    <script>
+            let mydate = document.getElementById('match-date').textContent
+            
+            let spiltDate = date => date.split(" ")[0]+'T'+date.split(" ")[1];
+
+            let dataDate = new Date(spiltDate(mydate));
+            var date = dataDate.getTime()
+
+            console.log(date)
 
 
+            var x = setInterval(function() {
 
+                // Get today's date and time
+                var now = new Date().getTime();
+                
+                // Find the distance between now and the count down date
+                var distance = date - now;
+                
+                // Time calculations for days, hours, minutes and seconds
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                // Display the result in the element with id="match counter"
+                document.getElementById("match-counter").innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+                
+                // If the count down is finished, write some text
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("match-counter").innerHTML = "Match Expiré";
+                    document.getElementById('reserve-btn').setAttribute('hidden','')
+                }
+                }, 1000);
+    </script>   
 
-    
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>
