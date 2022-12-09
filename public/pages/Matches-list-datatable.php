@@ -397,7 +397,7 @@ include '../../app/loader.php';
 								$equipeNom2 = $match_parent->getRow($sql2, [$match["id_equipe2"]]);
 
 
-								$image = (!empty($row['image'])) ? './images/uploads/'.$row["image"] : './images/uploads/aucune.jpg';
+								$image = (!empty($match['image_match'])) ? './images/uploads/'.$match["image_match"] : './images/uploads/aucune.jpg';
 																	
 							?>
 									
@@ -429,7 +429,7 @@ include '../../app/loader.php';
 											<div class="d-flex action-button">
 											<?php
 											echo "<a class=\"btn btn-info btn-xs light px-2\" data-bs-toggle=\"modal\" data-bs-target=\"#modal-match\" 
-												onclick=\"updateButton(".$match["id_match"].", ".$match["id_equipe1"].", ".$match["id_equipe2"].", '".$match["date_match"]."', ".$match["stade_id"]." ,'".$match["result_match"]."')\"
+												onclick=\"updateButton(".$match["id_match"].", ".$match["id_equipe1"].", ".$match["id_equipe2"].", '".$match["date_match"]."', ".$match["stade_id"]." ,".$match["prix_match"]." ,'".$match["result_match"]."')\"
 											>";
 											?>
 											
@@ -521,7 +521,7 @@ include '../../app/loader.php';
 							</div>
 							<div class="mb-3">
 								<label class="form-label">Prix</label>
-								<input type="number" step="0.01" placeholder="$" class="form-control" id="match-prix" name="match-prix" required/>
+								<input type="number" min="0" step="0.01" placeholder="$" class="form-control" id="match-prix" name="match-prix" required/>
 							</div>
                             <div class="mb-3">
 								<label class="form-label text-dark">Image du match</label>
@@ -554,7 +554,7 @@ include '../../app/loader.php';
 			document.getElementById('btnUpdate').style.display = 'none';
 	});
 
-	function updateButton(id, equipe1, equipe2, date, stade, resultat){
+	function updateButton(id, equipe1, equipe2, date, stade, prix, resultat){
 		document.getElementById("modalTitle").innerHTML   = "Modifier le jeu";
 		document.getElementById('btnSave').style.display  = 'none';
 		document.getElementById('btnUpdate').style.display= 'block';
@@ -562,6 +562,7 @@ include '../../app/loader.php';
 		document.getElementById("match-id").value          = id;
 		document.getElementById("match-date").value        = date;
 		document.getElementById("resultat").value     	   = resultat;
+		document.getElementById("match-prix").value		   = prix;
 		document.getElementById("option-stade-"+stade).selected = true;
 
 		document.getElementById(equipe1).selected = true;

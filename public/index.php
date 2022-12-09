@@ -64,16 +64,21 @@ require_once('../app/loader.php');
 
 <div class="d-flex row">
 <?php
-    foreach($resultMatch as $match){
-    $sql1="SELECT nom_equipe FROM equipe where id_equipe= ? limit 4";
+    $sql="SELECT * from matchs m ,stade s where m.stade_id=s.id_stade order by date_match desc limit 4";
+    $resultM = $match_parent->getAllrows($sql);
+    foreach($resultM as $match){
+    $sql1="SELECT nom_equipe FROM equipe where id_equipe= ?";
     $equipeNom1 = $match_parent->getRow($sql1, [$match["id_equipe1"]]);
 
     $sql2="SELECT nom_equipe FROM equipe where id_equipe= ? ";
     $equipeNom2 = $match_parent->getRow($sql2, [$match["id_equipe2"]]);
+
+    $image = (!empty($match['image_match'])) ? './pages/images/uploads/'.$match["image_match"] : './pages/images/uploads/aucune.jpg';
+
 ?>
     <a href="#" class="col-md-3 my-3 a-card">
         <div class="card">
-            <img class="card-img-top" src="assets/images/matches/BEL_MAR_F_FWC22_THUMB_V2.webp" alt="nom-jeu">
+            <img class="card-img-top" src="<?php echo $image ?>" style="width:100%;height: 176px" >
             <div class="card-body d-flex">
                 <div class="text-center p-3">
                     <?php 
@@ -84,7 +89,7 @@ require_once('../app/loader.php');
                 <div>
                     <div><?php echo $equipeNom1["nom_equipe"]." vs ".$equipeNom2["nom_equipe"]?></div>
                     <div>$ <?php echo $match["prix_match"] ?></div>
-                    <div><i class="fa-solid fa-location-dot text-secondary"></i> Ahmad Bin Ali Staduim</div>
+                    <div><i class="fa-solid fa-location-dot text-secondary"></i><?php echo $match["date_match"] ?></div>
                 </div>
             </div>
         </div>
@@ -103,46 +108,27 @@ require_once('../app/loader.php');
     <a href="#" class="text-dark">View All <i class="fa-solid fa-angle-right"></i></a>
 </div>
 <div class="d-flex row">
+    
+<?php
+    $sql="SELECT * from equipe limit 4";
+    $resultE = $match_parent->getAllrows($sql);
+    foreach($resultE as $equipe){
+        
+    $image = (!empty($equipe['image'])) ? './pages/images/uploads/'.$equipe["image"] : './pages/images/uploads/aucune.jpg';
+?>
     <a href="#" class="col-md-3 my-3 a-card">
         <div class="card">
-            <img class="card-img-top" src="assets/images/equipes/equipemaroc.jpg" alt="nom-jeu">
+            <img class="card-img-top" src="<?php echo $image ?>" style="width:100%;height: 176px" >
             <div class="card-body">
-                <div>Moroccan National team</div>
+                <div><?php echo $equipe["nom_equipe"] ?></div>
                 <div>Group F</div>
                 <div><i class="fa-solid fa-location-dot text-secondary"></i> Morocco</div>
             </div>
         </div>
     </a>
-    <a href="#" class="col-md-3 my-3 a-card">
-        <div class="card">
-            <img class="card-img-top" src="assets/images/equipes/equipemaroc.jpg" alt="nom-jeu">
-            <div class="card-body">
-                <div>Moroccan National team</div>
-                <div>Group F</div>
-                <div><i class="fa-solid fa-location-dot text-secondary"></i> Morocco</div>
-            </div>
-        </div>
-    </a>
-    <a href="#" class="col-md-3 my-3 a-card">
-        <div class="card">
-            <img class="card-img-top" src="assets/images/equipes/equipemaroc.jpg" alt="nom-jeu">
-            <div class="card-body">
-                <div>Moroccan National team</div>
-                <div>Group F</div>
-                <div><i class="fa-solid fa-location-dot text-secondary"></i> Morocco</div>
-            </div>
-        </div>
-    </a>
-    <a href="#" class="col-md-3 my-3 a-card">
-        <div class="card">
-            <img class="card-img-top" src="assets/images/equipes/equipemaroc.jpg" alt="nom-jeu">
-            <div class="card-body">
-                <div>Moroccan National team</div>
-                <div>Group F</div>
-                <div><i class="fa-solid fa-location-dot text-secondary"></i> Morocco</div>
-            </div>
-        </div>
-    </a>
+<?php
+    }
+?>
 </div>
 <!-- staduims -->
 <div class="d-flex justify-content-between align-items-center mt-4">
@@ -150,46 +136,27 @@ require_once('../app/loader.php');
     <a href="#" class="text-dark">View All <i class="fa-solid fa-angle-right"></i></a>
 </div>
 <div class="d-flex row mb-5">
+    
+<?php
+    $sql="SELECT * from stade limit 4";
+    $resultS = $match_parent->getAllrows($sql);
+    foreach($resultS as $stade){
+        
+    $image = (!empty($stade['image'])) ? './pages/images/uploads/'.$stade["image"] : './pages/images/uploads/aucune.jpg';
+?>
     <a href="#" class="col-md-3 my-3 a-card">
         <div class="card">
-            <img class="card-img-top" src="assets/images/stades/Ahmad-Bin-Ali-Stadium.jpg" alt="nom-jeu">
+            <img class="card-img-top" src="<?php echo $image ?>" style="width:100%;height: 176px" >
             <div class="card-body">
-                <div>Ahmad Bin Ali Staduim</div>
-                <div>Capacity : 40,000</div>
-                <div><i class="fa-solid fa-location-dot text-secondary"></i> Next to the Mall of Qatar</div>
+                <div><?php echo $stade["nom_stade"] ?></div>
+                <div>Capacity : <?php echo $stade["capacite"] ?></div>
+                <div><i class="fa-solid fa-location-dot text-secondary"></i> <?php echo $stade["lieu"] ?></div>
             </div>
         </div>
     </a>
-    <a href="#" class="col-md-3 my-3 a-card">
-        <div class="card">
-            <img class="card-img-top" src="assets/images/stades/Khalifa-International-Stadium.jpg" alt="nom-jeu">
-            <div class="card-body">
-                <div>Khalifa International Staduim</div>
-                <div>Capacity : 45,857</div>
-                <div><i class="fa-solid fa-location-dot text-secondary"></i> Next to the Mall of Qatar</div>
-            </div>
-        </div>
-    </a>
-    <a href="#" class="col-md-3 my-3 a-card">
-        <div class="card">
-            <img class="card-img-top" src="assets/images/stades/Stadium-974.jpg" alt="nom-jeu">
-            <div class="card-body">
-                <div>974 Staduim</div>
-                <div>Capacity : 40,000</div>
-                <div><i class="fa-solid fa-location-dot text-secondary"></i> Next to the Mall of Qatar</div>
-            </div>
-        </div>
-    </a>
-    <a href="#" class="col-md-3 my-3 a-card">
-        <div class="card">
-            <img class="card-img-top" src="assets/images/stades/Al-Bayt-Stadium.webp" alt="nom-jeu">
-            <div class="card-body">
-                <div>Al Bayt Staduim</div>
-                <div>Capacity : 68,895</div>
-                <div><i class="fa-solid fa-location-dot text-secondary"></i> Next to the Mall of Qatar</div>
-            </div>
-        </div>
-    </a>
+<?php
+    }
+?>
 </div>
 
 </main>
