@@ -36,7 +36,8 @@ require_once('../../app/loader.php');
         <span class="ligne"></span>
       </div>
     </nav>
-    <div class="search-bar my-auto">
+  </header>
+  <div class="search-bar my-auto">
       <form class="d-flex w-100 align-items-center" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <div id="header-search"><input placeholder="search by events,name,location,and more" type="search"></div>
             <div class="d-flex align-items-center date-container mt-1 ps-2" id="header-date">
@@ -47,7 +48,6 @@ require_once('../../app/loader.php');
             class="fs-6 fa-solid fa-magnifying-glass"></i><span>search</span></button>
       </form>
     </div>
-  </header>
 
 <!-- MAIN -->
 <main class="container" style="margin-top:60px">
