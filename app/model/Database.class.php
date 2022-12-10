@@ -26,7 +26,7 @@ class Database{
             $this->pdo=null;
         }
     }
-    public function getRow($query,$param)
+    public function getRow($query,$param=[])
     {
         try {
             $sqlstatment = $this->pdo->prepare($query);
@@ -36,13 +36,28 @@ class Database{
             "Erreur" . $e->getMessage();
         }
     }
+    public function numberRow($sql,$param=[]){
+      $statment=$this->pdo->prepare($sql);
+      $statment->execute($param);
+      return $statment->rowCount();
+    }
     // fetch All row 
     public function getAllrows($query)
-    {   
+    {  
         try {
             $sqlstatment = $this->pdo->prepare($query);
             $sqlstatment->execute();
-            return $sqlstatment->fetchAll();
+            return $sqlstatment->fetchAll(PDO:: FETCH_ASSOC);
+        } catch (PDOException $e) {
+            "Erreur" . $e->getMessage();
+        }
+    }
+    public function getAlrows($query,$param)
+    {  
+        try {
+            $sqlstatment = $this->pdo->prepare($query,$param);
+            $sqlstatment->execute($param);
+            return $sqlstatment->fetchAll(PDO:: FETCH_ASSOC);
         } catch (PDOException $e) {
             "Erreur" . $e->getMessage();
         }
@@ -63,7 +78,6 @@ class Database{
         try{
            $sqlstatment=$this->pdo->prepare($query);
            $sqlstatment->execute($param);
-           return true;
         }catch(PDOException $e){
             "Erreur".$e->getMessage();
         }
@@ -80,6 +94,15 @@ class Database{
     }
 
 }
+
+
+
+
+
+
+
+
+
 
 
 ?>
