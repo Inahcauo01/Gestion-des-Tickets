@@ -1,5 +1,5 @@
 <?php
-require_once('../app/loader.php');
+require_once('../../app/loader.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,14 +9,14 @@ require_once('../app/loader.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/style/style.css">
+    <link rel="stylesheet" href="../assets/style/style.css">
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>YouTickets</title>
 </head>
 <body>
 
-<header class="header-landingpage">
+<header class="header-landingpage" style="position:fixed;top:0;z-index:900;">
     <nav class="d-flex px-2 justify-content-between align-items-center nav-landingpage ">
       <a class="nav-logo" href="#">YouTickets.com</a>
       <ul id="nav-page" class="d-flex my-auto nav-pages ">
@@ -36,35 +36,25 @@ require_once('../app/loader.php');
         <span class="ligne"></span>
       </div>
     </nav>
-    <div class="header-image">
-    </div>
-    <h1 class="fw-2  text-light text-center header-heading">Exclusive Matchs,priceless moments</h1>
     <div class="search-bar my-auto">
-      <form class="d-flex w-100 align-items-center" action="pages/search.php" method="POST">
-        <div id="header-search"><input placeholder="search by events,name,location,and more" name="mot" type="search"></div>
+      <form class="d-flex w-100 align-items-center" action="">
+        <div id="header-search"><input placeholder="search by events,name,location,and more" type="search"></div>
             <div class="d-flex align-items-center date-container mt-1 ps-2" id="header-date">
-                <input value="select date" name="dateDebut" type="date"><i class="mx-2 fa-sharp fa-solid fa-arrow-right"></i>
-                <input placeholder="select date" name="dateFin" type="date">
+                <input value="select date" type="date"><i class="mx-2 fa-sharp fa-solid fa-arrow-right"></i>
+                <input placeholder="select date" type="date">
             </div>
-        <button class="text-light" name="search" type="submit" id="submit-search"><i
+        <button class="text-light" type="submit" id="submit-search"><i
             class="fs-6 fa-solid fa-magnifying-glass"></i><span>search</span></button>
       </form>
     </div>
   </header>
 
 <!-- MAIN -->
-<main class="container mt-5">
-
-<!-- matches -->
-<div class="d-flex justify-content-between align-items-center">
-    <h2 class="part-title">Upcoming Matchs</h2>
-    <a href="pages/viewMatch.php" class="text-dark">View All <i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-
+<main class="container" style="margin-top:60px">
+<h4 class="part-title pt-4">Listes des Matches</h4>
 <div class="d-flex row">
 <?php
-    $sql="SELECT * from matchs m ,stade s where m.stade_id=s.id_stade order by date_match desc limit 4";
+    $sql="SELECT * from matchs m ,stade s where m.stade_id=s.id_stade order by date_match desc";
     $resultM = $match_parent->getAllrows($sql);
     foreach($resultM as $match){
     $sql1="SELECT nom_equipe FROM equipe where id_equipe= ?";
@@ -73,7 +63,7 @@ require_once('../app/loader.php');
     $sql2="SELECT nom_equipe FROM equipe where id_equipe= ? ";
     $equipeNom2 = $match_parent->getRow($sql2, [$match["id_equipe2"]]);
 
-    $image = (!empty($match['image_match'])) ? './pages/images/uploads/'.$match["image_match"] : './pages/images/uploads/aucune.jpg';
+    $image = (!empty($match['image_match'])) ? './images/uploads/'.$match["image_match"] : './images/uploads/aucune.jpg';
 
 ?>
     <a href="#" class="col-md-3 my-3 a-card">
@@ -99,70 +89,10 @@ require_once('../app/loader.php');
     }
 ?>
 </div>
-<!-- image groupes -->
-<img class="image-groupes" src="assets/images/FIFA-World-Cup-Qatar-2022-Final-groups.avif" alt="groupes">
-
-<!-- natioal teams -->
-<div class="d-flex justify-content-between align-items-center">
-    <h2 class="part-title">Browse National Teams</h2>
-    <a href="pages/viewEquipe.php" class="text-dark">View All <i class="fa-solid fa-angle-right"></i></a>
-</div>
-<div class="d-flex row">
-    
-<?php
-    $sql="SELECT * from equipe limit 4";
-    $resultE = $match_parent->getAllrows($sql);
-    foreach($resultE as $equipe){
-        
-    $image = (!empty($equipe['image'])) ? './pages/images/uploads/'.$equipe["image"] : './pages/images/uploads/aucune.jpg';
-?>
-    <a href="#" class="col-md-3 my-3 a-card">
-        <div class="card">
-            <img class="card-img-top" src="<?php echo $image ?>" style="width:100%;height: 176px" >
-            <div class="card-body">
-                <div><?php echo $equipe["nom_equipe"] ?></div>
-                <div>Group F</div>
-                <div><i class="fa-solid fa-location-dot text-secondary"></i> Morocco</div>
-            </div>
-        </div>
-    </a>
-<?php
-    }
-?>
-</div>
-<!-- staduims -->
-<div class="d-flex justify-content-between align-items-center mt-4">
-    <h2 class="part-title">Browse Available Staduims</h2>
-    <a href="pages/viewStade.php" class="text-dark">View All <i class="fa-solid fa-angle-right"></i></a>
-</div>
-<div class="d-flex row mb-5">
-    
-<?php
-    $sql="SELECT * from stade";
-    $resultS = $match_parent->getAllrows($sql);
-    foreach($resultS as $stade){
-        
-    $image = (!empty($stade['image'])) ? './pages/images/uploads/'.$stade["image"] : './pages/images/uploads/aucune.jpg';
-?>
-    <a href="#" class="col-md-3 my-3 a-card">
-        <div class="card">
-            <img class="card-img-top" src="<?php echo $image ?>" style="width:100%;height: 176px" >
-            <div class="card-body">
-                <div><?php echo $stade["nom_stade"] ?></div>
-                <div>Capacity : <?php echo $stade["capacite"] ?></div>
-                <div><i class="fa-solid fa-location-dot text-secondary"></i> <?php echo $stade["lieu"] ?></div>
-            </div>
-        </div>
-    </a>
-<?php
-    }
-?>
-</div>
-
 </main>
 
 <!-- Footer -->
-<?php include_once 'components/footer.php'; ?>
+<?php include_once '../components/footer.php'; ?>
 
 <!-- scripts -->
 <!-- JavaScript Bundle with Popper -->

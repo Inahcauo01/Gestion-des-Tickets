@@ -1,6 +1,7 @@
 
 var dezSettingsOptions = {};
 
+
 function getUrlParams(dParam) 
 	{
 		var dPageURL = window.location.search.substring(1),
