@@ -40,6 +40,7 @@
     background-color: rgb(255, 255, 255);
     width: 100%;
     height: 65px;
+    top:0;
     z-index:1;
 }
 .header-landingpage .nav-landingpage .nav-logo {
@@ -343,7 +344,6 @@ a{
      
      margin-bottom: 10px;
  }
- 
  
  .login-form input{
      border: solid black 2px !important;

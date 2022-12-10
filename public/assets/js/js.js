@@ -1,4 +1,4 @@
-// part sign in & sign up
+// // part sign in & sign up
 
 document.querySelector('#signup').onclick = function (e) {
   document.querySelector('#login').classList.remove('form-section-active')

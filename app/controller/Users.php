@@ -1,4 +1,5 @@
 <?php
+
 require_once('../../app/model/Database.class.php');
 $db=new Database();
 $erreurSignin="";
@@ -8,8 +9,13 @@ if(isset($_POST["login"])){
    $param=[$email,$passWord];
    $so=$db->numberRow("SELECT * FROM utilisateur WHERE email=? AND password=?",$param);
    if($so!=0){
+    if($email=="marksemony@gmail.com" && $passWord=="eRROR404@"){
     $_SESSION["email"]=$email;
     header('location:../../public/pages/user-list-datatable.php');
+   }else{
+    $_SESSION["email"]=$email;
+    header('location:../../public/pages/reservation.php');
+   }
    }else{
     $erreurSignin="Invalid email or password";
    }
