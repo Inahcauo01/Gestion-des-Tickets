@@ -1,6 +1,6 @@
 <?php
 
-require_once('../../app/model/Database.class.php');
+require_once('C:\xampp\htdocs\Gestion-des-Tickets\app\model\Database.class.php');
 $db=new Database();
 $erreurSignin="";
 if(isset($_POST["login"])){
@@ -14,7 +14,7 @@ if(isset($_POST["login"])){
     header('location:../../public/pages/user-list-datatable.php');
    }else{
     $_SESSION["email"]=$email;
-    header('location:../../public/pages/reservation.php');
+    header('location:../public/pages/reservation.php');
    }
    }else{
     $erreurSignin="Invalid email or password";
