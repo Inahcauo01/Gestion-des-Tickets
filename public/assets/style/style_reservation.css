@@ -1,0 +1,51 @@
+h3{
+    font-family: 'Segoe UI';
+    font-weight: bold;
+}
+.icons{
+    color: #8A1538;
+}
+.match{
+    background-color: #DADAFB !important;  
+} 
+
+.border-icon{
+    border: 2px solid #8A1538;
+    border-radius: .3125rem;
+    width: 50px;
+    padding: 0px 4px;
+    
+}
+.res{
+    background: #711640;
+    width: 36.625rem;
+    height: 21.9375rem;
+    
+}
+.gol{
+    background: radial-gradient(circle, rgba(170,63,83,1) 11%, rgba(131,20,42,1) 45%, rgba(123,19,40,1) 99%);
+}
+.vs{
+   
+    font-weight: bold;
+    font-size: 4.4375rem;
+}
+.section-2{
+    background: #fff;
+}
+span{
+    font-family: 'Segoe UI';
+    font-size: 1rem;
+}
+.cardhover:hover{
+    box-shadow: 10px 10px #0022ba;
+
+}
+.ticket{
+    background: #711640;
+
+}
+.ticketshadow:active{
+    box-shadow: 10px 10px #0022ba inset;
+
+}
