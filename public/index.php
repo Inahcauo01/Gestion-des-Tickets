@@ -1,5 +1,5 @@
 <?php
-// require_once('../app/loader.php');
+require_once('../app/loader.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +50,7 @@
             class="fs-6 fa-solid fa-magnifying-glass"></i><span>search</span></button>
       </form>
     </div>
-</header>
+  </header>
 
 <!-- MAIN -->
 <main class="container mt-5">

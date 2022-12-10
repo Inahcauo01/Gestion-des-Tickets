@@ -388,8 +388,9 @@ include '../../app/loader.php';
 								</thead>
 								<tbody>
 							<?php
-								foreach($resultMatch as $match){
-									echo "<tr>";
+								
+								foreach($resultMatch as $match){								
+
 								$sql1="SELECT nom_equipe FROM equipe where id_equipe= ? ";
 								$equipeNom1 = $match_parent->getRow($sql1, [$match["id_equipe1"]]);
 
@@ -398,32 +399,32 @@ include '../../app/loader.php';
 
 
 								$image = (!empty($match['image_match'])) ? './images/uploads/'.$match["image_match"] : './images/uploads/aucune.jpg';
-																	
-							?>
-									
+								?>
+									  <tr>
+								
 										<td>
-											<span><?php echo $match["id_match"] ?></span>
+											<?php echo $match["id_match"] ?>
 										</td>
 										<td>
-											<span><?php echo "<img src='".$image."' height='35px' width='55px'>" ?></span>
+											<?php echo "<img src='".$image."' height='35px' width='55px'>" ?>
 										</td>
 										<td>
-											<span><?php echo $equipeNom1["nom_equipe"] ?></span>
+										    <?php echo $equipeNom1["nom_equipe"] ?>
 										</td>
 										<td>
-											<span><?php echo $equipeNom2["nom_equipe"] ?></span>
+											<?php echo $equipeNom2["nom_equipe"] ?>
 										</td>
 										<td>
-											<span><?php echo $match["date_match"] ?></span>
+											<?php echo $match["date_match"] ?>
 										</td>
 										<td>
-											<span><?php echo $match["nom_stade"] ?></span>
+											<?php echo $match["nom_stade"] ?>
 										</td>
 										<td>
-											<span><?php echo $match["prix_match"] ?> $</span>
+											<?php echo $match["prix_match"] ?> $
 										</td>
 										<td>
-											<span><?php echo $match["result_match"] ?></span>
+											<?php echo $match["result_match"] ?>
 										</td>
 										<td>
 											<div class="d-flex action-button">
@@ -438,7 +439,7 @@ include '../../app/loader.php';
 													</svg>
 												</a>
 												
-												<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" id="form-match">
+												<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 												
 												<?php
 												echo "<a  href=\"Matches-list-datatable.php?SuppMatch=".$match["id_match"]."\" id=\"deleteclick".$match["id_match"]."\" hidden></a>
@@ -451,11 +452,11 @@ include '../../app/loader.php';
 												</a>
 												</form>
 											</div>
-										</td>
+										</td> 
+								</tr>  
 	<?php
-	echo "</tr>";
 		}
-	?>
+	?> 
 								</tbody>
 							</table>
 						</div>
@@ -534,8 +535,8 @@ include '../../app/loader.php';
 					</div>
 					<div class="modal-footer">
 						<a href="#" class="btn btn-white" data-bs-dismiss="modal">Cancel</a>
-						<button type="submit" name="update" class="btn btn-warning task-action-btn" id="btnUpdate">Update</button>
-						<button type="submit" name="save" 	class="btn btn-primary task-action-btn" id="btnSave">Save</button>
+						<button type="submit" name="updateMatch" class="btn btn-warning task-action-btn" id="btnUpdate">Update</button>
+						<button type="submit" name="saveMatch" 	class="btn btn-primary task-action-btn" id="btnSave">Save</button>
 					</div>
 				</form>
 			</div>
