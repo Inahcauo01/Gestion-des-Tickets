@@ -10,6 +10,7 @@ $row = $dsn->getAlrows("SELECT * FROM utilisateur INNER JOIN role On utilisateur
 foreach ($row as $val)
     $iduser = $val["id"];
 $rowreservation = $dsn->getAlrows("SELECT * FROM reservation  where id_utilisateur=? ", array($iduser));
+var_dump($rowreservation);
 foreach ($rowreservation  as $valreservation)
 ?>
 

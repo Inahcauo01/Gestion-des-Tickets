@@ -31,6 +31,7 @@ class Database{
         try {
             $sqlstatment = $this->pdo->prepare($query);
             $sqlstatment->execute($param);
+            return $sqlstatment->fetch();
         } catch (PDOException $e) {
             "Erreur" . $e->getMessage();
         }
