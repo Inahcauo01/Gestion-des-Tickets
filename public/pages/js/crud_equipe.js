@@ -1,6 +1,11 @@
 		
 		// script block button 
 		
+		let imageSaveDisabled=document.querySelector("#imageEquipe");
+		   imageSaveDisabled.style.display="none";
+		// imageSaveDisabled.forEach(elt=>{
+		// 	elt.addEventListener()
+		// })
 		let save=document.getElementById('btnSave');
 				let update=document.getElementById('btnupdate');
 				
@@ -9,6 +14,10 @@
 				function hidebtnsave(){
 					save.style.display="block";
 					update.style.display = "none";
+					// imageSaveDisabled.style.display="none";
+					imageSaveDisabled.style.display="none";
+
+
 
 				}
 				document.getElementById("updateequipe").addEventListener("click", hidebtnupdate);
@@ -16,9 +25,11 @@
 				function hidebtnupdate(){
 					save.style.display="none";
 					update.style.display = "block";
+		            imageSaveDisabled.style.display="block";
+
 
 				}
-
+				
 				let elements = document.querySelectorAll(".update");
 				elements.forEach(elt => {
 					elt.addEventListener("click", function() {

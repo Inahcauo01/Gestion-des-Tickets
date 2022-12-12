@@ -877,8 +877,7 @@
 							<h4 class="card-title mb-2">User Listing</h4>
 							<span>Lorem Ipsum sit amet</span>
 						</div>
-						<a href="javascript:void(0);" class="btn btn-primary addeq"  id="addequipe" 
-						data-bs-toggle="modal" data-bs-target="#modal-equipe">+ Add New Equipe</a>
+						<a href="javascript:void(0);" class="btn btn-secondary"  id="addequipe" data-bs-toggle="modal" data-bs-target="#modal-equipe">+ Add New Equipe</a>
 					</div>
 					<div class="card-body">
 						<!-- section imane -->
