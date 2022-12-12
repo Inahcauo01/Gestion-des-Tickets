@@ -1,7 +1,6 @@
 <?php
 require_once('C:\xampp\htdocs\Gestion-des-Tickets\app\model\Database.class.php');
-require_once('../../phpqrcode/qrlib.php');
-
+require_once('C:\xampp\htdocs\Gestion-des-Tickets\phpqrcode\qrlib.php');
 $db=new Database();
 try{
 

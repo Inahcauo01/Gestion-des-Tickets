@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+require_once("../../app/loader.php");
 
-session_start();
 if(!isset($_SESSION["email"])){
     header('location:signin.php');
 }
 
-require_once("../../app/loader.php");
 $db=new Database();
 $email=$_SESSION["email"];
 $rows=$db->getAlrows("SELECT * FROM utilisateur WHERE email=?",array($email));
@@ -28,7 +27,7 @@ foreach($rows as $row)
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/style/style_reservation.css">
-
+    <link rel="stylesheet" href="../assets/style/style.css">
 </head>
 <body>
     <?php
