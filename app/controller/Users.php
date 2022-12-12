@@ -14,7 +14,7 @@ if(isset($_POST["login"])){
     header('location:../../public/pages/user-list-datatable.php');
    }else{
     $_SESSION["email"]=$email;
-    header('location:../public/pages/reservation.php');
+    header('location:../pages/reservation.php');
    }
    }else{
     $erreurSignin="Invalid email or password";

@@ -10,7 +10,6 @@ $row = $dsn->getAlrows("SELECT * FROM utilisateur INNER JOIN role On utilisateur
 foreach ($row as $val)
     $iduser = $val["id"];
 $rowreservation = $dsn->getAlrows("SELECT * FROM reservation  where id_utilisateur=? ", array($iduser));
-var_dump($rowreservation);
 foreach ($rowreservation  as $valreservation)
 ?>
 
@@ -917,23 +916,24 @@ foreach ($rowreservation  as $valreservation)
 
         <div class="content-body">
             <div class="container-fluid">
-                <?php for($i=0;$i<$valreservation["nombre_place"];$i++){?>
-                <div class="mb-2">
-                    <div id="tickets" class="d-flex justify-content-between rounded" style="background-color:#8A1538">
-                        <img src="../../public/assets/images/matches/BEL_MAR_F_FWC22_THUMB_V2.webp" style="width:30%;border-radius:5px 0 0 5px" alt="">
-                        <div class="mx-5 d-flex justify-content-center flex-column">
-                            <p class="text-light">Stade:</p>
-                            <p class="text-light">Nom et Prenom: <?= $val["nom"] . ' ' . $val['prenom']; ?></p>
-                            <p class="text-light">Numero de telephone: <?= $val['telephone']; ?></p>
-                            <p class="text-light">Prix du tickets: <?= $valreservation["catégorie"] ?> $</p>
+                <?php for ($i = 0; $i < $valreservation["nombre_place"]; $i++) { ?>
+                    <div class="mb-2">
+                        <div class="tickets d-flex justify-content-between rounded" style="background-color:#8A1538">
+                            <img src="../../public/assets/images/matches/BEL_MAR_F_FWC22_THUMB_V2.webp" style="width:30%;border-radius:5px 0 0 5px" alt="">
+                            <div class="mx-5 d-flex justify-content-center flex-column">
+                                <p class="text-light">Stade:</p>
+                                <p class="text-light">Nom et Prenom: <?= $val["nom"] . ' ' . $val['prenom']; ?></p>
+                                <p class="text-light">Numero de telephone: <?= $val['telephone']; ?></p>
+                                <p class="text-light">Prix du tickets: <?= $valreservation["catégorie"] ?> $</p>
+                            </div>
+                            <img src="../pages/images/coupdumonde.png" style="width:15%" alt="Quatar">
+                            <img style="height:100%;width:25%;" <?php echo 'src="../pages/images/Qrcode/' . $valreservation["qr_code"] . '"'; ?> alt="">
                         </div>
-                        <img src="../pages/images/coupdumonde.png" style="width:25%" alt="Quatar">
+                        <div class="mt-2  d-flex justify-content-center">
+                            <input class="telecharger btn btn-primary" type="submit" value="Telecharger">
+                        </div>
                     </div>
-                    <div class="mt-2  d-flex justify-content-center">
-                        <input id="telecharger" class="btn btn-primary" type="submit" value="Telecharger">
-                    </div>
-                </div>
-                <?php }?>
+                <?php } ?>
             </div>
         </div>
         <!--**********************************
@@ -1003,11 +1003,13 @@ foreach ($rowreservation  as $valreservation)
     ***********************************-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        var btn2 = document.querySelector("#telecharger"); //nous aurons besoin plus tard de ce bouton
-        var element = document.querySelector("#tickets");
-        btn2.onclick = () => {
-            html2pdf().from(element).save("monfichierpdf");
-        }
+        var btn2 = document.querySelectorAll(".telecharger");
+        var element = document.querySelector(".tickets");
+        btn2.forEach((button) => {
+            button.onclick = () => {
+                html2pdf().from(element).save("monfichierpdf");
+            }
+        })
     </script>
 
     <!-- Required vendors -->
