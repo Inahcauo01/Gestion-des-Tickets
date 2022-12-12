@@ -40,6 +40,7 @@
     background-color: rgb(255, 255, 255);
     width: 100%;
     height: 65px;
+    top:0;
     z-index:1;
 }
 .header-landingpage .nav-landingpage .nav-logo {
@@ -266,6 +267,9 @@ a{
     box-shadow: 0px 6px 10px gray;
     transition: 0.3s;
 }
+.a-card *{
+    color: #191919;
+}
 /* Sign In & Sign Up */
 .login-label {
     height: 15%;
@@ -281,9 +285,9 @@ a{
      border-top: 0;
  }
  
- #btn-login{
-     background-color: #8A1538;
-     border: 0;
+ .btn-login{
+     background-color: #8A1538 !important;
+     border: 0 !important;
  }
  
  .parent {
@@ -343,7 +347,6 @@ a{
      
      margin-bottom: 10px;
  }
- 
  
  .login-form input{
      border: solid black 2px !important;

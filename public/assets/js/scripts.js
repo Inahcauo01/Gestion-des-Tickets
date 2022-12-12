@@ -16,3 +16,5 @@ const calendar2 = new dhx.Calendar("calendar2", {
 });
 
 calendar1.link(calendar2);
+
+

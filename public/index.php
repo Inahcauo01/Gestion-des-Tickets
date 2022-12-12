@@ -43,13 +43,13 @@
     </div>
     <h1 class="fw-2  text-light text-center header-heading">Exclusive Matchs,priceless moments</h1>
     <div class="search-bar my-auto">
-      <form class="d-flex w-100 align-items-center" action="">
-        <div id="header-search"><input placeholder="search by events,name,location,and more" type="search"></div>
+      <form class="d-flex w-100 align-items-center" action="pages/search.php" method="POST">
+        <div id="header-search"><input placeholder="search by events,name,location,and more" name="mot" type="search"></div>
             <div class="d-flex align-items-center date-container mt-1 ps-2" id="header-date">
-                <input value="select date" type="date"><i class="mx-2 fa-sharp fa-solid fa-arrow-right"></i>
-                <input placeholder="select date" type="date">
+                <input value="select date" name="dateDebut" type="date"><i class="mx-2 fa-sharp fa-solid fa-arrow-right"></i>
+                <input placeholder="select date" name="dateFin" type="date">
             </div>
-        <button class="text-light" type="submit" id="submit-search"><i
+        <button class="text-light" name="search" type="submit" id="submit-search"><i
             class="fs-6 fa-solid fa-magnifying-glass"></i><span>search</span></button>
       </form>
     </div>
@@ -61,62 +61,46 @@
 <!-- matches -->
 <div class="d-flex justify-content-between align-items-center">
     <h2 class="part-title">Upcoming Matchs</h2>
-    <span>View All <i class="fa-solid fa-angle-right"></i></span>
+    <a href="pages/viewMatch.php" class="text-dark">View All <i class="fa-solid fa-angle-right"></i></a>
 </div>
-<div class="d-flex row">
-    <div class="col-md-3 my-3">
-        <div class="card">
-            <img class="card-img-top" src="assets/images/matches/BEL_MAR_F_FWC22_THUMB_V2.webp" alt="nom-jeu">
-            <div class="card-body d-flex">
-                <div class="text-center p-3">NOV<br>23</div>
-                <div>
-                    <div>Morocco vs Croitia</div>
-                    <div>$ 150</div>
-                    <div><i class="fa-solid fa-location-dot text-secondary"></i> Ahmad Bin Ali Staduim</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 my-3">
-        <div class="card">
-            <img class="card-img-top" src="assets/images/matches/IRN_USA_B_FWC22_THUMB.webp" alt="nom-jeu">
-            <div class="card-body d-flex">
-                <div class="text-center p-3">NOV<br>23</div>
-                <div>
-                    <div>Iran vs USA</div>
-                    <div>$ 150</div>
-                    <div><i class="fa-solid fa-location-dot text-secondary"></i> Al Bayt Staduim</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 my-3">
-        <div class="card">
-            <img class="card-img-top" src="assets/images/matches/BEL_MAR_F_FWC22_THUMB_V2.webp" alt="nom-jeu">
-            <div class="card-body d-flex">
-                <div class="text-center p-3">NOV<br>23</div>
-                <div>
-                    <div>Morocco vs Croitia</div>
-                    <div>$ 150</div>
-                    <div><i class="fa-solid fa-location-dot text-secondary"></i> Ahmad Bin Ali Staduim</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 my-3">
-        <div class="card">
-            <img class="card-img-top" src="assets/images/matches/BEL_MAR_F_FWC22_THUMB_V2.webp" alt="nom-jeu">
-            <div class="card-body d-flex">
-                <div class="text-center p-3">NOV<br>23</div>
-                <div>
-                    <div>Morocco vs Croitia</div>
-                    <div>$ 150</div>
-                    <div><i class="fa-solid fa-location-dot text-secondary"></i> Ahmad Bin Ali Staduim</div>
-                </div>
-            </div>
-        </div>
-    </div>
 
+
+<div class="d-flex row">
+<?php
+    $sql="SELECT * from matchs m ,stade s where m.stade_id=s.id_stade order by date_match desc limit 4";
+    $resultM = $match_parent->getAllrows($sql);
+    foreach($resultM as $match){
+    $sql1="SELECT nom_equipe FROM equipe where id_equipe= ?";
+    $equipeNom1 = $match_parent->getRow($sql1, [$match["id_equipe1"]]);
+
+    $sql2="SELECT nom_equipe FROM equipe where id_equipe= ? ";
+    $equipeNom2 = $match_parent->getRow($sql2, [$match["id_equipe2"]]);
+
+    $image = (!empty($match['image_match'])) ? './pages/images/uploads/'.$match["image_match"] : './pages/images/uploads/aucune.jpg';
+
+?>
+    <a href="#" class="col-md-3 my-3 a-card">
+        <div class="card">
+            <img class="card-img-top" src="<?php echo $image ?>" style="width:100%;height: 176px" >
+            <div class="card-body d-flex">
+                <div class="text-center p-3">
+                    <?php 
+                    $date = new DateTime($match["date_match"]);
+                    echo $date->format('M')."<br>".$date->format('d');
+                    ?>
+                </div>
+                <div>
+                    <div><?php echo $equipeNom1["nom_equipe"]." vs ".$equipeNom2["nom_equipe"]?></div>
+                    <div>$ <?php echo $match["prix_match"] ?></div>
+                    <div><i class="fa-solid fa-location-dot text-secondary"></i><?php echo $match["nom_stade"] ?></div>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <?php
+    }
+?>
 </div>
 <!-- image groupes -->
 <img class="image-groupes" src="assets/images/FIFA-World-Cup-Qatar-2022-Final-groups.avif" alt="groupes">
@@ -124,96 +108,58 @@
 <!-- natioal teams -->
 <div class="d-flex justify-content-between align-items-center">
     <h2 class="part-title">Browse National Teams</h2>
-    <span>View All <i class="fa-solid fa-angle-right"></i></span>
+    <a href="pages/viewEquipe.php" class="text-dark">View All <i class="fa-solid fa-angle-right"></i></a>
 </div>
 <div class="d-flex row">
-    <div class="col-md-3 my-3">
+    
+<?php
+    $sql="SELECT * from equipe limit 4";
+    $resultE = $match_parent->getAllrows($sql);
+    foreach($resultE as $equipe){
+        
+    $image = (!empty($equipe['image'])) ? './pages/images/uploads/'.$equipe["image"] : './pages/images/uploads/aucune.jpg';
+?>
+    <a href="#" class="col-md-3 my-3 a-card">
         <div class="card">
-            <img class="card-img-top" src="assets/images/equipes/equipemaroc.jpg" alt="nom-jeu">
+            <img class="card-img-top" src="<?php echo $image ?>" style="width:100%;height: 176px" >
             <div class="card-body">
-                <div>Moroccan National team</div>
+                <div><?php echo $equipe["nom_equipe"] ?></div>
                 <div>Group F</div>
                 <div><i class="fa-solid fa-location-dot text-secondary"></i> Morocco</div>
             </div>
         </div>
-    </div>
-    <div class="col-md-3 my-3">
-        <div class="card">
-            <img class="card-img-top" src="assets/images/equipes/equipemaroc.jpg" alt="nom-jeu">
-            <div class="card-body">
-                <div>Moroccan National team</div>
-                <div>Group F</div>
-                <div><i class="fa-solid fa-location-dot text-secondary"></i> Morocco</div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 my-3">
-        <div class="card">
-            <img class="card-img-top" src="assets/images/equipes/equipemaroc.jpg" alt="nom-jeu">
-            <div class="card-body">
-                <div>Moroccan National team</div>
-                <div>Group F</div>
-                <div><i class="fa-solid fa-location-dot text-secondary"></i> Morocco</div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 my-3">
-        <div class="card">
-            <img class="card-img-top" src="assets/images/equipes/equipemaroc.jpg" alt="nom-jeu">
-            <div class="card-body">
-                <div>Moroccan National team</div>
-                <div>Group F</div>
-                <div><i class="fa-solid fa-location-dot text-secondary"></i> Morocco</div>
-            </div>
-        </div>
-    </div>
+    </a>
+<?php
+    }
+?>
 </div>
 <!-- staduims -->
 <div class="d-flex justify-content-between align-items-center mt-4">
     <h2 class="part-title">Browse Available Staduims</h2>
-    <span>View All <i class="fa-solid fa-angle-right"></i></span>
+    <a href="pages/viewStade.php" class="text-dark">View All <i class="fa-solid fa-angle-right"></i></a>
 </div>
 <div class="d-flex row mb-5">
-    <div class="col-md-3 my-3">
+    
+<?php
+    $sql="SELECT * from stade";
+    $resultS = $match_parent->getAllrows($sql);
+    foreach($resultS as $stade){
+        
+    $image = (!empty($stade['image'])) ? './pages/images/uploads/'.$stade["image"] : './pages/images/uploads/aucune.jpg';
+?>
+    <a href="#" class="col-md-3 my-3 a-card">
         <div class="card">
-            <img class="card-img-top" src="assets/images/stades/Ahmad-Bin-Ali-Stadium.jpg" alt="nom-jeu">
+            <img class="card-img-top" src="<?php echo $image ?>" style="width:100%;height: 176px" >
             <div class="card-body">
-                <div>Ahmad Bin Ali Staduim</div>
-                <div>Capacity : 40,000</div>
-                <div><i class="fa-solid fa-location-dot text-secondary"></i> Next to the Mall of Qatar</div>
+                <div><?php echo $stade["nom_stade"] ?></div>
+                <div>Capacity : <?php echo $stade["capacite"] ?></div>
+                <div><i class="fa-solid fa-location-dot text-secondary"></i> <?php echo $stade["lieu"] ?></div>
             </div>
         </div>
-    </div>
-    <div class="col-md-3 my-3">
-        <div class="card">
-            <img class="card-img-top" src="assets/images/stades/Khalifa-International-Stadium.jpg" alt="nom-jeu">
-            <div class="card-body">
-                <div>Khalifa International Staduim</div>
-                <div>Capacity : 45,857</div>
-                <div><i class="fa-solid fa-location-dot text-secondary"></i> Next to the Mall of Qatar</div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 my-3">
-        <div class="card">
-            <img class="card-img-top" src="assets/images/stades/Stadium-974.jpg" alt="nom-jeu">
-            <div class="card-body">
-                <div>974 Staduim</div>
-                <div>Capacity : 40,000</div>
-                <div><i class="fa-solid fa-location-dot text-secondary"></i> Next to the Mall of Qatar</div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 my-3">
-        <div class="card">
-            <img class="card-img-top" src="assets/images/stades/Al-Bayt-Stadium.webp" alt="nom-jeu">
-            <div class="card-body">
-                <div>Al Bayt Staduim</div>
-                <div>Capacity : 68,895</div>
-                <div><i class="fa-solid fa-location-dot text-secondary"></i> Next to the Mall of Qatar</div>
-            </div>
-        </div>
-    </div>
+    </a>
+<?php
+    }
+?>
 </div>
 
 </main>

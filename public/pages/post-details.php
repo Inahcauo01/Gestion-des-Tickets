@@ -3,8 +3,6 @@
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta charset="utf-8">
     <meta name="keywords" content="">
 	<meta name="author" content="">
 	<meta name="robots" content="">
@@ -14,17 +12,14 @@
 	<meta property="og:description" content="Zenix - Crypto Admin Dashboard">
 	<meta property="og:image" content="https://zenix.dexignzone.com/xhtml/social-image.png">
 	<meta name="format-detection" content="telephone=no">
-    <title>Admin Dashboard </title>
+    <title>Zenix -  Crypto Admin Dashboard </title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
-	<link rel="stylesheet" href="vendor/chartist/css/chartist.min.css">
-    <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
-	<link href="vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
+	<link href="vendor/lightgallery/css/lightgallery.min.css" rel="stylesheet">
+	<link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-	
 </head>
+
 <body>
 
     <!--*******************
@@ -41,6 +36,7 @@
         Preloader end
     ********************-->
 
+
     <!--**********************************
         Main wrapper start
     ***********************************-->
@@ -50,7 +46,7 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="index.php" class="brand-logo">
+            <a href="index.html" class="brand-logo">
                 <svg class="logo-abbr" width="50" height="50" viewbox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<rect class="svg-logo-rect" width="50" height="50" rx="6" fill="#EB8153"></rect>
 					<path class="svg-logo-path" d="M17.5158 25.8619L19.8088 25.2475L14.8746 11.1774C14.5189 9.84988 15.8701 9.0998 16.8205 9.75055L33.0924 22.2055C33.7045 22.5589 33.8512 24.0717 32.6444 24.3951L30.3514 25.0095L35.2856 39.0796C35.6973 40.1334 34.4431 41.2455 33.3397 40.5064L17.0678 28.0515C16.2057 27.2477 16.5504 26.1205 17.5158 25.8619ZM18.685 14.2955L22.2224 24.6007L29.4633 22.6605L18.685 14.2955ZM31.4751 35.9615L27.8171 25.6886L20.5762 27.6288L31.4751 35.9615Z" fill="white"></path>
@@ -571,8 +567,11 @@
 		<!--**********************************
             Chat box End
         ***********************************-->
+
+
 		
-		<!--**********************************
+		
+        <!--**********************************
             Header start
         ***********************************-->
         <div class="header">
@@ -764,15 +763,15 @@
 									</div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="app-profile.php" class="dropdown-item ai-icon">
+                                    <a href="app-profile.html" class="dropdown-item ai-icon">
                                         <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                         <span class="ml-2">Profile </span>
                                     </a>
-                                    <a href="email-inbox.php" class="dropdown-item ai-icon">
+                                    <a href="email-inbox.html" class="dropdown-item ai-icon">
                                         <svg id="icon-inbox" xmlns="http://www.w3.org/2000/svg" class="text-success" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                                         <span class="ml-2">Inbox </span>
                                     </a>
-                                    <a href="page-login.php" class="dropdown-item ai-icon">
+                                    <a href="page-login.html" class="dropdown-item ai-icon">
                                         <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
                                         <span class="ml-2">Logout </span>
                                     </a>
@@ -808,7 +807,7 @@
 						<a href="javascript:void(0);"><i class="fa fa-cog" aria-hidden="true"></i></a>
 					</div>
 					<h5 class="name"><span class="font-w400">Hello,</span> Marquez</h5>
-					<p class="email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="95f8f4e7e4e0f0efefefefd5f8f4fcf9bbf6faf8">[email&#160;protected]</a></p>
+					<p class="email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b8d5d9cac9cdddc2c2c2c2f8d5d9d1d496dbd7d5">[email&#160;protected]</a></p>
 				</div>
 				<ul class="metismenu" id="menu">
 					<li class="nav-label first">Main Menu</li>
@@ -817,40 +816,163 @@
 							<span class="nav-text">Dashboard</span>
 						</a>
                         <ul aria-expanded="false">
-							<li><a href="index.php">Dashboard Light</a></li>
-							<li><a href="index-2.php">Dashboard Dark</a></li>
+							<li><a href="index.html">Dashboard Light</a></li>
+							<li><a href="index-2.html">Dashboard Dark</a></li>
+							<li><a href="my-wallets.html">Wallet</a></li>
+							<li><a href="tranasactions.html">Transactions</a></li>
+							<li><a href="coin-details.html">Coin Details</a></li>
+							<li><a href="portofolio.html">Portofolio</a></li>
+							<li><a href="market-capital.html">Market Capital</a></li>
 						</ul>
 
                     </li>
-				
+					<li class="nav-label">Apps</li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+						<i class="flaticon-077-menu-1"></i>
+							<span class="nav-text">Apps</span>
+						</a>
+                        <ul aria-expanded="false">
+                            <li><a href="app-profile.html">Profile</a></li>
+							<li><a href="post-details.html">Post Details</a></li>
+							<li><a href="page-chat.html">Chat<span class="badge badge-xs badge-danger">New</span></a></li>
+							<li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Project<span class="badge badge-xs badge-danger">New</span></a>
+                                <ul aria-expanded="false">
+                                    <li><a href="project-list.html">Project List</a></li>
+                                    <li><a href="project-card.html">Project Card</a></li>
+                                </ul>
+                            </li>
+							<li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">User<span class="badge badge-xs badge-danger">New</span></a>
+                                <ul aria-expanded="false">
+                                    <li><a href="user-list-datatable.html">User List</a></li>
+                                    <li><a href="user-list-column.html">User Card</a></li>
+                                </ul>
+                            </li>
+							<li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Contact<span class="badge badge-xs badge-danger">New</span></a>
+                                <ul aria-expanded="false">
+                                    <li><a href="contact-list.html">Contact List</a></li>
+                                    <li><a href="contact-card.html">Contact Card</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
+                                <ul aria-expanded="false">
+                                    <li><a href="email-compose.html">Compose</a></li>
+                                    <li><a href="email-inbox.html">Inbox</a></li>
+                                    <li><a href="email-read.html">Read</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="app-calender.html">Calendar</a></li>
+							<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Shop</a>
+                                <ul aria-expanded="false">
+                                    <li><a href="ecom-product-grid.html">Product Grid</a></li>
+									<li><a href="ecom-product-list.html">Product List</a></li>
+									<li><a href="ecom-product-detail.html">Product Details</a></li>
+									<li><a href="ecom-product-order.html">Order</a></li>
+									<li><a href="ecom-checkout.html">Checkout</a></li>
+									<li><a href="ecom-invoice.html">Invoice</a></li>
+									<li><a href="ecom-customers.html">Customers</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
 					
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-					       <i class="fa-solid fa-chart-simple"></i>
+							<i class="flaticon-061-puzzle"></i>
 							<span class="nav-text">Charts</span>
 						</a>
                         <ul aria-expanded="false">
-                           
-                            <li><a href="chart-chartjs.php">Chartjs</a></li>
-                       
+                            <li><a href="chart-flot.html">Flot</a></li>
+                            <li><a href="chart-morris.html">Morris</a></li>
+                            <li><a href="chart-chartjs.html">Chartjs</a></li>
+                            <li><a href="chart-chartist.html">Chartist</a></li>
+                            <li><a href="chart-sparkline.html">Sparkline</a></li>
+                            <li><a href="chart-peity.html">Peity</a></li>
                         </ul>
                     </li>
-				
-                  
-                    
-        
+					<li class="nav-label">components</li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+							<i class="flaticon-003-diamond"></i>
+							<span class="nav-text">Bootstrap</span>
+						</a>
+                        <ul aria-expanded="false">
+                            <li><a href="ui-accordion.html">Accordion</a></li>
+                            <li><a href="ui-alert.html">Alert</a></li>
+                            <li><a href="ui-badge.html">Badge</a></li>
+                            <li><a href="ui-button.html">Button</a></li>
+                            <li><a href="ui-modal.html">Modal</a></li>
+                            <li><a href="ui-button-group.html">Button Group</a></li>
+                            <li><a href="ui-list-group.html">List Group</a></li>
+                            <li><a href="ui-media-object.html">Media Object</a></li>
+                            <li><a href="ui-card.html">Cards</a></li>
+                            <li><a href="ui-carousel.html">Carousel</a></li>
+                            <li><a href="ui-dropdown.html">Dropdown</a></li>
+                            <li><a href="ui-popover.html">Popover</a></li>
+                            <li><a href="ui-progressbar.html">Progressbar</a></li>
+                            <li><a href="ui-tab.html">Tab</a></li>
+                            <li><a href="ui-typography.html">Typography</a></li>
+                            <li><a href="ui-pagination.html">Pagination</a></li>
+                            <li><a href="ui-grid.html">Grid</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+							<i class="flaticon-053-heart"></i>
+							<span class="nav-text">Plugins</span>
+						</a>
+                        <ul aria-expanded="false">
+                            <li><a href="uc-select2.html">Select 2</a></li>
+                            <li><a href="uc-nestable.html">Nestedable</a></li>
+                            <li><a href="uc-noui-slider.html">Noui Slider</a></li>
+                            <li><a href="uc-sweetalert.html">Sweet Alert</a></li>
+                            <li><a href="uc-toastr.html">Toastr</a></li>
+                            <li><a href="map-jqvmap.html">Jqv Map</a></li>
+							<li><a href="uc-lightgallery.html">Light Gallery</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="widget-basic.html" class="ai-icon" aria-expanded="false">
+							<i class="flaticon-381-settings-2"></i>
+							<span class="nav-text">Widget</span>
+						</a>
+					</li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+							<i class="flaticon-044-file"></i>
+							<span class="nav-text">Forms</span>
+						</a>
+                        <ul aria-expanded="false">
+                            <li><a href="form-element.html">Form Elements</a></li>
+                            <li><a href="form-wizard.html">Wizard</a></li>
+                            <li><a href="form-editor-summernote.html">Summernote</a></li>
+                            <li><a href="form-pickers.html">Pickers</a></li>
+                            <li><a href="form-validation-jquery.html">Jquery Validate</a></li>
+                        </ul>
+                    </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 							<i class="flaticon-381-network"></i>
 							<span class="nav-text">Table</span>
 						</a>
-						<ul aria-expanded="false">
-						    <li><a href="user-list-datatable.php">Users</a></li>
-                            <li><a href="Equipe-list-datatable.php">Equipes</a></li>
-                            <li><a href="Matches-list-datatable.php">Matches</a></li>
-                            <li><a href="Ticketes-list-datatable.php">Ticketes</a></li>
-							<li><a href="Stades-list-datatable.php">Stades</a></li>
+                        <ul aria-expanded="false">
+                            <li><a href="table-bootstrap-basic.html">Bootstrap</a></li>
+                            <li><a href="table-datatable-basic.html">Datatable</a></li>
                         </ul>
                     </li>
-                   
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+							<i class="flaticon-049-copy"></i>
+							<span class="nav-text">Pages</span>
+						</a>
+                        <ul aria-expanded="false">
+                            <li><a href="page-register.html">Register</a></li>
+                            <li><a href="page-login.html">Login</a></li>
+                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Error</a>
+                                <ul aria-expanded="false">
+                                    <li><a href="page-error-400.html">Error 400</a></li>
+                                    <li><a href="page-error-403.html">Error 403</a></li>
+                                    <li><a href="page-error-404.html">Error 404</a></li>
+                                    <li><a href="page-error-500.html">Error 500</a></li>
+                                    <li><a href="page-error-503.html">Error 503</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="page-lock-screen.html">Lock Screen</a></li>
+                        </ul>
+                    </li>
                 </ul>
 				<div class="copyright">
 					<p><strong>Zenix Crypto Admin Dashboard</strong> © 2021 All Rights Reserved</p>
@@ -861,48 +983,313 @@
         <!--**********************************
             Sidebar end
         ***********************************-->
-		
-		<!--**********************************
+
+        <!--**********************************
             Content body start
         ***********************************-->
         <div class="content-body">
 			<div class="container-fluid">
-				<div class="form-head mb-sm-5 mb-3 d-flex flex-wrap align-items-center">
-					<h2 class="font-w600 title mb-2 mr-auto ">Dashboard</h2>
-					<div class="weather-btn mb-2">
-						<span class="mr-3 font-w600 text-black"><i class="fa fa-cloud mr-2"></i>21</span>
-						<select class="form-control style-1 default-select  mr-3 ">
-							<option>Medan, IDN</option>
-							<option>Jakarta, IDN</option>
-							<option>Surabaya, IDN</option>
-						</select>
+				<!-- Add Project -->
+				<div class="modal fade" id="addProjectSidebar">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Create Project</h5>
+								<button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form>
+									<div class="form-group">
+										<label class="text-black font-w500">Project Name</label>
+										<input type="text" class="form-control">
+									</div>
+									<div class="form-group">
+										<label class="text-black font-w500">Deadline</label>
+										<input type="date" class="form-control">
+									</div>
+									<div class="form-group">
+										<label class="text-black font-w500">Client Name</label>
+										<input type="text" class="form-control">
+									</div>
+									<div class="form-group">
+										<button type="button" class="btn btn-primary">CREATE</button>
+									</div>
+								</form>
+							</div>
+						</div>
 					</div>
-					<a href="javascript:void(0);" class="btn btn-secondary mb-2"><i class="las la-calendar scale5 mr-3"></i>Filter Periode</a>
 				</div>
-			</div>
-		</div>
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Hi, welcome back!</h4>
+                            <span>Post Details</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Advanced</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Post Details</a></li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="profile card card-body px-3 pt-3 pb-0">
+                            <div class="profile-head">
+                                <div class="photo-content">
+                                    <div class="cover-photo"></div>
+                                </div>
+                                <div class="profile-info">
+									<div class="profile-photo">
+										<img src="images/profile/profile.png" class="img-fluid rounded-circle" alt="">
+									</div>
+									<div class="profile-details">
+										<div class="profile-name px-3 pt-2">
+											<h4 class="text-primary mb-0">Mitchell C. Shay</h4>
+											<p>UX / UI Designer</p>
+										</div>
+										<div class="profile-email px-2 pt-2">
+											<h4 class="text-muted mb-0"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c8a0ada4a4a788ada5a9a1a4e6aba7a5">[email&#160;protected]</a></h4>
+											<p>Email</p>
+										</div>
+										<div class="dropdown ml-auto">
+											<a href="#" class="btn btn-primary light sharp" data-toggle="dropdown" aria-expanded="true"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></a>
+											<ul class="dropdown-menu dropdown-menu-right">
+												<li class="dropdown-item"><i class="fa fa-user-circle text-primary mr-2"></i> View profile</li>
+												<li class="dropdown-item"><i class="fa fa-users text-primary mr-2"></i> Add to close friends</li>
+												<li class="dropdown-item"><i class="fa fa-plus text-primary mr-2"></i> Add to group</li>
+												<li class="dropdown-item"><i class="fa fa-ban text-primary mr-2"></i> Block</li>
+											</ul>
+										</div>
+									</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-4">
+						<div class="row">
+							<div class="col-xl-12">
+								<div class="card">
+									<div class="card-body">
+										<div class="profile-statistics">
+											<div class="text-center">
+												<div class="row">
+													<div class="col">
+														<h3 class="m-b-0">150</h3><span>Follower</span>
+													</div>
+													<div class="col">
+														<h3 class="m-b-0">140</h3><span>Place Stay</span>
+													</div>
+													<div class="col">
+														<h3 class="m-b-0">45</h3><span>Reviews</span>
+													</div>
+												</div>
+												<div class="mt-4">
+													<a href="javascript:void(0);" class="btn btn-primary mb-1 mr-1">Follow</a> 
+													<a href="javascript:void(0);" class="btn btn-primary mb-1" data-toggle="modal" data-target="#sendMessageModal">Send Message</a>
+												</div>
+											</div>
+											<!-- Modal -->
+											<div class="modal fade" id="sendMessageModal">
+												<div class="modal-dialog modal-dialog-centered" role="document">
+													<div class="modal-content">
+														<div class="modal-header">
+															<h5 class="modal-title">Send Message</h5>
+															<button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+														</div>
+														<div class="modal-body">
+															<form class="comment-form">
+																<div class="row"> 
+																	<div class="col-lg-6">
+																		<div class="form-group">
+																			<label class="text-black font-w600">Name <span class="required">*</span></label>
+																			<input type="text" class="form-control" value="Author" name="Author" placeholder="Author">
+																		</div>
+																	</div>
+																	<div class="col-lg-6">
+																		<div class="form-group">
+																			<label class="text-black font-w600">Email <span class="required">*</span></label>
+																			<input type="text" class="form-control" value="Email" placeholder="Email" name="Email">
+																		</div>
+																	</div>
+																	<div class="col-lg-12">
+																		<div class="form-group">
+																			<label class="text-black font-w600">Comment</label>
+																			<textarea rows="8" class="form-control" name="comment" placeholder="Comment"></textarea>
+																		</div>
+																	</div>
+																	<div class="col-lg-12">
+																		<div class="form-group mb-0">
+																			<input type="submit" value="Post Comment" class="submit btn btn-primary" name="submit">
+																		</div>
+																	</div>
+																</div>
+															</form>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-12">
+								<div class="card">
+									<div class="card-body">
+										<div class="profile-blog">
+											<h5 class="text-primary d-inline">Today Highlights</h5>
+											<img src="images/profile/1.jpg" alt="" class="img-fluid mt-4 mb-4 w-100">
+											<h4><a href="post-details.html" class="text-black">Darwin Creative Agency Theme</a></h4>
+											<p class="mb-0">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-12">
+								<div class="card">
+									<div class="card-body">
+										<div class="profile-interest">
+											<h5 class="text-primary d-inline">Interest</h5>
+											<div class="row mt-4 sp4" id="lightgallery">
+												<a href="images/profile/2.jpg" data-exthumbimage="images/profile/2.jpg" data-src="images/profile/2.jpg" class="mb-1 col-lg-4 col-xl-4 col-sm-4 col-6">
+													<img src="images/profile/2.jpg" alt="" class="img-fluid">
+												</a>
+												<a href="images/profile/3.jpg" data-exthumbimage="images/profile/3.jpg" data-src="images/profile/3.jpg" class="mb-1 col-lg-4 col-xl-4 col-sm-4 col-6">
+													<img src="images/profile/3.jpg" alt="" class="img-fluid">
+												</a>
+												<a href="images/profile/4.jpg" data-exthumbimage="images/profile/4.jpg" data-src="images/profile/4.jpg" class="mb-1 col-lg-4 col-xl-4 col-sm-4 col-6">
+													<img src="images/profile/4.jpg" alt="" class="img-fluid">
+												</a>
+												<a href="images/profile/3.jpg" data-exthumbimage="images/profile/3.jpg" data-src="images/profile/3.jpg" class="mb-1 col-lg-4 col-xl-4 col-sm-4 col-6">
+													<img src="images/profile/3.jpg" alt="" class="img-fluid">
+												</a>
+												<a href="images/profile/4.jpg" data-exthumbimage="images/profile/4.jpg" data-src="images/profile/4.jpg" class="mb-1 col-lg-4 col-xl-4 col-sm-4 col-6">
+													<img src="images/profile/4.jpg" alt="" class="img-fluid">
+												</a>
+												<a href="images/profile/2.jpg" data-exthumbimage="images/profile/2.jpg" data-src="images/profile/2.jpg" class="mb-1 col-lg-4 col-xl-4 col-sm-4 col-6">
+													<img src="images/profile/2.jpg" alt="" class="img-fluid">
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-12">
+								<div class="card">
+									<div class="card-body">
+										<div class="profile-news">
+											<h5 class="text-primary d-inline">Our Latest News</h5>
+											<div class="media pt-3 pb-3">
+												<img src="images/profile/5.jpg" alt="image" class="mr-3 rounded" width="75">
+												<div class="media-body">
+													<h5 class="m-b-5"><a href="post-details.html" class="text-black">Collection of textile samples</a></h5>
+													<p class="mb-0">I shared this on my fb wall a few months back, and I thought.</p>
+												</div>
+											</div>
+											<div class="media pt-3 pb-3">
+												<img src="images/profile/6.jpg" alt="image" class="mr-3 rounded" width="75">
+												<div class="media-body">
+													<h5 class="m-b-5"><a href="post-details.html" class="text-black">Collection of textile samples</a></h5>
+													<p class="mb-0">I shared this on my fb wall a few months back, and I thought.</p>
+												</div>
+											</div>
+											<div class="media pt-3 pb-3">
+												<img src="images/profile/7.jpg" alt="image" class="mr-3 rounded" width="75">
+												<div class="media-body">
+													<h5 class="m-b-5"><a href="post-details.html" class="text-black">Collection of textile samples</a></h5>
+													<p class="mb-0">I shared this on my fb wall a few months back, and I thought.</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+                    </div>
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-body">
+								<div class="post-details">
+									<h3 class="mb-2 text-black">Collection of textile samples lay spread</h3>
+									<ul class="mb-4 post-meta d-flex flex-wrap">
+										<li class="post-author mr-3">By Admin</li>
+										<li class="post-date mr-3"><i class="fa fa-calender"></i>18 Nov 2020</li>
+										<li class="post-comment"><i class="fa fa-comments-o"></i> 28</li>
+									</ul>
+									<img src="images/profile/8.jpg" alt="" class="img-fluid mb-3 w-100">
+									<p>A wonderful serenity has take possession of my entire soul like these sweet morning of spare which enjoy whole heart.A wonderful serenity has take possession of my entire soul like these sweet morning of spare which enjoy whole heart.</p>
+									<p>A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame.</p>
+									<blockquote>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Has been the industry's standard text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimencenturies.</blockquote>
+									<p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence was created for the bliss of souls like mine.I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.</p>
+									<div class="profile-skills mt-5 mb-5">
+										<h4 class="text-primary mb-2">Skills</h4>
+										<a href="javascript:void()" class="btn btn-primary light btn-xs mb-1">Admin</a>
+										<a href="javascript:void()" class="btn btn-primary light btn-xs mb-1">Dashboard</a>
+										<a href="javascript:void()" class="btn btn-primary light btn-xs mb-1">Photoshop</a>
+										<a href="javascript:void()" class="btn btn-primary light btn-xs mb-1">Bootstrap</a>
+										<a href="javascript:void()" class="btn btn-primary light btn-xs mb-1">Responsive</a>
+										<a href="javascript:void()" class="btn btn-primary light btn-xs mb-1">Crypto</a>
+									</div>
+									<div class="comment-respond" id="respond">
+										<h4 class="comment-reply-title text-primary mb-3" id="reply-title">Leave a Reply </h4>
+										<form class="comment-form" id="commentform" method="post">
+											<div class="row"> 
+												<div class="col-lg-6">
+													<div class="form-group">
+														<label for="author" class="text-black font-w600">Name <span class="required">*</span></label>
+														<input type="text" class="form-control" value="Author" name="Author" placeholder="Author" id="author">
+													</div>
+												</div>
+												<div class="col-lg-6">
+													<div class="form-group">
+														<label for="email" class="text-black font-w600">Email <span class="required">*</span></label>
+														<input type="text" class="form-control" value="Email" placeholder="Email" name="Email" id="email">
+													</div>
+												</div>
+												<div class="col-lg-12">
+													<div class="form-group">
+														<label for="comment" class="text-black font-w600">Comment</label>
+														<textarea rows="8" class="form-control" name="comment" placeholder="Comment" id="comment"></textarea>
+													</div>
+												</div>
+												<div class="col-lg-12">
+													<div class="form-group">
+														<input type="submit" value="Post Comment" class="submit btn btn-primary" id="submit" name="submit">
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!--**********************************
             Content body end
         ***********************************-->
+
 
         <!--**********************************
             Footer start
         ***********************************-->
         <div class="footer">
-		<div class="copyright">
-					<p><strong>World cup tickets</strong> © 2022 All Rights Reserved</p>
-					<p class="fs-12">Made with <span class="heart"></span> by Namek</p>
-		</div>
+            <div class="copyright">
+                <p>Copyright © Designed &amp; Developed by <a href="../index.htm" target="_blank">DexignZone</a> 2021</p>
+            </div>
         </div>
         <!--**********************************
             Footer end
         ***********************************-->
-		
-		
-		
-		
-		
-		<!--**********************************
+
+        <!--**********************************
            Support ticket button start
         ***********************************-->
 
@@ -910,35 +1297,24 @@
            Support ticket button end
         ***********************************-->
 
-
+        
     </div>
     <!--**********************************
         Main wrapper end
     ***********************************-->
-
+	
+	<!--removeIf(production)-->
+        
     <!--**********************************
         Scripts
     ***********************************-->
     <!-- Required vendors -->
-    <!-- <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> -->
-	<script src="vendor/global/global.min.js"></script>
+    <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="vendor/global/global.min.js"></script>
 	<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-	<script src="vendor/chart.js/Chart.bundle.min.js"></script>
-	
-	<!-- Chart piety plugin files -->
-    <script src="vendor/peity/jquery.peity.min.js"></script>
-	
-	<!-- Apex Chart -->
-	<script src="vendor/apexchart/apexchart.js"></script>
-	
-	<!-- Dashboard 1 -->
-	<script src="js/dashboard/dashboard-1.js"></script>
-	
-	<script src="vendor/owl-carousel/owl.carousel.js"></script>
+	<script src="vendor/lightgallery/js/lightgallery-all.min.js"></script>
     <script src="js/custom.min.js"></script>
 	<script src="js/deznav-init.js"></script>
     <script src="js/demo.js"></script>
     <script src="js/styleSwitcher.js"></script>
-
 </body>
 </html>
