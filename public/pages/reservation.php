@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <?php
 
 session_start();
@@ -26,11 +28,14 @@ foreach($rows as $row)
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/style/style_reservation.css">
-    <link rel="stylesheet" href="../assets/style/style.css">
-</head>
 
+</head>
 <body>
-    <header class="header-landingpage">
+    <?php
+        require_once('C:\xampp\htdocs\Gestion-des-Tickets\app\loader.php')
+    ?>
+
+<header class="header-landingpage">
         <nav class="d-flex px-2 justify-content-between align-items-center nav-landingpage ">
             <a class="nav-logo" href="#">YouTickets.com</a>
             <ul id="nav-page" class="d-flex my-auto nav-pages ">
@@ -51,22 +56,23 @@ foreach($rows as $row)
         </nav>
     </header>
 
-    <main >
+
+    <main>
         <div class="container mt-5">
             <div class="row  d-flex flex-column flex-lg-row align-items-start">
                 <div class="  col-1 fs-3 d-flex flex-lg-column text-center">
                     <h5 class="mt-2 ">Share</h5>
                     <div class=" ms-3 mt-3 mb-3 icons d-flex justify-content-center border-icon">
-                        <i class="bi bi-link-45deg  rounded-1 "> </i>
+                        <i class="bi bi-link-45deg  rounded-1 ">  </i>
                     </div>
                     <div class="ms-3 mt-3 mb-3 icons d-flex justify-content-center border-icon">
-                        <i class="bi bi-instagram rounded-1 "> </i>
+                        <i class="bi bi-instagram rounded-1 ">  </i>
                     </div>
                     <div class="ms-3 mt-3 mb-3 icons d-flex justify-content-center border-icon">
-                        <i class="bi bi-twitter rounded-1 "> </i>
+                        <i class="bi bi-twitter rounded-1 ">  </i>
                     </div>
                     <div class="ms-3 mt-3 mb-3 icons d-flex justify-content-center border-icon">
-                        <i class="bi bi-facebook rounded-1 "> </i>
+                        <i class="bi bi-facebook rounded-1 ">  </i>
                     </div>
                 </div>
                 <div class="col-12 col-lg-11 d-flex flex-column ">
@@ -74,7 +80,7 @@ foreach($rows as $row)
                         <!-- section match -->
                         <div class=" res d-flex flex-column  justify-content-center ">
                             <div class="  d-flex justify-content-center text-white">
-                                <h2 class="gol rounded">00:00</h2>
+                                <h2 class="gol rounded" id="match-counter">00:00</h2>
                             </div>
                             <div class="d-flex justify-content-around align-items-center">
                                 <div class="drapo d-flex flex-column align-items-center">
@@ -88,7 +94,7 @@ foreach($rows as $row)
                                     <img src="../assets/images/flags/jamaica-458_256.gif" alt="flag canada" class="w-75">
                                     <span class="text-white fs-4 fw-bold">Gamaica</span>
                                 </div>
-                            </div>
+                            </div> 
                         </div>
                         <!-- end section match -->
                     </div>
@@ -96,14 +102,14 @@ foreach($rows as $row)
                         <div class=" ms-2 ms-lg-0 my-3  d-flex flex-column align-items-between ">
                             <h3 class=" ">Morocco vs Canada</h3>
                             <div class="mb-3"><i class="me-2  my-1 py-2 mr-2 bi bi-geo-alt"></i><span>Al Thumama Stadium</span></div>
-                            <div><i class=" me-2 my-2 py-2 mr-2 bi bi-calendar4-week"></i><span>December 01, 2022 · 20.00 </span></div>
+                            <div><i class=" me-2 my-2 py-2 mr-2 bi bi-calendar4-week"></i><span id="match-date"><?=$res['date_match'] ?></span></div>
                             <p class="my-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus debitis repudiandae non! Laborum</p>
                         </div>
                         <div class="cardhover ticketshadow h-75 card border border-2 rounded-3 " style="  width: 15rem;">
                             <div class="card-body ">
                                 <h5 class=" text-center card-title">Tickets starting at</h5>
                                 <h6 class=" text-center card-subtitle mb-2 text-muted">220$</h6>
-                                <input type="submit" data-bs-toggle="modal" data-bs-target="#réserver-tickets" class=" ticket  border border-0 rounded text-light text-center btn-ticket w-100 " value="Reserve your E-Tickets">
+                                <button class=" ticket  border border-0 rounded text-light text-center btn-ticket w-100 " id="reserve-btn" >Reserve your  E-Tickets</button>
                             </div>
                         </div>
                     </div>
@@ -125,12 +131,10 @@ foreach($rows as $row)
             </div>
             <div class="col-lg-1">
             </div>
-        </div>
+        </div> 
     </main>
-
-  
-
-    <div class="modal " tabindex="-1" id="réserver-tickets">
+      <!-- modal of reservation -->
+  <div class="modal " tabindex="-1" id="réserver-tickets">
         <div class="modal-dialog modal-dialog-centered">
             <form action="" method="post" id="reserve-tickets">
                 <div class="modal-content">
@@ -161,38 +165,76 @@ foreach($rows as $row)
                 </div>
             </form>
         </div>
-    </div>
-
+    </div>   
+    
+    
     <script>
-        let reserveTickets = document.querySelector("#reserve-tickets");
-        let ticketNumber = document.querySelector("#ticket-number");
-        let placeCatégorie = document.querySelector("#place-catégorie");
-        let erreurNumber = document.querySelector("#erreur-number");
-        let erreurCatégorie = document.querySelector("#erreur-catégorie");
-        let regexNumber = /^[0-9]{1,4}$/;
-        reserveTickets.addEventListener('submit', (e) => {
-            if (regexNumber.test(ticketNumber.value) == false) {
-                ticketNumber.classList.add("border-danger");
-                erreurNumber.classList.remove("d-none");
-                e.preventDefault();
-            }
-            ticketNumber.onclick = () => {
-                erreurNumber.classList.add("d-none");
-                ticketNumber.classList.remove("border-danger");
-            }
-            if (placeCatégorie.value == "") {
-                placeCatégorie.classList.add("border-danger");
-                erreurCatégorie.classList.remove("d-none");
-                e.preventDefault();
-            }
-            placeCatégorie.onclick = () => {
-                erreurCatégorie.classList.add("d-none");
-                placeCatégorie.classList.remove("border-danger");
-            }
-        })
-    </script>
+            let reserveTickets = document.querySelector("#reserve-tickets");
+            let ticketNumber = document.querySelector("#ticket-number");
+            let placeCatégorie = document.querySelector("#place-catégorie");
+            let erreurNumber = document.querySelector("#erreur-number");
+            let erreurCatégorie = document.querySelector("#erreur-catégorie");
+            let regexNumber = /^[0-9]{1,4}$/;
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-</body>
+
+            let mydate = document.getElementById('match-date').textContent
+            
+            let spiltDate = date => date.split(" ")[0]+'T'+date.split(" ")[1];
+
+            let dataDate = new Date(spiltDate(mydate));
+            var date = dataDate.getTime()
+
+
+
+            var x = setInterval(function() {
+
+                // Get today's date and time
+                var now = new Date().getTime();
+                
+                // Find the distance between now and the count down date
+                var distance = date - now;
+                
+                // Time calculations for days, hours, minutes and seconds
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                // Display the result in the element with id="match counter"
+                document.getElementById("match-counter").innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+                
+                // If the count down is finished, write some text
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("match-counter").innerHTML = "Match Expiré";
+                    document.getElementById('reserve-btn').setAttribute('hidden','')
+                }
+                }, 1000);
+
+            reserveTickets.addEventListener('submit', (e) => {
+                if (regexNumber.test(ticketNumber.value) == false) {
+                    ticketNumber.classList.add("border-danger");
+                    erreurNumber.classList.remove("d-none");
+                    e.preventDefault();
+                }
+                ticketNumber.onclick = () => {
+                    erreurNumber.classList.add("d-none");
+                    ticketNumber.classList.remove("border-danger");
+                }
+                if (placeCatégorie.value == "") {
+                    placeCatégorie.classList.add("border-danger");
+                    erreurCatégorie.classList.remove("d-none");
+                    e.preventDefault();
+                }
+                placeCatégorie.onclick = () => {
+                    erreurCatégorie.classList.add("d-none");
+                    placeCatégorie.classList.remove("border-danger");
+                }
+        })
+    </script>   
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
 
 </html>

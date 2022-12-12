@@ -73,17 +73,17 @@ class Database{
         }
     }
     // update function
-    public function updatData($query, $param = [])
+    public function updateData($query, $param = [])
     {
         try{
            $sqlstatment=$this->pdo->prepare($query);
            $sqlstatment->execute($param);
         }catch(PDOException $e){
-            "Erreur".$e->getMessage();
+           "Erreur".$e->getMessage();
         }
     }
     // delete function 
-    public function deletData($query, $param = [])
+    public function deleteData($query, $param = [])
     {
         try{
            $sqlstatment=$this->pdo->prepare($query);
