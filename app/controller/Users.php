@@ -25,7 +25,7 @@ if(isset($_POST["update"])){
     $role=$_POST["user-role"];
     $id=$_POST["modal-id"];
     $param=array($role,$id);
-    $db->updatData("UPDATE utilisateur set role_u=? WHERE id=?",$param);
+    $db->updateData("UPDATE utilisateur set role_u=? WHERE id=?",$param);
     $_SESSION["update"]="ligne has updated successfuly";
 }
 }catch(Exception $e){
@@ -35,7 +35,7 @@ try{
 if(isset($_POST["delete"])){
     $id=$_POST["id_delete"];
     $param=array($id);
-    $db->deletData("DELETE FROM utilisateur WHERE id=?",$param);
+    $db->deleteData("DELETE FROM utilisateur WHERE id=?",$param);
     $_SESSION["delete"]="ligne has deleted successfuly";
 }}catch(Exception $e){
     echo "Erreur de".$e->getMessage();
