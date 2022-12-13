@@ -1,3 +1,7 @@
+<?php 
+			require_once('../../app/loader.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -190,15 +194,11 @@
         <!--**********************************
             Sidebar end
         ***********************************-->
-		
 		<!--**********************************
             Content body start
         ***********************************-->
 		<?php 
-			require_once('../../app/loader.php');
 			$resultStade = $stade->getAllrows('SELECT * FROM stade');
-			var_dump($resultStade);
-
 		?>
         <div class="content-body">
 			<div class="container-fluid">

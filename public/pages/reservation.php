@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+require_once("../../app/loader.php");
 
-session_start();
 if(!isset($_SESSION["email"])){
     header('location:signin.php');
 }
 
-require_once("../../app/loader.php");
 $db=new Database();
 $email=$_SESSION["email"];
 $rows=$db->getAlrows("SELECT * FROM utilisateur WHERE email=?",array($email));
@@ -26,7 +25,6 @@ foreach($rows as $row)
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/style/style_reservation.css">
     <link rel="stylesheet" href="../assets/style/style.css">
-
 </head>
 <body>
 
@@ -106,7 +104,7 @@ foreach($rows as $row)
                             <div class="card-body ">
                                 <h5 class=" text-center card-title">Tickets starting at</h5>
                                 <h6 class=" text-center card-subtitle mb-2 text-muted">220$</h6>
-                                <button class=" ticket  border border-0 rounded text-light text-center btn-ticket w-100 " id="reserve-btn" >Reserve your  E-Tickets</button>
+                                <button class=" ticket  border border-0 rounded text-light text-center btn-ticket w-100 " data-bs-target="#reserve-btn" data-bs-toggle="modal" >Reserve your  E-Tickets</button>
                             </div>
                         </div>
                         </div>
@@ -133,7 +131,7 @@ foreach($rows as $row)
         </div> 
     </main>
       <!-- modal of reservation -->
-  <div class="modal " tabindex="-1" id="réserver-tickets">
+  <div class="modal " tabindex="-1" id="reserve-btn">
         <div class="modal-dialog modal-dialog-centered">
             <form action="" method="post" id="reserve-tickets">
                 <div class="modal-content">
@@ -168,6 +166,10 @@ foreach($rows as $row)
     
     
     <script>
+            let reservebtn = document.querySelector("#reserve-btn");
+            reservebtn.onclick=()=>{
+                console.log("ofpknsd");
+            }
             let reserveTickets = document.querySelector("#reserve-tickets");
             let ticketNumber = document.querySelector("#ticket-number");
             let placeCatégorie = document.querySelector("#place-catégorie");
