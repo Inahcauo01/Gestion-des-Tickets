@@ -10,8 +10,7 @@ require_once ('model/Database.class.php');
 require_once ('controller/stade.class.php');
 
 require_once ('controller/Users.php');
-require_once('model/Database.class.php');
 require_once('controller/reservation.class.php');
-
+require_once('controller/statistique.php');
 
 ?>

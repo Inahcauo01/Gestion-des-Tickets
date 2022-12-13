@@ -1,4 +1,19 @@
-﻿@charset "UTF-8";
+﻿/* start icon statistique*/
+
+
+
+
+/* color: #ffc233;
+background: #ffe8b3; */
+
+/* end icon statistique*/
+
+
+
+
+
+
+@charset "UTF-8";
 /*
 
     Table of Contents
@@ -30962,3 +30977,6 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
       color: #fff; }
 
 /*# sourceMappingURL=style.css.map */
+.rounded-pill{
+  color: #8A1538;
+}

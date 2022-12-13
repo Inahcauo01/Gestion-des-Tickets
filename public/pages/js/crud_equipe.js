@@ -2,31 +2,28 @@
 		// script block button 
 		
 		let imageSaveDisabled=document.querySelector("#imageEquipe");
-		   imageSaveDisabled.style.display="none";
-		// imageSaveDisabled.forEach(elt=>{
-		// 	elt.addEventListener()
-		// })
-		let save=document.getElementById('btnSave');
-				let update=document.getElementById('btnupdate');
+		//    imageSaveDisabled.style.display="none";
+		
+			let save=document.getElementById('btnSave');
 				
 				document.getElementById("addequipe").addEventListener("click", hidebtnsave);
 				
 				function hidebtnsave(){
 					save.style.display="block";
 					update.style.display = "none";
-					// imageSaveDisabled.style.display="none";
-					imageSaveDisabled.style.display="none";
-
-
+					imageSaveDisabled.setAttribute('hidden','');
 
 				}
+
+		let update=document.getElementById('btnupdate');
+			
 				document.getElementById("updateequipe").addEventListener("click", hidebtnupdate);
 
 				function hidebtnupdate(){
 					save.style.display="none";
 					update.style.display = "block";
 		            imageSaveDisabled.style.display="block";
-
+					imageSaveDisabled.removeAttribute('hidden');
 
 				}
 				

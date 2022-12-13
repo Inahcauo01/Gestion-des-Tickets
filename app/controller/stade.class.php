@@ -1,6 +1,6 @@
 <?php
 
-require_once 'C:\xampp\htdocs\Gestion-des-Tickets\app\model\Database.class.php';
+require_once 'C:\xamp\htdocs\Gestion-des-Tickets\app\model\Database.class.php';
 $stade = new Database;
 if(isset($_POST['save_stadium'])){
     $params = [$_POST['stade_name'],$_POST['stade_capacity'],$_POST['stade_location'],$_POST['stade_image']];

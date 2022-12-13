@@ -874,10 +874,10 @@
 				<div class="card">
 					<div class="card-header d-sm-flex d-block">
 						<div class="mr-auto mb-sm-0 mb-3">
-							<h4 class="card-title mb-2">User Listing</h4>
-							<span>Lorem Ipsum sit amet</span>
+							<h4 class="card-title mb-2"> list des Equipe</h4>
+							<span>Les Equipe qui sont participer a la coupe Mondial Qatar 2022</span>
 						</div>
-						<a href="javascript:void(0);" class="btn btn-secondary"  id="addequipe" data-bs-toggle="modal" data-bs-target="#modal-equipe">+ Add New Equipe</a>
+						<a href="javascript:void(0);" class="btn btn-secondary"  id="addequipe" data-bs-toggle="modal" data-bs-target="#modal-equipe">+ Ajouter Equipe</a>
 					</div>
 					<div class="card-body">
 						<!-- section imane -->
@@ -938,13 +938,14 @@
 							</div>
 							<div class="modal-body">
 								<input type="hidden" name="id_equipe" id="id_equipe">
+								
 								<div class="mb-3">
 									<label class="form-label">Nom Equipe</label>
 									<input type="text" class="form-control" id="nom_equipe" name="nom_equipe" required/>
 								</div>
-								<div class="mb-3">
+								<div>
 									<label for="formFileSm" class="form-label"> </label>
-									<img style="width:65px;height:64px" src="" alt="image equipe" id="imageEquipe">
+									<img class="mb-2" style="width:78px;height:54px" src="" alt="image equipe" id="imageEquipe">
 									<input class="form-control form-control-sm" id="image_equipe" name="image_equipe" type="file"  accept=".jpg,.png,.jpeg,.gif">
 								</div>
 							</div>
@@ -965,17 +966,17 @@
 				<div class="modal-dialog modal-dialog-centered">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+							<h1 class="modal-title fs-5" id="staticBackdropLabel">Supprimer equipe</h1>
 							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 						<div class="modal-body">
-							<h3> Do you whant really delete this Equipe</h3>
+							<h4> Do you whant really delete this Equipe</h4>
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 							<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-								<input type="hidden" name="id_equipe" id="input_id_delete" value="">
-								<button type="submit" name="deleteEquipe" class="btn btn-primary">Delete</button>
+								<input type="hidden" name="id_equipe" id="input_id_delete">
+								<input type="submit" name="deleteEquipe" class="btn btn-secondary" value="Supprimer">
 							</form>
 						</div>
 					</div>
@@ -1028,7 +1029,7 @@
 	<script src="js/deznav-init.js"></script>
     <script src="js/demo.js"></script>
     <script src="js/styleSwitcher.js"></script>
-	<script src="js/crud_equipe.js"></script>
+	<script src="../pages//js/crud_equipe.js"></script>
 
 </body>
 </html>

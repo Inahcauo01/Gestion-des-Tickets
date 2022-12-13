@@ -1,6 +1,6 @@
 <?php
 // require_once dirname(__DIR__) . '/model/Database.class.php';
-require_once('../../app/model/Database.class.php');
+require_once('C:\xamp\htdocs\Gestion-des-Tickets\app\model\Database.class.php');
 // inser equipe
 
         $db = new Database;
@@ -27,22 +27,17 @@ require_once('../../app/model/Database.class.php');
 
         $params = [ $_POST['nom_equipe'],$image_equipe, $_POST['id_equipe']];
             $query = "UPDATE equipe SET nom_equipe = ? , image = ?  WHERE id_equipe = ?";
-             $db->updatData($query,$params);
+             $db->updateData ($query,$params);
             
 
         }
         // delete equipe
         if(isset($_POST['deleteEquipe'])){
-            $param=[$_POST['id_equipe']];
-            $result=$db->getRow("select * from equipe where id_equipe=?",$param);
-            if(!$result){
-                $query="delete from equipe where id_equipe=?";
-                $resultt= $db->deletData($query,$param);
-
-                if(!$resultt){
-                    echo "good";
-                }
-            }
+            $param=$_POST['id_equipe'];
+            $result=$db->getRow("select * from equipe where id_equipe = ?",[$param]);
+            // if($result){
+                $query="delete from equipe where id_equipe=?"; 
+                $resultt= $db->deleteData($query,[$param]);
         }
             
             

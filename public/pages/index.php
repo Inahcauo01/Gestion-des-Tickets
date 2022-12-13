@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿<?php 
+		include_once ('../../app/loader.php');
+		$db=new Database();
+
+?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -21,9 +26,10 @@
     <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
 	<link href="vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-	
 </head>
 <body>
 
@@ -866,7 +872,7 @@
             Content body start
         ***********************************-->
         <div class="content-body">
-			<div class="container-fluid">
+			<div class="container-fluid ">
 				<div class="form-head mb-sm-5 mb-3 d-flex flex-wrap align-items-center">
 					<h2 class="font-w600 title mb-2 mr-auto ">Dashboard</h2>
 					<div class="weather-btn mb-2">
@@ -879,8 +885,63 @@
 					</div>
 					<a href="javascript:void(0);" class="btn btn-secondary mb-2"><i class="las la-calendar scale5 mr-3"></i>Filter Periode</a>
 				</div>
+				<!-- section statistique -->
+				<div class="d-flex flex-wrap m-5">
+					<div class=" card shadow p-3 mb-5 m-sm-4 bg-body rounded-pill flex-lg-row" style="width: 18rem;">
+							<div class="card-body ">
+								<h5 class="card-title fs-16">Nombre Total user</h5>
+								<h4 class="card-subtitle mb-2 text-muted align-items-center"><?=$user?></h4>
+							</div>
+							<div><i class="fa-sharp fa-solid fa-users mt-3 fa-2x  "></i></div>
+					</div>
+					<div class="card shadow p-3 mb-5 m-sm-4 bg-body rounded-pill flex-lg-row" style="width: 18rem;">
+							<div class="card-body">
+								<h5 class="card-title fs-16">Nombre Total match</h5>
+								<h4 class="card-subtitle mb-2 text-muted"><?= $match?></h4>
+							</div>
+							<div><i class="fa-regular fa-futbol mt-3 fa-2x "></i></div>
+							
+					</div>
+					<div class="card shadow p-3 mb-5 m-sm-4 bg-body rounded-pill flex-lg-row" style="width: 18rem;">
+							<div class="card-body">
+								<h5 class="card-title fs-16">Nombre Total equipe</h5>
+								<h4 class="card-subtitle mb-2 text-muted"><?= $equipe?></h4>
+							</div>
+							<div><i class="fa-solid fa-shirt mt-3 fa-2x  "></i></div>
+					</div>
+					<div class="card shadow p-3 mb-5 m-sm-4 bg-body rounded-pill  flex-lg-row" style="width: 18rem;">
+							<div class="card-body">
+								<h5 class="card-title fs-16">Nombre Total tickets</h5>
+								<h4 class="card-subtitle mb-2 text-muted"><?= $stade ?></h4>
+								<i class='bx bx-cart-alt cart'></i>
+							</div>
+							<div><i class="fa-solid fa-ticket mt-3 fa-2x  ticket"></i></div>
+							
+					</div>
+					<div class="card shadow p-3 mb-5 m-sm-4 bg-body rounded-pill  flex-lg-row" style="width: 18rem;">
+							<div class="card-body">
+								<h5 class="card-title">Nombre de reservation</h5>
+								<h4 class="card-subtitle mb-2 text-muted"><?=  $value;?></h4>
+								<i class='bx bx-cart-alt cart'></i>
+							</div>
+					</div>
+					
+
+				</div>
+			
+				
+					
+				<!-- section statistique -->
+
+
+				
+
+
+
+
 			</div>
 		</div>
+		
         <!--**********************************
             Content body end
         ***********************************-->
@@ -933,12 +994,13 @@
 	
 	<!-- Dashboard 1 -->
 	<script src="js/dashboard/dashboard-1.js"></script>
-	
 	<script src="vendor/owl-carousel/owl.carousel.js"></script>
     <script src="js/custom.min.js"></script>
 	<script src="js/deznav-init.js"></script>
     <script src="js/demo.js"></script>
     <script src="js/styleSwitcher.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 
 </body>
 </html>

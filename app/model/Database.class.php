@@ -41,6 +41,11 @@ class Database{
       $statment->execute($param);
       return $statment->rowCount();
     }
+    public function totalRow($sql){
+        $statment=$this->pdo->prepare($sql);
+        $statment->execute();
+        return $statment->rowCount();
+    }
     // fetch All row 
     public function getAllrows($query)
     {  
@@ -92,6 +97,8 @@ class Database{
             "Erreur".$e->getMessage();
         }
     }
+
+
 
 }
 
