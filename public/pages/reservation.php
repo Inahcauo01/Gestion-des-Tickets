@@ -12,6 +12,8 @@ $db=new Database();
 $email=$_SESSION["email"];
 $rows=$db->getAlrows("SELECT * FROM utilisateur WHERE email=?",array($email));
 foreach($rows as $row)
+
+
 ?>
 
 
@@ -23,12 +25,11 @@ foreach($rows as $row)
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/style/style_reservation.css">
+    <link rel="stylesheet" href="../assets/style/style.css">
 
 </head>
 <body>
-    <?php
-        require_once('C:\xampp\htdocs\Gestion-des-Tickets\app\loader.php')
-    ?>
+
 
 <header class="header-landingpage">
         <nav class="d-flex px-2 justify-content-between align-items-center nav-landingpage ">
@@ -97,16 +98,19 @@ foreach($rows as $row)
                         <div class=" ms-2 ms-lg-0 my-3  d-flex flex-column align-items-between ">
                             <h3 class=" ">Morocco vs Canada</h3>
                             <div class="mb-3"><i class="me-2  my-1 py-2 mr-2 bi bi-geo-alt"></i><span>Al Thumama Stadium</span></div>
-                            <div><i class=" me-2 my-2 py-2 mr-2 bi bi-calendar4-week"></i><span id="match-date"><?=$res['date_match'] ?></span></div>
+                            <div><i class=" me-2 my-2 py-2 mr-2 bi bi-calendar4-week"></i><span id="match-date"><?=$match_data['date_match'] ?></span></div>
                             <p class="my-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus debitis repudiandae non! Laborum</p>
                         </div>
-                        <div class="cardhover ticketshadow h-75 card border border-2 rounded-3 " style="  width: 15rem;">
+                        <div id="reservation-card">
+                        <div class="cardhover ticketshadow h-75 card border border-2 rounded-3 "  style="  width: 15rem;">
                             <div class="card-body ">
                                 <h5 class=" text-center card-title">Tickets starting at</h5>
                                 <h6 class=" text-center card-subtitle mb-2 text-muted">220$</h6>
                                 <button class=" ticket  border border-0 rounded text-light text-center btn-ticket w-100 " id="reserve-btn" >Reserve your  E-Tickets</button>
                             </div>
                         </div>
+                        </div>
+                        
                     </div>
                     <div class=" mt-4 mt-lg-0 d-flex flex-column ">
                         <h3 class=" ">Match Information</h3>
@@ -196,14 +200,14 @@ foreach($rows as $row)
                 var seconds = Math.floor((distance % (1000 * 60)) / 1000);
                 
                 // Display the result in the element with id="match counter"
-                document.getElementById("match-counter").innerHTML = days + "d " + hours + "h "
+                document.getElementById("match-counter").innerHTML = days + "d   " + hours + "h "
                 + minutes + "m " + seconds + "s ";
                 
                 // If the count down is finished, write some text
                 if (distance < 0) {
                     clearInterval(x);
                     document.getElementById("match-counter").innerHTML = "Match Expiré";
-                    document.getElementById('reserve-btn').setAttribute('hidden','')
+                    document.getElementById('reservation-card').innerHTML=""
                 }
                 }, 1000);
 
