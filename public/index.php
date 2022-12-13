@@ -78,7 +78,7 @@ require_once('../app/loader.php');
     $sql2="SELECT nom_equipe FROM equipe where id_equipe= ? ";
     $equipeNom2 = $match_parent->getRow($sql2, [$match["id_equipe2"]]);
 
-    $image = (!empty($match['image_match'])) ? '../public/assets/images/matches/'.$match["image_match"] : './pages/images/uploads/aucune.jpg';
+    $image = (!empty($match['image_match'])) ? './assets/images/matches/'.$match["image_match"] : './pages/images/uploads/aucune.jpg';
     
 ?>
     <a href="./pages/reservation.php?id=<?=$match['id_match']?>" class="col-md-3 my-3 a-card">
@@ -94,7 +94,6 @@ require_once('../app/loader.php');
                 <div>
                     <div><?php echo $equipeNom1["nom_equipe"]." vs ".$equipeNom2["nom_equipe"]?></div>
                     <div>$ <?php echo $match["prix_match"] ?></div>
-                    <div>$ <?php echo $match["date_match"] ?></div>
                     <div><i class="fa-solid fa-location-dot text-secondary"></i><?php echo $match["nom_stade"] ?></div>
                 </div>
             </div>
