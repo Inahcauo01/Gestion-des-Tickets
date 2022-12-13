@@ -172,12 +172,3 @@ if(isset($_POST["mot"])){
     <script src="assets/js/scripts.js"></script>
 </body>
 </html>
-
-<!-- 
-  reservation 
-  la recherche (en cours)
-
-  edit profile 
-  statistique
-  diagram de sequences
- -->
