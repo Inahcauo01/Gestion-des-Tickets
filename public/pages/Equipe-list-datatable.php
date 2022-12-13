@@ -1,5 +1,8 @@
 <?php 
-		include_once ('../../app/loader.php');
+	include_once ('../../app/loader.php');
+if (!isset($_SESSION["emailadmin"])) {
+    header('location:signin.php');
+}
 		$db=new Database();
 
 ?>

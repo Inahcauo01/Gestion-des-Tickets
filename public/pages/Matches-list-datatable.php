@@ -1,5 +1,9 @@
 <?php
 include '../../app/loader.php';
+
+if (!isset($_SESSION["emailadmin"])) {
+    header('location:signin.php');
+}
 ?>
 
 <!DOCTYPE html>

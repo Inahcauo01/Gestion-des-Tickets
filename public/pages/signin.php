@@ -1,6 +1,6 @@
 <?php
 require_once("../../app/loader.php");
-if(@$_SESSION["email"]){
+if(isset($_SESSION["email"]) || isset($_SESSION["emailadmin"])){
   header('location:../index.php');
 }
 ?>

@@ -1,6 +1,9 @@
 <?php 
-			require_once('../../app/loader.php');
+require_once('../../app/loader.php');
 
+if(!isset($_SESSION["emailadmin"])){
+   header('location:signin.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
