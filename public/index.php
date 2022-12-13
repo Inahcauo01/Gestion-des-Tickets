@@ -144,7 +144,7 @@ require_once('../app/loader.php');
 <div class="d-flex row mb-5">
     
 <?php
-    $sql="SELECT * from stade";
+    $sql="SELECT * from stade limit 4";
     $resultS = $match_parent->getAllrows($sql);
     foreach($resultS as $stade){
         
