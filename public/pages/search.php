@@ -62,13 +62,13 @@ require_once('../../app/loader.php');
 if(isset($_POST["search"])){
     $db = new Database();
     
-    if(isset($_POST["dateDebut"]) && isset($_POST["dateFin"])){
-      $sql = "SELECT * from matchs,stade where matchs.stade_id=stade.id_stade and id_equipe1 in (select id_equipe from equipe where nom_equipe like ?)";
-      $resultSearch = $db->getAlrows($sql,["%".$_POST["mot"]."%"]);
+    if(!isset($_POST["dateDebut"]) && !isset($_POST["dateFin"])){
+        $sql = "SELECT * from matchs,stade where matchs.stade_id=stade.id_stade and id_equipe1 in (select id_equipe from equipe where nom_equipe like ?)";
+        $resultSearch = $db->getAlrows($sql,["%".$_POST["mot"]."%"]);
     }
     else{
-      $sql .= " and date_match BETWEEN ? and ? ";
-      $resultSearch = $db->getAlrows($sql,["%".$_POST["mot"]."%", "".$_POST["dateDebut"]."" , "".$_POST["dateFin"].""]);
+        $sql = "SELECT * from matchs,stade where matchs.stade_id=stade.id_stade and id_equipe1 in (select id_equipe from equipe where nom_equipe like ?) and date_match BETWEEN ? and ? ";
+        $resultSearch = $db->getAlrows($sql,["%".$_POST["mot"]."%", "".$_POST["dateDebut"]."" , "".$_POST["dateFin"].""]);
     }
     foreach($resultSearch as $res){
       $sql1="SELECT nom_equipe FROM equipe where id_equipe= ?";
