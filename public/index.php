@@ -120,7 +120,7 @@ require_once('../app/loader.php');
     $resultE = $match_parent->getAllrows($sql);
     foreach($resultE as $equipe){
         
-    $image = (!empty($equipe['image'])) ? '../public/assets/images/equipes/'.$equipe["image"] : './pages/images/uploads/aucune.jpg';
+    $image = (!empty($equipe['image'])) ? './assets/images/equipes/'.$equipe["image"] : './pages/images/uploads/aucune.jpg';
 ?>
     <a href="#" class="col-md-3 my-3 a-card">
         <div class="card">
@@ -148,7 +148,7 @@ require_once('../app/loader.php');
     $resultS = $match_parent->getAllrows($sql);
     foreach($resultS as $stade){
         
-    $image = (!empty($stade['stade_image'])) ? '../public/assets/images/stades/'.$stade["stade_image"] : './pages/images/uploads/aucune.jpg';
+    $image = (!empty($stade['stade_image'])) ? './public/assets/images/stades/'.$stade["stade_image"] : './pages/images/uploads/aucune.jpg';
 ?>
     <a href="#" class="col-md-3 my-3 a-card">
         <div class="card">
