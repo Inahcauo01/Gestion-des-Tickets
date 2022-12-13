@@ -1,16 +1,14 @@
 <?php
-session_start();
+require_once("../../app/loader.php");
 if (!isset($_SESSION["email"])) {
     header('location:signin.php');
 }
-require_once("../../app/loader.php");
 $dsn = new Database();
 
 $row = $dsn->getAlrows("SELECT * FROM utilisateur INNER JOIN role On utilisateur.role_u=role.id_role where email=? ", array($_SESSION["email"]));
 foreach ($row as $val)
     $iduser = $val["id"];
 $rowreservation = $dsn->getAlrows("SELECT * FROM reservation  where id_utilisateur=? ", array($iduser));
-var_dump($rowreservation);
 foreach ($rowreservation  as $valreservation)
 ?>
 
@@ -46,13 +44,13 @@ foreach ($rowreservation  as $valreservation)
     <!--*******************
         Preloader start
     ********************-->
-    <div id="preloader">
+    <!-- <div id="preloader">
         <div class="sk-three-bounce">
             <div class="sk-child sk-bounce1"></div>
             <div class="sk-child sk-bounce2"></div>
             <div class="sk-child sk-bounce3"></div>
         </div>
-    </div>
+    </div> -->
     <!--*******************
         Preloader end
     ********************-->
@@ -879,12 +877,13 @@ foreach ($rowreservation  as $valreservation)
         <!--**********************************
             Sidebar start
         ***********************************-->
+
         <div class="deznav">
             <div class="deznav-scroll">
                 <div class="main-profile">
                     <div class="image-bx">
                         <img src="images/Untitled-1.jpg" alt="">
-                        <a href="javascript:void(0);"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                        <a data-bs-toggle="modal" href="#modal-profile"><i class="fa fa-cog" aria-hidden="true"></i></a>
                     </div>
                     <h5 class="name"><span class="font-w400">Hello,</span><?php echo $val["nom"] . ' ' . $val["prenom"] ?></h5>
                 </div>
@@ -914,26 +913,38 @@ foreach ($rowreservation  as $valreservation)
         <!--**********************************
             Content body start
         ***********************************-->
-
         <div class="content-body">
             <div class="container-fluid">
-                <?php for($i=0;$i<$valreservation["nombre_place"];$i++){?>
-                <div class="mb-2">
-                    <div id="tickets" class="d-flex justify-content-between rounded" style="background-color:#8A1538">
-                        <img src="../../public/assets/images/matches/BEL_MAR_F_FWC22_THUMB_V2.webp" style="width:30%;border-radius:5px 0 0 5px" alt="">
-                        <div class="mx-5 d-flex justify-content-center flex-column">
-                            <p class="text-light">Stade:</p>
-                            <p class="text-light">Nom et Prenom: <?= $val["nom"] . ' ' . $val['prenom']; ?></p>
-                            <p class="text-light">Numero de telephone: <?= $val['telephone']; ?></p>
-                            <p class="text-light">Prix du tickets: <?= $valreservation["catégorie"] ?> $</p>
-                        </div>
-                        <img src="../pages/images/coupdumonde.png" style="width:25%" alt="Quatar">
-                    </div>
-                    <div class="mt-2  d-flex justify-content-center">
-                        <input id="telecharger" class="btn btn-primary" type="submit" value="Telecharger">
+            <?php
+            if (isset($_SESSION["UpdateProfile"])) {
+            ?>
+                <div class="p-2 alert alert-success alert-dismissible fade show"  role="alert">
+                    <div class="d-flex justify-content-between align-center"><p class="mt-3"><strong>Success!</strong><?php echo $_SESSION["UpdateProfile"];?> </p>
+                    <button class="btn btn-success" ><i class="fa-solid fa-circle-xmark" data-bs-dismiss="alert" aria-label="Close" ></i></button>
                     </div>
                 </div>
-                <?php }?>
+            <?php
+                unset($_SESSION["UpdateProfile"]);
+            }
+            ?>
+                <?php for ($i = 0; $i < $valreservation["nombre_place"]; $i++) { ?>
+                    <div class="mb-2">
+                        <div class="tickets d-flex justify-content-between rounded" style="background-color:#8A1538">
+                            <img src="../../public/assets/images/matches/BEL_MAR_F_FWC22_THUMB_V2.webp" style="width:30%;border-radius:5px 0 0 5px" alt="">
+                            <div class="mx-5 d-flex justify-content-center flex-column">
+                                <p class="text-light">Stade:</p>
+                                <p class="text-light">Nom et Prenom: <?= $val["nom"] . ' ' . $val['prenom']; ?></p>
+                                <p class="text-light">Numero de telephone: <?= $val['telephone']; ?></p>
+                                <p class="text-light">Prix du tickets: <?= $valreservation["catégorie"] ?> $</p>
+                            </div>
+                            <img src="../pages/images/coupdumonde.png" style="width:15%" alt="Quatar">
+                            <img style="height:100%;width:25%;" <?php echo 'src="../pages/images/Qrcode/' . $valreservation["qr_code"] . '"'; ?> alt="">
+                        </div>
+                        <div class="mt-2  d-flex justify-content-center">
+                            <input class="telecharger btn btn-primary" type="submit" value="Telecharger">
+                        </div>
+                    </div>
+                <?php } ?>
             </div>
         </div>
         <!--**********************************
@@ -973,28 +984,48 @@ foreach ($rowreservation  as $valreservation)
     ***********************************-->
 
 
-
-    <div class="modal " tabindex="-1" id="modal-task">
-        <div class="modal-dialog modal-dialog modal-dialog-centered">
+    <!-- edit info -->
+    <div class="modal" tabindex="-1" id="modal-profile">
+        <div class="modal-dialog">
+        <form action="" id="form-profile" method="post">
             <div class="modal-content">
-                <form action="" method="Post">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Edit info</h5>
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Profile</h5>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="profile-id" value="<?php echo $val["id"]?>">
+                    <div>
+                        <label for="Profil-Nom">Nom</label>
+                        <input id="Profil-Nom" type="text" name="Profil-Nom" class="form-control" value="<?php echo $val["nom"] ?>">
                     </div>
-                    <div class="modal-body">
-                        <p>Modal body text goes here.</p>
-                        <input id="modal-id" type="hidden" name="modal-id">
-                        <select name="user-role" id="selectvalue" class="form-control">
-                            <option value="1">admin</option>
-                            <option value="2">user</option>
-                        </select>
+                    <p class="text-danger d-none" id="firstName-erreur">Il faut entrer un nom valid</p>
+                    <div>
+                        <label for="Profil-prenom">Prenom</label>
+                        <input id="Profil-prenom" type="text" class="form-control" name="Profil-prenom" value="<?php echo $val["prenom"] ?>">
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" name="update" type="button" class="btn btn-primary">update</button>
+                    <p class="text-danger d-none" id="lastName-erreur">Il faut entrer un nom valid</p>
+                    <div>
+                        <label for="Profil-telephone">Telephone</label>
+                        <input id="Profil-telephone" type="tel" class="form-control" name="Profil-telephone" value="<?php echo $val["telephone"] ?>">
                     </div>
-                </form>
+                    <p class="text-danger d-none" id="telephone-erreur">Il faut entrer un nom valid</p>
+                    <div>
+                        <label for="Profil-email">Email</label>
+                        <input id="Profil-email" type="email" class="form-control" name="Profil-email" value="<?php echo $val["email"] ?>">
+                    </div>
+                    <p class="text-danger d-none" id="email-erreur">Il faut entrer un nom valid</p>
+                    <div>
+                        <label for="Profil-password">Mot de pass</label>
+                        <input id="Profil-password" type="password" class="form-control" name="Profil-password" value="<?php echo $val["password"] ?>">
+                    </div>
+                    <p class="text-danger d-none" id="password-erreur">Il faut entrer un nom valid</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" name="updateinfoUser" class="btn btn-primary" value="save changes">
+                </div>
             </div>
+            </form>
         </div>
     </div>
 
@@ -1003,11 +1034,74 @@ foreach ($rowreservation  as $valreservation)
     ***********************************-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        var btn2 = document.querySelector("#telecharger"); //nous aurons besoin plus tard de ce bouton
-        var element = document.querySelector("#tickets");
-        btn2.onclick = () => {
-            html2pdf().from(element).save("monfichierpdf");
-        }
+        // regex validation
+        let regexFirstname = /^[^ ][a-zA-Z ]{3,15}$/;
+        let regexLastname = /^[^ ][a-zA-Z ]{3,15}$/;
+        let regexEmail = /(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/;
+        let regexPassword = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/;
+        let regexTelephone = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+        // erreur
+        let firstNameErreur = document.querySelector("#firstName-erreur");
+        let lastNameErreur = document.querySelector("#lastName-erreur");
+        let telephoneErreur = document.querySelector("#telephone-erreur");
+        let emailErreur = document.querySelector("#email-erreur");
+        let passwordErreur = document.querySelector("#password-erreur");
+
+        // input of modal
+        let formProfile = document.querySelector("#form-profile");
+        let Nom = document.querySelector("#Profil-Nom");
+        let Prenom = document.querySelector("#Profil-prenom");
+        let Telephone = document.querySelector("#Profil-telephone");
+        let Email = document.querySelector("#Profil-email");
+        let Password = document.querySelector("#Profil-password");
+        formProfile.addEventListener('submit', (e) => {
+            if (regexFirstname.test(Nom.value) == false) {
+                firstNameErreur.classList.remove('d-none');
+                e.preventDefault();
+            }
+            Nom.onclick = () => {
+                firstNameErreur.classList.add('d-none');
+            }
+            if (regexLastname.test(Prenom.value) == false) {
+                lastNameErreur.classList.remove('d-none');
+                e.preventDefault();
+            }
+            Prenom.onclick = () => {
+                lastNameErreur.classList.add('d-none');
+            }
+            if (regexTelephone.test(Telephone.value) == false) {
+                telephoneErreur.classList.remove('d-none');
+                e.preventDefault();
+            }
+            Telephone.onclick = () => {
+                telephoneErreur.classList.add('d-none');
+            }
+            if (regexEmail.test(Email.value) == false) {
+                emailErreur.classList.remove('d-none');
+                e.preventDefault();
+            }
+            Email.onclick = () => {
+                emailErreur.classList.add('d-none');
+            }
+            if (regexPassword.test(Password.value) == false) {
+                passwordErreur.classList.remove('d-none');
+                e.preventDefault();
+            }
+            Password.onclick = () => {
+                passwordErreur.classList.add('d-none');
+            }
+
+        })
+
+
+
+        var btn2 = document.querySelectorAll(".telecharger");
+        var element = document.querySelector(".tickets");
+        btn2.forEach((button) => {
+            button.onclick = () => {
+                html2pdf().from(element).save("monfichierpdf");
+            }
+        })
     </script>
 
     <!-- Required vendors -->

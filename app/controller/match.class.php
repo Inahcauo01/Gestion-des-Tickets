@@ -1,6 +1,11 @@
 <?php
 require_once 'C:\xampp\htdocs\Gestion-des-Tickets\app\model\Database.class.php';
 
+$instance = new Database();
+if(isset($_GET['id'])){
+    $match_data = $instance->getRow("SELECT * FROM matchs WHERE id_match=?", [$_GET['id']]);
+}
+
 if(isset($_POST['saveMatch'])){
     
     $dbMatch = new Database();
@@ -46,17 +51,17 @@ if(isset($_POST['updateMatch'])){
         $new_filename = time().'.'.$ext;
         move_uploaded_file($_FILES['image']['tmp_name'], './images/uploads/'.$new_filename);
         $sql='UPDATE matchs set id_equipe1 = ? ,id_equipe2= ? ,date_match= ? ,stade_id= ? ,result_match= ? , prix_match = ? ,image_match = ? WHERE id_match= ?';
-        $dbMatch->updatData($sql , [$id_equipe1, $id_equipe2, $date_match, $stade_id, $result_match,$prix_match, $new_filename, $id_match]);
+        $dbMatch->updateData($sql , [$id_equipe1, $id_equipe2, $date_match, $stade_id, $result_match,$prix_match, $new_filename, $id_match]);
         }
     else{
         $sql='UPDATE matchs set id_equipe1 = ? ,id_equipe2= ? ,date_match= ? ,stade_id= ? ,result_match= ? ,prix_match = ? WHERE id_match= ?';
-        $dbMatch->updatData($sql , [$id_equipe1, $id_equipe2, $date_match, $stade_id, $result_match,$prix_match, $id_match]);
+        $dbMatch->updateData($sql , [$id_equipe1, $id_equipe2, $date_match, $stade_id, $result_match,$prix_match, $id_match]);
     }
 
 }
 if(isset($_GET['SuppMatch'])){
     $dbMatch = new Database();
     $sql="DELETE from matchs where id_match= ?";
-    $dbMatch->deletData($sql, [$_GET['SuppMatch']]);
+    $dbMatch->deleteData($sql, [$_GET['SuppMatch']]);
 }
 ?>
