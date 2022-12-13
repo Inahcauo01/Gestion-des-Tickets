@@ -2,7 +2,9 @@
 require_once 'C:\xampp\htdocs\Gestion-des-Tickets\app\model\Database.class.php';
 
 $instance = new Database();
-$res = $instance->getRow("SELECT * FROM matchs WHERE id_match=?", [2]);
+if(isset($_GET['id'])){
+    $match_data = $instance->getRow("SELECT * FROM matchs WHERE id_match=?", [$_GET['id']]);
+}
 
 if(isset($_POST['saveMatch'])){
     
