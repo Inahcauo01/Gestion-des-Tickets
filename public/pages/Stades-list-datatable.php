@@ -1,3 +1,7 @@
+<?php 
+			require_once('../../app/loader.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -190,14 +194,11 @@
         <!--**********************************
             Sidebar end
         ***********************************-->
-		
 		<!--**********************************
             Content body start
         ***********************************-->
 		<?php 
-			require_once('../../app/loader.php');
 			$resultStade = $stade->getAllrows('SELECT * FROM stade');
-
 		?>
         <div class="content-body">
 			<div class="container-fluid">
@@ -231,7 +232,7 @@
 											</td>
 											<td>
 												<div class="media style-1">
-													<img src="../assets/images/stades/<?=$stade['image']?>" class="img-fluid mr-2" alt="">
+													<img src="../assets/images/stades/<?=$stade['stade_image']?>" class="img-fluid mr-2" alt="">
 													<div class="media-body">
 														<h6 id="stade-name-<?= $stade['id_stade'] ?>"><?= $stade['nom_stade'] ?></h6>
 													</div>

@@ -1,9 +1,8 @@
 <?php
-session_start();
+require_once("../../app/loader.php");
 if (!isset($_SESSION["email"])) {
     header('location:signin.php');
 }
-require_once("../../app/loader.php");
 $dsn = new Database();
 
 $row = $dsn->getAlrows("SELECT * FROM utilisateur INNER JOIN role On utilisateur.role_u=role.id_role where email=? ", array($_SESSION["email"]));
@@ -929,6 +928,7 @@ $nulberreservation=$dsn->numberRow("SELECT * FROM reservation  where id_utilisat
                             <p class="text-light">Prix du tickets: <?= $valreservation["catégorie"] ?> $</p>
                         </div>
                         <img src="../pages/images/coupdumonde.png" style="width:25%" alt="Quatar">
+                        <img style="width:250px" <?php echo 'src="../pages/images/Qrcode/' . $valreservation["qr_code"] . '"'; ?> alt="">
                     </div>
                 </div>
                 <?php } ?>

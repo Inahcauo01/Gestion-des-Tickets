@@ -43,11 +43,13 @@ require_once('../app/loader.php');
     <h1 class="fw-2  text-light text-center header-heading">Exclusive Matchs,priceless moments</h1>
     <div class="search-bar my-auto">
       <form class="d-flex w-100 align-items-center" action="pages/search.php" method="POST">
-        <div id="header-search"><input placeholder="search by events,name,location,and more" name="mot" type="search"></div>
-            <div class="d-flex align-items-center date-container mt-1 ps-2" id="header-date">
-                <input value="select date" name="dateDebut" type="date"><i class="mx-2 fa-sharp fa-solid fa-arrow-right"></i>
-                <input placeholder="select date" name="dateFin" type="date">
-            </div>
+        <div id="header-search">
+            <input placeholder="search by events,name,location,and more" name="mot" type="search" required>
+        </div>
+        <div class="d-flex align-items-center date-container mt-1 ps-2" id="header-date">
+            <input  name="dateDebut" type="date"><i class="mx-2 fa-sharp fa-solid fa-arrow-right"></i>
+            <input  name="dateFin" type="date">
+        </div>
         <button class="text-light" name="search" type="submit" id="submit-search"><i
             class="fs-6 fa-solid fa-magnifying-glass"></i><span>search</span></button>
       </form>
@@ -76,9 +78,9 @@ require_once('../app/loader.php');
     $equipeNom2 = $match_parent->getRow($sql2, [$match["id_equipe2"]]);
 
     $image = (!empty($match['image_match'])) ? './pages/images/uploads/'.$match["image_match"] : './pages/images/uploads/aucune.jpg';
-
+    
 ?>
-    <a href="#" class="col-md-3 my-3 a-card">
+    <a href="./pages/reservation.php?id=<?=$match['id_match']?>" class="col-md-3 my-3 a-card">
         <div class="card">
             <img class="card-img-top" src="<?php echo $image ?>" style="width:100%;height: 176px" >
             <div class="card-body d-flex">
@@ -91,6 +93,7 @@ require_once('../app/loader.php');
                 <div>
                     <div><?php echo $equipeNom1["nom_equipe"]." vs ".$equipeNom2["nom_equipe"]?></div>
                     <div>$ <?php echo $match["prix_match"] ?></div>
+                    <div>$ <?php echo $match["date_match"] ?></div>
                     <div><i class="fa-solid fa-location-dot text-secondary"></i><?php echo $match["nom_stade"] ?></div>
                 </div>
             </div>
@@ -116,7 +119,7 @@ require_once('../app/loader.php');
     $resultE = $match_parent->getAllrows($sql);
     foreach($resultE as $equipe){
         
-    $image = (!empty($equipe['image'])) ? './pages/images/uploads/'.$equipe["image"] : './pages/images/uploads/aucune.jpg';
+    $image = (!empty($equipe['image'])) ? './assets/images/equipes/'.$equipe["image"] : './pages/images/uploads/aucune.jpg';
 ?>
     <a href="#" class="col-md-3 my-3 a-card">
         <div class="card">
@@ -140,11 +143,11 @@ require_once('../app/loader.php');
 <div class="d-flex row mb-5">
     
 <?php
-    $sql="SELECT * from stade";
+    $sql="SELECT * from stade limit 4";
     $resultS = $match_parent->getAllrows($sql);
     foreach($resultS as $stade){
         
-    $image = (!empty($stade['image'])) ? './pages/images/uploads/'.$stade["image"] : './pages/images/uploads/aucune.jpg';
+    $image = (!empty($stade['stade_image'])) ? './public/assets/images/stades/'.$stade["stade_image"] : './pages/images/uploads/aucune.jpg';
 ?>
     <a href="#" class="col-md-3 my-3 a-card">
         <div class="card">
