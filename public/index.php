@@ -1,5 +1,5 @@
 <?php
-// require_once('../app/loader.php');
+require_once('../app/loader.php');
 // require_once dirname(__DIR__).'app/model/database.class.php';
 // require_once dirname(__DIR__) . '/model/Database.class.php';
 
