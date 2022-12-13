@@ -9,7 +9,7 @@ if(isset($_POST["login"])){
    $so=$db->numberRow("SELECT * FROM utilisateur WHERE email=? AND password=?",$param);
    if($so!=0){
     if($email=="marksemony@gmail.com" && $passWord=="eRROR404@"){
-    $_SESSION["email"]=$email;
+    $_SESSION["emailadmin"]=$email;
     header('location:../../public/pages/user-list-datatable.php');
    }else{
     $_SESSION["email"]=$email;
