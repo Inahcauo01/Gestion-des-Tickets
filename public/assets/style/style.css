@@ -351,4 +351,48 @@ a{
  .login-form input{
      border: solid black 2px !important;
  }
+/* search page */
+.searchbar-Container{
+    margin: auto;
+    justify-content: center;
+    width: 80%;
+    border: 1px solid grey;
+}
+ .searchBar #header-search{
+    width: 100%;
+    height: 40px;
+} 
+.searchBar #header-search input{
+    width:100%;
+    height: 100%;
+    border: none;
+    outline: none;
+}
+.searchBar .date-container{
+    border: none !important;
+    border-left: 1px solid black !important;
+}
+.searchBar #header-date{
+    width:40%;
+    height: 40px;
+    border: 1px solid black;
+} 
+.searchBar #header-date input{
+    border: none !important;
+    outline: none; 
+    width:40%;
+    background-color: #ffffff;
+    border:1px solid black; 
  
+}
+.searchBar #submit-search{
+    width: 100px;
+    border: none;
+    outline: none;
+    background-color: #8A1538;
+    height: 30px;
+    border-radius: 4px;
+}
+.searchBar #submit-search i{
+    margin-right: 4px;
+} 
