@@ -91,6 +91,7 @@ require_once('../app/loader.php');
                 <div>
                     <div><?php echo $equipeNom1["nom_equipe"]." vs ".$equipeNom2["nom_equipe"]?></div>
                     <div>$ <?php echo $match["prix_match"] ?></div>
+                    <div>$ <?php echo $match["date_match"] ?></div>
                     <div><i class="fa-solid fa-location-dot text-secondary"></i><?php echo $match["nom_stade"] ?></div>
                 </div>
             </div>

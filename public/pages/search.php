@@ -18,7 +18,7 @@ require_once('../../app/loader.php');
 
 <header class="header-landingpage" style="position:fixed;top:0;z-index:900;">
     <nav class="d-flex px-2 justify-content-between align-items-center nav-landingpage ">
-      <a class="nav-logo" href="#">YouTickets.com</a>
+      <a class="nav-logo" href="../index.php">YouTickets.com</a>
       <ul id="nav-page" class="d-flex my-auto nav-pages ">
         <li><a class="me-2 about-page" href="#">About</a></li>
         <li><a class="ms-2 me-2 news-page" href="#">News</a></li>
