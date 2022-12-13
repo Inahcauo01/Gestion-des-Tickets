@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+require_once("../../app/loader.php");
 
-session_start();
 if(!isset($_SESSION["email"])){
     header('location:signin.php');
 }
 
-require_once("../../app/loader.php");
 $db=new Database();
 $email=$_SESSION["email"];
 $rows=$db->getAlrows("SELECT * FROM utilisateur WHERE email=?",array($email));
@@ -26,7 +25,6 @@ foreach($rows as $row)
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/style/style_reservation.css">
     <link rel="stylesheet" href="../assets/style/style.css">
-
 </head>
 <body>
 
@@ -133,7 +131,7 @@ foreach($rows as $row)
         </div> 
     </main>
       <!-- modal of reservation -->
-  <div class="modal " tabindex="-1" id="réserver-tickets">
+  <div class="modal " tabindex="-1" id="reserve-btn">
         <div class="modal-dialog modal-dialog-centered">
             <form action="" method="post" id="reserve-tickets">
                 <div class="modal-content">
@@ -168,6 +166,10 @@ foreach($rows as $row)
     
     
     <script>
+            let reservebtn = document.querySelector("#reserve-btn");
+            reservebtn.onclick=()=>{
+                console.log("ofpknsd");
+            }
             let reserveTickets = document.querySelector("#reserve-tickets");
             let ticketNumber = document.querySelector("#ticket-number");
             let placeCatégorie = document.querySelector("#place-catégorie");

@@ -1,5 +1,4 @@
 <?php
-
 require_once('C:\xampp\htdocs\Gestion-des-Tickets\app\model\Database.class.php');
 $db=new Database();
 $erreurSignin="";
@@ -14,7 +13,7 @@ if(isset($_POST["login"])){
     header('location:../../public/pages/user-list-datatable.php');
    }else{
     $_SESSION["email"]=$email;
-    header('location:../public/pages/reservation.php');
+    header('location:../pages/reservation.php');
    }
    }else{
     $erreurSignin="Invalid email or password";
@@ -52,7 +51,6 @@ if(isset($_POST["signup"])){
     $so2=$db->numberRow("SELECT * FROM utilisateur WHERE telephone=?",array($telephone));
     if($so1!=0){
         $erreur="this email are exist";
-       
     }
     if($so2!=0){
         $erreur.="this telephone number are exist";
@@ -60,5 +58,26 @@ if(isset($_POST["signup"])){
         $db->insertData("INSERT INTO utilisateur(nom,prenom,telephone,role_u,email,password) VALUES(?,?,?,?,?,?)",array($firstName,$lastName,$telephone,2,$signupemail,$signuppassword));
     }
 }
-
+    if(isset($_POST["updateinfoUser"])){
+        $idProfil=$_POST["profile-id"];
+        $nomProfil=$_POST["Profil-Nom"];
+        $prenomProfil=$_POST["Profil-prenom"];
+        $telephoneProfil=$_POST["Profil-telephone"];
+        $emailProfil=$_POST["Profil-email"];
+        $passwordProfil=$_POST["Profil-password"];
+        $param=array($nomProfil,$prenomProfil,$telephoneProfil,$emailProfil,$passwordProfil,$idProfil);
+        $db->updateData("UPDATE utilisateur set nom=?,prenom=?,telephone=?,email=?,password=? WHERE id=?",$param);
+        $_SESSION["UpdateProfile"]="Profile has updated succesfully";
+    }
+    if(isset($_POST["updateinfoadmin"])){
+        $idProfil=$_POST["admin-id"];
+        $nomProfil=$_POST["admin-Nom"];
+        $prenomProfil=$_POST["admin-prenom"];
+        $telephoneProfil=$_POST["admin-telephone"];
+        $emailProfil=$_POST["admin-email"];
+        $passwordProfil=$_POST["admin-password"];
+        $param=array($nomProfil,$prenomProfil,$telephoneProfil,$emailProfil,$passwordProfil,$idProfil);
+        $db->updateData("UPDATE utilisateur set nom=?,prenom=?,telephone=?,email=?,password=? WHERE id=?",$param);
+        $_SESSION["UpdateProfileadmin"]="Profile has updated succesfully";
+    }
 ?>

@@ -1,9 +1,8 @@
 ﻿<?php
-session_start();
+require_once("../../app/loader.php");
 if(!isset($_SESSION["email"])){
   header('location:signin.php');
 }
-require_once("../../app/loader.php");
 $dsn = new Database();
 
 $row=$dsn->getAlrows("SELECT * FROM utilisateur INNER JOIN role On utilisateur.role_u=role.id_role where email=? ",array($_SESSION["email"]));
@@ -881,7 +880,7 @@ foreach($row as $val)
 				<div class="main-profile">
 					<div class="image-bx">
 						<img src="images/Untitled-1.jpg" alt="">
-						<a href="javascript:void(0);"><i class="fa fa-cog" aria-hidden="true"></i></a>
+						<a href="#modal-profileadmin" data-bs-toggle="modal"><i class="fa fa-cog" aria-hidden="true"></i></a>
 					</div>
 					<h5 class="name"><span class="font-w400">Hello,</span><?php echo $val["nom"].' '.$val["prenom"] ?></h5>
 				</div>
@@ -956,13 +955,23 @@ foreach($row as $val)
 					}
 					if (isset($_SESSION["delete"])) {
 					?>
-					<div class="p-2 alert alert-success alert-dismissible fade show"  role="alert">
+					    <div class="p-2 alert alert-success alert-dismissible fade show"  role="alert">
 							<div class="d-flex justify-content-between align-center"><p class="mt-3"><strong>Success!</strong> <?php echo $_SESSION["delete"] ?></p>
 							<button class="btn btn-success" ><i class="fa-solid fa-circle-xmark" data-bs-dismiss="alert" aria-label="Close" ></i></button>
 							</div>
 						</div>
 					<?php
 						unset($_SESSION["delete"]);
+					}
+					if(isset($_SESSION["UpdateProfileadmin"])){
+					?>
+					   <div class="p-2 alert alert-success alert-dismissible fade show"  role="alert">
+							<div class="d-flex justify-content-between align-center"><p class="mt-3"><strong>Success!</strong> <?php echo $_SESSION["UpdateProfileadmin"] ?></p>
+							<button class="btn btn-success" ><i class="fa-solid fa-circle-xmark" data-bs-dismiss="alert" aria-label="Close" ></i></button>
+							</div>
+						</div>
+					<?php
+					 unset($_SESSION["UpdateProfileadmin"]);
 					}
 					?>
 				</div>
@@ -1059,8 +1068,51 @@ foreach($row as $val)
         Main wrapper end
     ***********************************-->
 
-
-
+   <!-- Modal to update profile -->
+   <div class="modal" tabindex="-1" id="modal-profileadmin">
+        <div class="modal-dialog">
+        <form action="" id="form-profile" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Profile</h5>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="admin-id" value="<?php echo $val["id"]?>">
+                    <div>
+                        <label for="Profil-Nom">Nom</label>
+                        <input id="Profil-Nom" type="text" name="admin-Nom" class="form-control" value="<?php echo $val["nom"] ?>">
+                    </div>
+                    <p class="text-danger d-none" id="firstName-erreur">Il faut entrer un nom valid</p>
+                    <div>
+                        <label for="Profil-prenom">Prenom</label>
+                        <input id="Profil-prenom" type="text" class="form-control" name="admin-prenom" value="<?php echo $val["prenom"] ?>">
+                    </div>
+                    <p class="text-danger d-none" id="lastName-erreur">Il faut entrer un nom valid</p>
+                    <div>
+                        <label for="Profil-telephone">Telephone</label>
+                        <input id="Profil-telephone" type="tel" class="form-control" name="admin-telephone" value="<?php echo $val["telephone"] ?>">
+                    </div>
+                    <p class="text-danger d-none" id="telephone-erreur">Il faut entrer un nom valid</p>
+                    <div>
+                        <label for="Profil-email">Email</label>
+                        <input id="Profil-email" type="email" class="form-control" name="admin-email" value="<?php echo $val["email"] ?>">
+                    </div>
+                    <p class="text-danger d-none" id="email-erreur">Il faut entrer un nom valid</p>
+                    <div>
+                        <label for="Profil-password">Mot de pass</label>
+                        <input id="Profil-password" type="password" class="form-control" name="admin-password" value="<?php echo $val["password"] ?>">
+                    </div>
+                    <p class="text-danger d-none" id="password-erreur">Il faut entrer un nom valid</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" name="updateinfoadmin" class="btn btn-primary" value="save changes">
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    <!-- Modal to change role -->
 	<div class="modal " tabindex="-1" id="modal-task">
 		<div class="modal-dialog modal-dialog modal-dialog-centered">
 			<div class="modal-content">
@@ -1088,7 +1140,67 @@ foreach($row as $val)
 	<!--**********************************
         Scripts
     ***********************************-->
+
 	<script>
+        // regex validation
+        let regexFirstname = /^[^ ][a-zA-Z ]{3,15}$/;
+        let regexLastname = /^[^ ][a-zA-Z ]{3,15}$/;
+        let regexEmail = /(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/;
+        let regexPassword = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/;
+        let regexTelephone = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+        // erreur
+        let firstNameErreur = document.querySelector("#firstName-erreur");
+        let lastNameErreur = document.querySelector("#lastName-erreur");
+        let telephoneErreur = document.querySelector("#telephone-erreur");
+        let emailErreur = document.querySelector("#email-erreur");
+        let passwordErreur = document.querySelector("#password-erreur");
+
+        // input of modal
+        let formProfile = document.querySelector("#form-profile");
+        let Nom = document.querySelector("#Profil-Nom");
+        let Prenom = document.querySelector("#Profil-prenom");
+        let Telephone = document.querySelector("#Profil-telephone");
+        let Email = document.querySelector("#Profil-email");
+        let Password = document.querySelector("#Profil-password");
+        formProfile.addEventListener('submit', (e) => {
+            if (regexFirstname.test(Nom.value) == false) {
+                firstNameErreur.classList.remove('d-none');
+                e.preventDefault();
+            }
+            Nom.onclick = () => {
+                firstNameErreur.classList.add('d-none');
+            }
+            if (regexLastname.test(Prenom.value) == false) {
+                lastNameErreur.classList.remove('d-none');
+                e.preventDefault();
+            }
+            Prenom.onclick = () => {
+                lastNameErreur.classList.add('d-none');
+            }
+            if (regexTelephone.test(Telephone.value) == false) {
+                telephoneErreur.classList.remove('d-none');
+                e.preventDefault();
+            }
+            Telephone.onclick = () => {
+                telephoneErreur.classList.add('d-none');
+            }
+            if (regexEmail.test(Email.value) == false) {
+                emailErreur.classList.remove('d-none');
+                e.preventDefault();
+            }
+            Email.onclick = () => {
+                emailErreur.classList.add('d-none');
+            }
+            if (regexPassword.test(Password.value) == false) {
+                passwordErreur.classList.remove('d-none');
+                e.preventDefault();
+            }
+            Password.onclick = () => {
+                passwordErreur.classList.add('d-none');
+            }
+
+        })
+
 		function editTask(id, user) {
 			let modalid = document.getElementById("modal-id");
 			let l = document.getElementById("selectvalue");
