@@ -29,8 +29,18 @@ require_once('../app/loader.php');
         <li><a class="ms-2 me-2 contact-page" href="#">Contact</a></li>
       </ul>
       <ul id="nav-compt" class="d-flex  my-auto nav-compte">
+        <?php
+        if(!isset($_SESSION["email"])){
+
+        ?>
         <li><a class="me-1 nav-login" href="pages/signin.php">Log In</a></li>
         <li><a class="ms-1 nav-Signup" href="pages/signin.php">Sign Up</a></li>
+        <?php }else{
+            ?>
+            <li><a class="me-1 nav-login" href="pages/userdashboard.php">Mon compte</a></li>
+            <li><a class="me-1 nav-Signup" href="../public/pages/déconexion.php">Déconnexion</a></li>
+         <?php
+            }?>
       </ul>
       <!-- <i class="fs-3 cursor-pointer fa-solid fa-bars header-menu"></i> -->
       <div class="header-menu">
@@ -120,7 +130,7 @@ require_once('../app/loader.php');
     $resultE = $match_parent->getAllrows($sql);
     foreach($resultE as $equipe){
         
-    $image = (!empty($equipe['image'])) ? './assets/images/equipes/'.$equipe["image"] : './pages/images/uploads/aucune.jpg';
+    $image = (!empty($equipe['image'])) ? '../assets/upload_image/'.$equipe["image"] : './pages/images/uploads/aucune.jpg';
 ?>
     <a href="#" class="col-md-3 my-3 a-card">
         <div class="card">
@@ -148,7 +158,7 @@ require_once('../app/loader.php');
     $resultS = $match_parent->getAllrows($sql);
     foreach($resultS as $stade){
         
-    $image = (!empty($stade['stade_image'])) ? './public/assets/images/stades/'.$stade["stade_image"] : './pages/images/uploads/aucune.jpg';
+    $image = (!empty($stade['stade_image'])) ? '../public/assets/images/stades/'.$stade["stade_image"] : './pages/images/uploads/aucune.jpg';
 ?>
     <a href="#" class="col-md-3 my-3 a-card">
         <div class="card">

@@ -1,5 +1,8 @@
 <?php
 require_once("../../app/loader.php");
+if(@$_SESSION["email"]){
+  header('location:../index.php');
+}
 ?>
 
 

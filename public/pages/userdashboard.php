@@ -44,13 +44,13 @@ foreach ($rowreservation  as $valreservation)
     <!--*******************
         Preloader start
     ********************-->
-    <!-- <div id="preloader">
+    <div id="preloader">
         <div class="sk-three-bounce">
             <div class="sk-child sk-bounce1"></div>
             <div class="sk-child sk-bounce2"></div>
             <div class="sk-child sk-bounce3"></div>
         </div>
-    </div> -->
+    </div>
     <!--*******************
         Preloader end
     ********************-->
@@ -889,7 +889,7 @@ foreach ($rowreservation  as $valreservation)
                 </div>
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Main Menu</li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <li><a class="has-arrow ai-icon" aria-expanded="false">
                             <i class="flaticon-144-layout"></i>
                             <span class="nav-text">Dashboard</span>
                         </a>

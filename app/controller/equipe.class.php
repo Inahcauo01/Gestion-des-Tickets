@@ -38,7 +38,6 @@ require_once dirname(__DIR__) . '/model/Database.class.php';
             if(!$result){
                 $query="delete from equipe where id_equipe=?";
                 $resultt= $db->deleteData($query,$param);
-
                 if(!$resultt){
                     echo "good";
                 }
