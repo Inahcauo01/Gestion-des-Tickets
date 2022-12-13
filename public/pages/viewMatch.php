@@ -66,7 +66,7 @@ require_once('../../app/loader.php');
     $image = (!empty($match['image_match'])) ? './images/uploads/'.$match["image_match"] : './images/uploads/aucune.jpg';
 
 ?>
-    <a href="#" class="col-md-3 my-3 a-card">
+    <a href="./reservation.php?id=<?=$match['id_match']?>" class="col-md-3 my-3 a-card">
         <div class="card">
             <img class="card-img-top" src="<?php echo $image ?>" style="width:100%;height: 176px" >
             <div class="card-body d-flex">

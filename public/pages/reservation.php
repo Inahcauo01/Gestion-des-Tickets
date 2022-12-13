@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-if(!isset($_GET["id"])){
+$id=$_GET["id"];
+
+if(!isset($id)){
     header('location:../../public/index.php');
 }
 require_once("../../app/loader.php");
@@ -15,9 +17,9 @@ $email=$_SESSION["email"];
 $rows=$db->getAlrows("SELECT * FROM utilisateur WHERE email=?",array($email));
 foreach($rows as $row)
 
-
-?>
-
+$sql=$db->getAlrows("SELECT s.nom_stade nom_stade, e2.image im2, e2.nom_equipe nom2, e1.nom_equipe  nom1, e1.image im1 FROM `matchs` m INNER JOIN equipe e1 ON e1.id_equipe=m.id_equipe1 INNER JOIN equipe e2 ON e2.id_equipe = m.id_equipe2 INNER JOIN stade s ON s.id_stade=m.stade_id WHERE m.id_match=?",array($id));
+foreach($sql as $sqla)
+ ?>
 
 <head>
     <meta charset="UTF-8">
@@ -32,7 +34,7 @@ foreach($rows as $row)
 <body>
 
 
-<header class="header-landingpage">
+<!-- <header class="header-landingpage">
         <nav class="d-flex px-2 justify-content-between align-items-center nav-landingpage ">
             <a class="nav-logo" href="#">YouTickets.com</a>
             <ul id="nav-page" class="d-flex my-auto nav-pages ">
@@ -43,15 +45,15 @@ foreach($rows as $row)
             </ul>
             <ul id="nav-compt" class="d-flex  my-auto nav-compte">
                 <li><a class="me-1 nav-login" href="userdashboard.php">Mon compte</a></li>
-            </ul>
+            </ul> -->
             <!-- <i class="fs-3 cursor-pointer fa-solid fa-bars header-menu"></i> -->
-            <div class="header-menu">
+            <!-- <div class="header-menu">
                 <span class="ligne"></span>
                 <span class="ligne"></span>
                 <span class="ligne"></span>
-            </div>
-        </nav>
-    </header>
+            </div> -->
+        <!-- </nav>
+    </header> -->
 
 
     <main>
@@ -81,15 +83,15 @@ foreach($rows as $row)
                             </div>
                             <div class="d-flex justify-content-around align-items-center">
                                 <div class="drapo d-flex flex-column align-items-center">
-                                    <img src="../assets/images/flags/bahrain-197_256.gif" alt="flag canada" class="w-75 ">
-                                    <span class="text-white fs-4 fw-bold">Canada</span>
+                                    <img <?php echo 'src="../assets/upload_image/'.$sqla["im1"].'"'?> alt="flag canada" class="w-75 ">
+                                    <span class="text-white fs-4 fw-bold"><?php echo $sqla["nom1"]?></span>
                                 </div>
                                 <div class="drapo d-flex flex-column align-items-center">
                                     <H1 class=" vs text-white  ">VS</H1>
                                 </div>
                                 <div class="drapo d-flex flex-column  align-items-center">
-                                    <img src="../assets/images/flags/jamaica-458_256.gif" alt="flag canada" class="w-75">
-                                    <span class="text-white fs-4 fw-bold">Gamaica</span>
+                                    <img <?php echo 'src="../assets/upload_image/'.$sqla["im2"].'"'?> alt="flag canada" class="w-75">
+                                    <span class="text-white fs-4 fw-bold"><?php echo $sqla["nom2"]?></span>
                                 </div>
                             </div> 
                         </div>
@@ -98,7 +100,7 @@ foreach($rows as $row)
                     <div class="mt-4 d-flex flex-column flex-lg-row justify-content-between align-items-center ">
                         <div class=" ms-2 ms-lg-0 my-3  d-flex flex-column align-items-between ">
                             <h3 class=" ">Morocco vs Canada</h3>
-                            <div class="mb-3"><i class="me-2  my-1 py-2 mr-2 bi bi-geo-alt"></i><span>Al Thumama Stadium</span></div>
+                            <div class="mb-3"><i class="me-2  my-1 py-2 mr-2 bi bi-geo-alt"></i><span><?=$sqla['nom_stade']?></span></div>
                             <div><i class=" me-2 my-2 py-2 mr-2 bi bi-calendar4-week"></i><span id="match-date"><?=$match_data['date_match'] ?></span></div>
                             <p class="my-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus debitis repudiandae non! Laborum</p>
                         </div>
