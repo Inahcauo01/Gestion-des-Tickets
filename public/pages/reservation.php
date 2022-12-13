@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+if(!isset($_GET["id"])){
+    header('location:../../public/index.php');
+}
 require_once("../../app/loader.php");
 
 if(!isset($_SESSION["email"])){
