@@ -9,7 +9,8 @@ $row = $dsn->getAlrows("SELECT * FROM utilisateur INNER JOIN role On utilisateur
 foreach ($row as $val)
     $iduser = $val["id"];
 $rowreservation = $dsn->getAlrows("SELECT * FROM reservation  where id_utilisateur=? ", array($iduser));
-foreach ($rowreservation  as $valreservation)
+foreach ($rowreservation  as $valreservation);
+var_dump($rowreservation)
 ?>
 
 
@@ -63,7 +64,7 @@ foreach ($rowreservation  as $valreservation)
         <!--**********************************
             Nav header start
         ***********************************-->
-        <div class="nav-header">
+        <!-- <div class="nav-header">
             <a href="index.php" class="brand-logo">
                 <svg class="logo-abbr" width="50" height="50" viewbox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect class="svg-logo-rect" width="50" height="50" rx="6" fill="#EB8153"></rect>
@@ -79,7 +80,7 @@ foreach ($rowreservation  as $valreservation)
                     <span class="line"></span><span class="line"></span><span class="line"></span>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!--**********************************
             Nav header end
         ***********************************-->
@@ -87,7 +88,7 @@ foreach ($rowreservation  as $valreservation)
         <!--**********************************
             Chat box start
         ***********************************-->
-        <div class="chatbox">
+        <!-- <div class="chatbox">
             <div class="chatbox-close"></div>
             <div class="custom-tab-1">
                 <ul class="nav nav-tabs">
@@ -630,7 +631,7 @@ foreach ($rowreservation  as $valreservation)
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!--**********************************
             Chat box End
         ***********************************-->
@@ -638,7 +639,7 @@ foreach ($rowreservation  as $valreservation)
         <!--**********************************
             Header start
         ***********************************-->
-        <div class="header">
+        <!-- <div class="header">
             <div class="header-content">
                 <nav class="navbar navbar-expand">
                     <div class="collapse navbar-collapse justify-content-between">
@@ -869,7 +870,7 @@ foreach ($rowreservation  as $valreservation)
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!--**********************************
             Header end ti-comment-alt
         ***********************************-->
@@ -878,7 +879,7 @@ foreach ($rowreservation  as $valreservation)
             Sidebar start
         ***********************************-->
 
-        <div class="deznav">
+        <!-- <div class="deznav">
             <div class="deznav-scroll">
                 <div class="main-profile">
                     <div class="image-bx">
@@ -905,7 +906,7 @@ foreach ($rowreservation  as $valreservation)
                     <p class="fs-12">Made with <span class="heart"></span> by Namek</p>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!--**********************************
             Sidebar end
         ***********************************-->

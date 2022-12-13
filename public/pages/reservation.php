@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+if(!isset($_GET['id'])) header('Location: ../../public/index.php');
 require_once("../../app/loader.php");
 
 if(!isset($_SESSION["email"])){
@@ -104,7 +105,7 @@ foreach($rows as $row)
                             <div class="card-body ">
                                 <h5 class=" text-center card-title">Tickets starting at</h5>
                                 <h6 class=" text-center card-subtitle mb-2 text-muted">220$</h6>
-                                <button class=" ticket  border border-0 rounded text-light text-center btn-ticket w-100 " data-bs-toggle="modal" data-bs-target="#réserver-tickets" id="reserve-btn" >Reserve your  E-Tickets</button>
+                                <button class=" ticket  border border-0 rounded text-light text-center btn-ticket w-100 " data-bs-toggle="modal" data-bs-target="#reserve-modal" id="reserve-btn" >Reserve your  E-Tickets</button>
                             </div>
                         </div>
                         </div>
@@ -131,7 +132,7 @@ foreach($rows as $row)
         </div> 
     </main>
       <!-- modal of reservation -->
-  <div class="modal " tabindex="-1" id="reserve-btn">
+  <div class="modal " tabindex="-1" id="reserve-modal">
         <div class="modal-dialog modal-dialog-centered">
             <form action="" method="post" id="reserve-tickets">
                 <div class="modal-content">
