@@ -106,7 +106,7 @@ foreach($rows as $row)
                             <div class="card-body ">
                                 <h5 class=" text-center card-title">Tickets starting at</h5>
                                 <h6 class=" text-center card-subtitle mb-2 text-muted">220$</h6>
-                                <button class=" ticket  border border-0 rounded text-light text-center btn-ticket w-100 " id="reserve-btn" >Reserve your  E-Tickets</button>
+                                <button class=" ticket  border border-0 rounded text-light text-center btn-ticket w-100 " data-bs-toggle="modal" data-bs-target="#réserver-tickets" id="reserve-btn" >Reserve your  E-Tickets</button>
                             </div>
                         </div>
                         </div>
