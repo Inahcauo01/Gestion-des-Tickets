@@ -62,7 +62,7 @@ require_once('../../app/loader.php');
 if(isset($_POST["search"])){
     $db = new Database();
     
-    if(!isset($_POST["dateDebut"]) && !isset($_POST["dateFin"])){
+    if(empty($_POST["dateDebut"]) || empty($_POST["dateFin"])){
         $sql = "SELECT * from matchs,stade where matchs.stade_id=stade.id_stade and id_equipe1 in (select id_equipe from equipe where nom_equipe like ?)";
         $resultSearch = $db->getAlrows($sql,["%".$_POST["mot"]."%"]);
     }
