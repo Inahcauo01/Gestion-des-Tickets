@@ -9,7 +9,16 @@ $row = $dsn->getAlrows("SELECT * FROM utilisateur INNER JOIN role On utilisateur
 foreach ($row as $val)
     $iduser = $val["id"];
 $rowreservation = $dsn->getAlrows("SELECT * FROM reservation  where id_utilisateur=? ", array($iduser));
+$numberrow = $dsn->numberRow("SELECT * FROM reservation  where id_utilisateur=? ", array($iduser));
+if($numberrow !=0){
 foreach ($rowreservation  as $valreservation)
+$idmatch=$valreservation["id_matchr"];
+$match= $dsn->getAlrows("SELECT * FROM matchs m INNER JOIN stade s ON m.stade_id=s.id_stade  WHERE id_match=?",array($idmatch));
+foreach($match as $valmatch);
+$erreur="";
+} else {
+$erreur="tu n'a pas acheter acune ticket";
+}
 ?>
 
 
@@ -44,13 +53,13 @@ foreach ($rowreservation  as $valreservation)
     <!--*******************
         Preloader start
     ********************-->
-    <div id="preloader">
+    <!-- <div id="preloader">
         <div class="sk-three-bounce">
             <div class="sk-child sk-bounce1"></div>
             <div class="sk-child sk-bounce2"></div>
             <div class="sk-child sk-bounce3"></div>
         </div>
-    </div>
+    </div> -->
     <!--*******************
         Preloader end
     ********************-->
@@ -927,12 +936,14 @@ foreach ($rowreservation  as $valreservation)
                 unset($_SESSION["UpdateProfile"]);
             }
             ?>
-                <?php for ($i = 0; $i < $valreservation["nombre_place"]; $i++) { ?>
+                <?php
+                if($erreur==""){
+                 for ($i = 0; $i < $valreservation["nombre_place"]; $i++) { ?>
                     <div class="mb-2">
                         <div class="tickets d-flex justify-content-between rounded" style="background-color:#8A1538">
-                            <img src="../../public/assets/images/matches/BEL_MAR_F_FWC22_THUMB_V2.webp" style="width:30%;border-radius:5px 0 0 5px" alt="">
+                            <img <?php echo 'src="../../public/pages/images/uploads/'.$valmatch["image_match"].'"'; ?> style="width:30%;border-radius:5px 0 0 5px" alt="">
                             <div class="mx-5 d-flex justify-content-center flex-column">
-                                <p class="text-light">Stade:</p>
+                                <p class="text-light">Stade:<?= $valmatch["nom_stade"]?></p>
                                 <p class="text-light">Nom et Prenom: <?= $val["nom"] . ' ' . $val['prenom']; ?></p>
                                 <p class="text-light">Numero de telephone: <?= $val['telephone']; ?></p>
                                 <p class="text-light">Prix du tickets: <?= $valreservation["catégorie"] ?> $</p>
@@ -944,7 +955,9 @@ foreach ($rowreservation  as $valreservation)
                             <input class="telecharger btn btn-primary" type="submit" value="Telecharger">
                         </div>
                     </div>
-                <?php } ?>
+                <?php }}else{
+                    echo '<h2>'.$erreur.'</h2>';
+                } ?>
             </div>
         </div>
         <!--**********************************

@@ -147,6 +147,7 @@ foreach($sql as $sqla)
                     <div class="modal-body">
                         <label for="ticket-number">Nombre des tickets</label>
                         <input type="hidden" name="id_utilisateur" value="<?php echo $row["id"]?>">
+                        <input type="hidden" name="id_match" value="<?=$id?>">
                         <input id="ticket-number" min=1 type="number" name="ticket-number" class="form-control">
                         <p id="erreur-number" class="d-none text-danger">Merci d'entrée un nombre correct</p>
                         <br>

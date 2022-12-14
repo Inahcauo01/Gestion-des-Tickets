@@ -1,11 +1,11 @@
 ﻿<?php
 require_once("../../app/loader.php");
-if(!isset($_SESSION["email"])){
+if(!isset($_SESSION["emailadmin"])){
   header('location:signin.php');
 }
 $dsn = new Database();
 
-$row=$dsn->getAlrows("SELECT * FROM utilisateur INNER JOIN role On utilisateur.role_u=role.id_role where email=? ",array($_SESSION["email"]));
+$row=$dsn->getAlrows("SELECT * FROM utilisateur INNER JOIN role On utilisateur.role_u=role.id_role where email=? ",array($_SESSION["emailadmin"]));
 foreach($row as $val)
 
 ?>
