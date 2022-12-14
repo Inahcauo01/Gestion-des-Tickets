@@ -113,7 +113,7 @@ if(isset($_POST["search"])){
     $resRow = $match_parent->numberRow($sql,["%".$_POST["mot"]."%"]);
     foreach($resultE as $equipe){
         
-    $image = (!empty($equipe['image'])) ? './pages/images/uploads/'.$equipe["image"] : './pages/images/uploads/aucune.jpg';
+    $image = (!empty($equipe['image'])) ? '../assets/upload_image/'.$equipe["image"] : './pages/images/uploads/aucune.jpg';
     if($resRow>0)
     echo "<h3>Les equipes</h3>";
     
@@ -141,7 +141,7 @@ if(isset($_POST["mot"])){
     $resRow = $match_parent->numberRow($sql,["%".$_POST["mot"]."%"]);
     foreach($resultE as $stade){
         
-    $image = (!empty($stade['image'])) ? './pages/images/uploads/'.$stade["image"] : './pages/images/uploads/aucune.jpg';
+    $image = (!empty($stade['image'])) ? '../assets/images/stades/'.$stade["image"] : './pages/images/uploads/aucune.jpg';
     if($resRow>0)
     echo "<h3>Les stades</h3>";
     
