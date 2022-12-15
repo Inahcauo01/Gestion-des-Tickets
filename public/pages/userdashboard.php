@@ -833,7 +833,7 @@ $erreur="tu n'a pas acheter acune ticket";
                             </li>
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                    <img src="images/profile/pic1.jpg" width="20" alt="">
+                                    <img src="images/profile/avatar_pdp.png" width="20" alt="">
                                     <div class="header-info">
                                         <span><?php echo $val["prenom"]; ?></span>
                                         <small>Super <?php echo $val["nom_role"] ?></small>
@@ -891,7 +891,7 @@ $erreur="tu n'a pas acheter acune ticket";
             <div class="deznav-scroll">
                 <div class="main-profile">
                     <div class="image-bx">
-                        <img src="images/Untitled-1.jpg" alt="">
+                        <img src="images/avatar_pdp.png" alt="">
                         <a data-bs-toggle="modal" href="#modal-profile"><i class="fa fa-cog" aria-hidden="true"></i></a>
                     </div>
                     <h5 class="name"><span class="font-w400">Hello,</span><?php echo $val["nom"] . ' ' . $val["prenom"] ?></h5>

@@ -26,8 +26,8 @@ require_once('../../app/loader.php');
         <li><a class="ms-2 me-2 contact-page" href="#">Contact</a></li>
       </ul>
       <ul id="nav-compt" class="d-flex  my-auto nav-compte">
-        <li><a class="me-1 nav-login" href="pages/signin.php">Log In</a></li>
-        <li><a class="ms-1 nav-Signup" href="pages/signin.php">Sign Up</a></li>
+        <li><a class="me-1 nav-login" href="signin.php">Log In</a></li>
+        <li><a class="ms-1 nav-Signup" href="signin.php">Sign Up</a></li>
       </ul>
       <!-- <i class="fs-3 cursor-pointer fa-solid fa-bars header-menu"></i> -->
       <div class="header-menu">
@@ -139,11 +139,12 @@ if(isset($_POST["mot"])){
     $sql="SELECT * from stade where nom_stade like ?";
     $resultE = $match_parent->getAlrows($sql,["%".$_POST["mot"]."%"]);
     $resRow = $match_parent->numberRow($sql,["%".$_POST["mot"]."%"]);
+    if($resRow>0)
+    echo "<h3>Les stades</h3>";
     foreach($resultE as $stade){
         
     $image = (!empty($stade['image'])) ? '../assets/images/stades/'.$stade["image"] : './pages/images/uploads/aucune.jpg';
-    if($resRow>0)
-    echo "<h3>Les stades</h3>";
+    
     
 ?>
     <a href="#" class="col-md-3 my-3 a-card">

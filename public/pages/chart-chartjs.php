@@ -1,4 +1,12 @@
-﻿<!DOCTYPE html>
+﻿<?php 
+	include_once ('../../app/loader.php');
+if (!isset($_SESSION["emailadmin"])) {
+    header('location:signin.php');
+}
+		$db=new Database();
+
+?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -67,515 +75,18 @@
         <!--**********************************
             Nav header end
         ***********************************-->
-		
-		<!--**********************************
-            Chat box start
-        ***********************************-->
-		<div class="chatbox">
-			<div class="chatbox-close"></div>
-			<div class="custom-tab-1">
-				<ul class="nav nav-tabs">
-					<li class="nav-item">
-						<a class="nav-link" data-toggle="tab" href="#notes">Notes</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" data-toggle="tab" href="#alerts">Alerts</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link active" data-toggle="tab" href="#chat">Chat</a>
-					</li>
-				</ul>
-				<div class="tab-content">
-					<div class="tab-pane fade active show" id="chat" role="tabpanel">
-						<div class="card mb-sm-3 mb-md-0 contacts_card dz-chat-user-box">
-							<div class="card-header chat-list-header text-center">
-								<a href="#"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect fill="#000000" x="4" y="11" width="16" height="2" rx="1"></rect><rect fill="#000000" opacity="0.3" transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000) " x="4" y="11" width="16" height="2" rx="1"></rect></g></svg></a>
-								<div>
-									<h6 class="mb-1">Chat List</h6>
-									<p class="mb-0">Show All</p>
-								</div>
-								<a href="#"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></a>
-							</div>
-							<div class="card-body contacts_body p-0 dz-scroll  " id="DZ_W_Contacts_Body">
-								<ul class="contacts">
-									<li class="name-first-letter">A</li>
-									<li class="active dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/1.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon"></span>
-											</div>
-											<div class="user_info">
-												<span>Archie Parker</span>
-												<p>Kalid is online</p>
-											</div>
-										</div>
-									</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/2.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon offline"></span>
-											</div>
-											<div class="user_info">
-												<span>Alfie Mason</span>
-												<p>Taherah left 7 mins ago</p>
-											</div>
-										</div>
-									</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/3.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon"></span>
-											</div>
-											<div class="user_info">
-												<span>AharlieKane</span>
-												<p>Sami is online</p>
-											</div>
-										</div>
-									</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/4.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon offline"></span>
-											</div>
-											<div class="user_info">
-												<span>Athan Jacoby</span>
-												<p>Nargis left 30 mins ago</p>
-											</div>
-										</div>
-									</li>
-									<li class="name-first-letter">B</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/5.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon offline"></span>
-											</div>
-											<div class="user_info">
-												<span>Bashid Samim</span>
-												<p>Rashid left 50 mins ago</p>
-											</div>
-										</div>
-									</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/1.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon"></span>
-											</div>
-											<div class="user_info">
-												<span>Breddie Ronan</span>
-												<p>Kalid is online</p>
-											</div>
-										</div>
-									</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/2.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon offline"></span>
-											</div>
-											<div class="user_info">
-												<span>Ceorge Carson</span>
-												<p>Taherah left 7 mins ago</p>
-											</div>
-										</div>
-									</li>
-									<li class="name-first-letter">D</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/3.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon"></span>
-											</div>
-											<div class="user_info">
-												<span>Darry Parker</span>
-												<p>Sami is online</p>
-											</div>
-										</div>
-									</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/4.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon offline"></span>
-											</div>
-											<div class="user_info">
-												<span>Denry Hunter</span>
-												<p>Nargis left 30 mins ago</p>
-											</div>
-										</div>
-									</li>
-									<li class="name-first-letter">J</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/5.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon offline"></span>
-											</div>
-											<div class="user_info">
-												<span>Jack Ronan</span>
-												<p>Rashid left 50 mins ago</p>
-											</div>
-										</div>
-									</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/1.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon"></span>
-											</div>
-											<div class="user_info">
-												<span>Jacob Tucker</span>
-												<p>Kalid is online</p>
-											</div>
-										</div>
-									</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/2.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon offline"></span>
-											</div>
-											<div class="user_info">
-												<span>James Logan</span>
-												<p>Taherah left 7 mins ago</p>
-											</div>
-										</div>
-									</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/3.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon"></span>
-											</div>
-											<div class="user_info">
-												<span>Joshua Weston</span>
-												<p>Sami is online</p>
-											</div>
-										</div>
-									</li>
-									<li class="name-first-letter">O</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/4.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon offline"></span>
-											</div>
-											<div class="user_info">
-												<span>Oliver Acker</span>
-												<p>Nargis left 30 mins ago</p>
-											</div>
-										</div>
-									</li>
-									<li class="dz-chat-user">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont">
-												<img src="images/avatar/5.jpg" class="rounded-circle user_img" alt="">
-												<span class="online_icon offline"></span>
-											</div>
-											<div class="user_info">
-												<span>Oscar Weston</span>
-												<p>Rashid left 50 mins ago</p>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="card chat dz-chat-history-box d-none">
-							<div class="card-header chat-list-header text-center">
-								<a href="#" class="dz-chat-history-back">
-									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><polygon points="0 0 24 0 24 24 0 24"></polygon><rect fill="#000000" opacity="0.3" transform="translate(15.000000, 12.000000) scale(-1, 1) rotate(-90.000000) translate(-15.000000, -12.000000) " x="14" y="7" width="2" height="10" rx="1"></rect><path d="M3.7071045,15.7071045 C3.3165802,16.0976288 2.68341522,16.0976288 2.29289093,15.7071045 C1.90236664,15.3165802 1.90236664,14.6834152 2.29289093,14.2928909 L8.29289093,8.29289093 C8.67146987,7.914312 9.28105631,7.90106637 9.67572234,8.26284357 L15.6757223,13.7628436 C16.0828413,14.136036 16.1103443,14.7686034 15.7371519,15.1757223 C15.3639594,15.5828413 14.7313921,15.6103443 14.3242731,15.2371519 L9.03007346,10.3841355 L3.7071045,15.7071045 Z" fill="#000000" fill-rule="nonzero" transform="translate(9.000001, 11.999997) scale(-1, -1) rotate(90.000000) translate(-9.000001, -11.999997) "></path></g></svg>
-								</a>
-								<div>
-									<h6 class="mb-1">Chat with Khelesh</h6>
-									<p class="mb-0 text-success">Online</p>
-								</div>							
-								<div class="dropdown">
-									<a href="#" data-toggle="dropdown" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></a>
-									<ul class="dropdown-menu dropdown-menu-right">
-										<li class="dropdown-item"><i class="fa fa-user-circle text-primary mr-2"></i> View profile</li>
-										<li class="dropdown-item"><i class="fa fa-users text-primary mr-2"></i> Add to close friends</li>
-										<li class="dropdown-item"><i class="fa fa-plus text-primary mr-2"></i> Add to group</li>
-										<li class="dropdown-item"><i class="fa fa-ban text-primary mr-2"></i> Block</li>
-									</ul>
-								</div>
-							</div>
-							<div class="card-body msg_card_body dz-scroll" id="DZ_W_Contacts_Body3">
-								<div class="d-flex justify-content-start mb-4">
-									<div class="img_cont_msg">
-										<img src="images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-									<div class="msg_cotainer">
-										Hi, how are you samim?
-										<span class="msg_time">8:40 AM, Today</span>
-									</div>
-								</div>
-								<div class="d-flex justify-content-end mb-4">
-									<div class="msg_cotainer_send">
-										Hi Khalid i am good tnx how about you?
-										<span class="msg_time_send">8:55 AM, Today</span>
-									</div>
-									<div class="img_cont_msg">
-								<img src="images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-								</div>
-								<div class="d-flex justify-content-start mb-4">
-									<div class="img_cont_msg">
-										<img src="images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-									<div class="msg_cotainer">
-										I am good too, thank you for your chat template
-										<span class="msg_time">9:00 AM, Today</span>
-									</div>
-								</div>
-								<div class="d-flex justify-content-end mb-4">
-									<div class="msg_cotainer_send">
-										You are welcome
-										<span class="msg_time_send">9:05 AM, Today</span>
-									</div>
-									<div class="img_cont_msg">
-								<img src="images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-								</div>
-								<div class="d-flex justify-content-start mb-4">
-									<div class="img_cont_msg">
-										<img src="images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-									<div class="msg_cotainer">
-										I am looking for your next templates
-										<span class="msg_time">9:07 AM, Today</span>
-									</div>
-								</div>
-								<div class="d-flex justify-content-end mb-4">
-									<div class="msg_cotainer_send">
-										Ok, thank you have a good day
-										<span class="msg_time_send">9:10 AM, Today</span>
-									</div>
-									<div class="img_cont_msg">
-										<img src="images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-								</div>
-								<div class="d-flex justify-content-start mb-4">
-									<div class="img_cont_msg">
-										<img src="images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-									<div class="msg_cotainer">
-										Bye, see you
-										<span class="msg_time">9:12 AM, Today</span>
-									</div>
-								</div>
-								<div class="d-flex justify-content-start mb-4">
-									<div class="img_cont_msg">
-										<img src="images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-									<div class="msg_cotainer">
-										Hi, how are you samim?
-										<span class="msg_time">8:40 AM, Today</span>
-									</div>
-								</div>
-								<div class="d-flex justify-content-end mb-4">
-									<div class="msg_cotainer_send">
-										Hi Khalid i am good tnx how about you?
-										<span class="msg_time_send">8:55 AM, Today</span>
-									</div>
-									<div class="img_cont_msg">
-								<img src="images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-								</div>
-								<div class="d-flex justify-content-start mb-4">
-									<div class="img_cont_msg">
-										<img src="images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-									<div class="msg_cotainer">
-										I am good too, thank you for your chat template
-										<span class="msg_time">9:00 AM, Today</span>
-									</div>
-								</div>
-								<div class="d-flex justify-content-end mb-4">
-									<div class="msg_cotainer_send">
-										You are welcome
-										<span class="msg_time_send">9:05 AM, Today</span>
-									</div>
-									<div class="img_cont_msg">
-								<img src="images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-								</div>
-								<div class="d-flex justify-content-start mb-4">
-									<div class="img_cont_msg">
-										<img src="images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-									<div class="msg_cotainer">
-										I am looking for your next templates
-										<span class="msg_time">9:07 AM, Today</span>
-									</div>
-								</div>
-								<div class="d-flex justify-content-end mb-4">
-									<div class="msg_cotainer_send">
-										Ok, thank you have a good day
-										<span class="msg_time_send">9:10 AM, Today</span>
-									</div>
-									<div class="img_cont_msg">
-										<img src="images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-								</div>
-								<div class="d-flex justify-content-start mb-4">
-									<div class="img_cont_msg">
-										<img src="images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
-									</div>
-									<div class="msg_cotainer">
-										Bye, see you
-										<span class="msg_time">9:12 AM, Today</span>
-									</div>
-								</div>
-							</div>
-							<div class="card-footer type_msg">
-								<div class="input-group">
-									<textarea class="form-control" placeholder="Type your message..."></textarea>
-									<div class="input-group-append">
-										<button type="button" class="btn btn-primary"><i class="fa fa-location-arrow"></i></button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="tab-pane fade" id="alerts" role="tabpanel">
-						<div class="card mb-sm-3 mb-md-0 contacts_card">
-							<div class="card-header chat-list-header text-center">
-								<a href="#"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></a>
-								<div>
-									<h6 class="mb-1">Notications</h6>
-									<p class="mb-0">Show All</p>
-								</div>
-								<a href="#"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><path d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"></path><path d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z" fill="#000000" fill-rule="nonzero"></path></g></svg></a>
-							</div>
-							<div class="card-body contacts_body p-0 dz-scroll" id="DZ_W_Contacts_Body1">
-								<ul class="contacts">
-									<li class="name-first-letter">SEVER STATUS</li>
-									<li class="active">
-										<div class="d-flex bd-highlight">
-											<div class="img_cont primary">KK</div>
-											<div class="user_info">
-												<span>David Nester Birthday</span>
-												<p class="text-primary">Today</p>
-											</div>
-										</div>
-									</li>
-									<li class="name-first-letter">SOCIAL</li>
-									<li>
-										<div class="d-flex bd-highlight">
-											<div class="img_cont success">RU<i class="icon fa-birthday-cake"></i></div>
-											<div class="user_info">
-												<span>Perfection Simplified</span>
-												<p>Jame Smith commented on your status</p>
-											</div>
-										</div>
-									</li>
-									<li class="name-first-letter">SEVER STATUS</li>
-									<li>
-										<div class="d-flex bd-highlight">
-											<div class="img_cont primary">AU<i class="icon fa fa-user-plus"></i></div>
-											<div class="user_info">
-												<span>AharlieKane</span>
-												<p>Sami is online</p>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="d-flex bd-highlight">
-											<div class="img_cont info">MO<i class="icon fa fa-user-plus"></i></div>
-											<div class="user_info">
-												<span>Athan Jacoby</span>
-												<p>Nargis left 30 mins ago</p>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<div class="card-footer"></div>
-						</div>
-					</div>
-					<div class="tab-pane fade" id="notes">
-						<div class="card mb-sm-3 mb-md-0 note_card">
-							<div class="card-header chat-list-header text-center">
-								<a href="#"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect fill="#000000" x="4" y="11" width="16" height="2" rx="1"></rect><rect fill="#000000" opacity="0.3" transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000) " x="4" y="11" width="16" height="2" rx="1"></rect></g></svg></a>
-								<div>
-									<h6 class="mb-1">Notes</h6>
-									<p class="mb-0">Add New Nots</p>
-								</div>
-								<a href="#"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><path d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"></path><path d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z" fill="#000000" fill-rule="nonzero"></path></g></svg></a>
-							</div>
-							<div class="card-body contacts_body p-0 dz-scroll" id="DZ_W_Contacts_Body2">
-								<ul class="contacts">
-									<li class="active">
-										<div class="d-flex bd-highlight">
-											<div class="user_info">
-												<span>New order placed..</span>
-												<p>10 Aug 2020</p>
-											</div>
-											<div class="ml-auto">
-												<a href="#" class="btn btn-primary btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="btn btn-danger btn-xs sharp"><i class="fa fa-trash"></i></a>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="d-flex bd-highlight">
-											<div class="user_info">
-												<span>Youtube, a video-sharing website..</span>
-												<p>10 Aug 2020</p>
-											</div>
-											<div class="ml-auto">
-												<a href="#" class="btn btn-primary btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="btn btn-danger btn-xs sharp"><i class="fa fa-trash"></i></a>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="d-flex bd-highlight">
-											<div class="user_info">
-												<span>john just buy your product..</span>
-												<p>10 Aug 2020</p>
-											</div>
-											<div class="ml-auto">
-												<a href="#" class="btn btn-primary btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="btn btn-danger btn-xs sharp"><i class="fa fa-trash"></i></a>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="d-flex bd-highlight">
-											<div class="user_info">
-												<span>Athan Jacoby</span>
-												<p>10 Aug 2020</p>
-											</div>
-											<div class="ml-auto">
-												<a href="#" class="btn btn-primary btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="btn btn-danger btn-xs sharp"><i class="fa fa-trash"></i></a>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--**********************************
-            Chat box End
-        ***********************************-->
-
 
 		
 		
         <!--**********************************
             Header start
         ***********************************-->
+		<?php
+			$dsn = new Database();
+
+			$row=$dsn->getAlrows("SELECT * FROM utilisateur INNER JOIN role On utilisateur.role_u=role.id_role where email=? ",array($_SESSION["emailadmin"]));
+			foreach($row as $val)
+		?>
         <div class="header">
             <div class="header-content">
                 <nav class="navbar navbar-expand">
@@ -758,10 +269,10 @@
                             </li>
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                    <img src="images/profile/pic1.jpg" width="20" alt="">
+									<img src="images/profile/avatar_pdp.png" width="20" alt="">
 									<div class="header-info">
-										<span>Johndoe</span>
-										<small>Super Admin</small>
+										<span><?php echo $val["prenom"];?></span>
+										<small>Super <?php echo $val["nom_role"] ?></small>
 									</div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
@@ -794,22 +305,14 @@
 				</div>
 			</div>
         </div>
-        <!--**********************************
-            Header end ti-comment-alt
-        ***********************************-->
-
-        <!--**********************************
-            Sidebar start
-        ***********************************-->
         <div class="deznav">
             <div class="deznav-scroll">
 				<div class="main-profile">
 					<div class="image-bx">
-						<img src="images/Untitled-1.jpg" alt="">
+						<img src="images/avatar_pdp.png" alt="">
 						<a href="javascript:void(0);"><i class="fa fa-cog" aria-hidden="true"></i></a>
 					</div>
-					<h5 class="name"><span class="font-w400">Hello,</span> Marquez</h5>
-					<p class="email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2e434f5c5f5b4b545454546e434f4742004d4143">[email&#160;protected]</a></p>
+					<h5 class="name"><span class="font-w400">Hello,</span><?php echo $val["nom"].' '.$val["prenom"] ?></h5>
 				</div>
 				<ul class="metismenu" id="menu">
 					<li class="nav-label first">Main Menu</li>
@@ -841,7 +344,6 @@
 						    <li><a href="user-list-datatable.php">Users</a></li>
                             <li><a href="Equipe-list-datatable.php">Equipes</a></li>
                             <li><a href="Matches-list-datatable.php">Matches</a></li>
-                            <li><a href="Ticketes-list-datatable.php">Ticketes</a></li>
 							<li><a href="Stades-list-datatable.php">Stades</a></li>
                         </ul>
                     </li>
@@ -849,107 +351,23 @@
                 </ul>
 				<div class="copyright">
 					<p><strong>World cup tickets</strong> © 2022 All Rights Reserved</p>
-					<p class="fs-12">Made with <span class="heart"></span> by Namek</p>
+					<p class="fs-12">Made with <span class="heart">❤️</span> by Namek</p>
 				</div>
 			</div>
         </div>
-        <!--**********************************
-            Sidebar end
-        ***********************************-->
 
-        <!--**********************************
-            Content body start
-        ***********************************-->
         <div class="content-body">
 			<div class="container-fluid">
-				<!-- Add Project -->
-				<div class="modal fade" id="addProjectSidebar">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title">Create Project</h5>
-								<button type="button" class="close" data-dismiss="modal"><span>&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<form>
-									<div class="form-group">
-										<label class="text-black font-w500">Project Name</label>
-										<input type="text" class="form-control">
-									</div>
-									<div class="form-group">
-										<label class="text-black font-w500">Deadline</label>
-										<input type="date" class="form-control">
-									</div>
-									<div class="form-group">
-										<label class="text-black font-w500">Client Name</label>
-										<input type="text" class="form-control">
-									</div>
-									<div class="form-group">
-										<button type="button" class="btn btn-primary">CREATE</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-                <div class="row page-titles mx-0">
-                    <div class="col-sm-6">
-                        <div class="welcome-text">
-                            <h4>Hi, welcome back!</h4>
-                            <p class="mb-0">Your business dashboard template</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Charts</a></li>
-                            <li class="breadcrumb-item active"><a href="javascript:void(0)">ChartJS</a></li>
-                        </ol>
-                    </div>
-                </div>
-                <!-- row -->
-
-                <div class="row">
-                    <div class="col-12">
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-12 col-sm-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4 class="card-title">Basic Bar Chart</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <!-- <canvas id="barChart_1"></canvas> -->
-										<canvas id="barcanvas" aria-label="chart" role="img">
-
-										</canvas>
-									</div>
-                                </div>
-    
-                        </div>
-                    </div>
-                </div>
+				<div id="columnchart_material" style="width: 90%; height: 500px;"></div>
             </div>
         </div>
-        <!--**********************************
-            Content body end
-        ***********************************-->
-
-
         
     </div>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
-
-    <!--**********************************
-        Main wrapper end
-    ***********************************-->
-
-    <!--**********************************
-        Scripts
-    ***********************************-->
     <!-- Required vendors -->
     <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="vendor/global/global.min.js"></script>
 	<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
     <script src="vendor/chart.js/Chart.bundle.min.js"></script>
+
     <!-- Chart ChartJS plugin files -->
     <script src="vendor/chart.js/Chart.bundle.min.js"></script>
     <script src="js/plugins-init/chartjs-init.js"></script>
@@ -958,6 +376,30 @@
 	<script src="js/deznav-init.js"></script>
     <script src="js/demo.js"></script>
     <script src="js/styleSwitcher.js"></script>
-	<script src="../assets/js/statistique.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Match', 'Les tickets disponibles', 'les tickets reservés', 'les tickets restants'],
+          ['2014', 1000, 400, 200],
+          ['2015', 1170, 460, 250],
+          ['2016', 660, 1120, 300],
+          ['2017', 1030, 540, 350]
+        ]);
+
+        var options = {
+          chart: {
+            title: 'LES STATISTIQUES DES TICKETS PAR MATCH',
+          }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    // </script>
 </body>
 </html>

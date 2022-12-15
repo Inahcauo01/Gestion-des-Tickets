@@ -3,7 +3,6 @@
 		
 		let imageSaveDisabled=document.querySelector("#imageEquipe");
 		//    imageSaveDisabled.style.display="none";
-		
 			let save=document.getElementById('btnSave');
 				
 				document.getElementById("addequipe").addEventListener("click", hidebtnsave);
