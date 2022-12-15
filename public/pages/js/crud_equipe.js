@@ -6,6 +6,7 @@
 		// imageSaveDisabled.forEach(elt=>{
 		// 	elt.addEventListener()
 		// })
+		updateequipe
 		let save=document.getElementById('btnSave');
 				let update=document.getElementById('btnupdate');
 				

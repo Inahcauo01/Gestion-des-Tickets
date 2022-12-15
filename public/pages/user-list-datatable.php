@@ -919,7 +919,6 @@ foreach($row as $val)
 							<li><a href="user-list-datatable.php">Users</a></li>
 							<li><a href="Equipe-list-datatable.php">Equipes</a></li>
 							<li><a href="Matches-list-datatable.php">Matches</a></li>
-							<li><a href="Ticketes-list-datatable.php">Ticketes</a></li>
 							<li><a href="Stades-list-datatable.php">Stades</a></li>
 						</ul>
 					</li>
