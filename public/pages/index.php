@@ -30,6 +30,11 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+
+
+
 </head>
 <body>
 
@@ -919,13 +924,11 @@
 					</div>
 					<div class="card shadow p-3 mb-5 m-sm-4 bg-body rounded-pill  flex-lg-row" style="width: 18rem;">
 							<div class="card-body">
-								<h5 class="card-title ">Nombre de reservation</h5>
-								<h4 class="card-subtitle mb-2 text-muted"><? echo $value ?></h4>
+								<h5 class="card-title fs-16">Nombre de reservation</h5>
+								<h4 class="card-subtitle mb-2 text-muted"><?= $value ?></h4>
 							</div>
 							<div><i class="fa-solid fa-clipboard-check mt-3 fa-2x  ticket"></i></div>
 					</div>
-					
-
 				</div>
 			
 				

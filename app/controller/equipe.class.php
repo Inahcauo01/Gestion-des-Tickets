@@ -42,7 +42,7 @@ require_once dirname(__DIR__) . '/model/Database.class.php';
             //     $resultt= $db->deleteData($query,array($param));
             // }
             $query="DELETE FROM equipe WHERE id_equipe= ? "; 
-            $resultt= $db->deleteData($query,array($param));
+             $db->deleteData($query,array($param));
             
         }
             
