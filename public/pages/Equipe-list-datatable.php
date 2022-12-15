@@ -808,7 +808,7 @@ if (!isset($_SESSION["emailadmin"])) {
         <!--**********************************
             Sidebar start
         ***********************************-->
-        <div class="deznav">
+         <div class="deznav">
             <div class="deznav-scroll">
 				<div class="main-profile">
 					<div class="image-bx">
@@ -864,7 +864,7 @@ if (!isset($_SESSION["emailadmin"])) {
 					<p class="fs-12">Made with <span class="heart"></span> by Namek</p>
 				</div>
 			</div>
-        </div>
+        </div> 
         <!--**********************************
             Sidebar end
         ***********************************-->

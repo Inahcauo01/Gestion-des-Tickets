@@ -69,7 +69,7 @@ require_once('../../app/loader.php');
 <h4 class="part-title pt-4">Listes des Matches</h4>
 <div class="d-flex row">
 <?php
-    $sql="SELECT * from stade limit 4";
+    $sql="SELECT * from stade";
     $resultS = $match_parent->getAllrows($sql);
     foreach($resultS as $stade){
         

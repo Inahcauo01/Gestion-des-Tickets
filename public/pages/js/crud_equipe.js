@@ -6,7 +6,7 @@
 		// imageSaveDisabled.forEach(elt=>{
 		// 	elt.addEventListener()
 		// })
-		let save=document.getElementById('btnSave');
+		       let save=document.getElementById('btnSave');
 				let update=document.getElementById('btnupdate');
 				
 				document.getElementById("addequipe").addEventListener("click", hidebtnsave);
@@ -32,7 +32,7 @@
 				
 				let elements = document.querySelectorAll(".update");
 				elements.forEach(elt => {
-					elt.addEventListener("click", function() {
+					elt.onclick=()=>{
 						let id = elt.children[0].innerText;
 						let teamName = elt.children[1].innerText;
 						let image = elt.children[2].innerText;
@@ -47,7 +47,7 @@
 						console.log("../assets/upload_image/" + image + "");
 
 
-				})});
+				}});
 				// delete
 				let elementss = document.querySelectorAll(".delete");
 				elementss.forEach(elt => {
