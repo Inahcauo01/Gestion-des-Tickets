@@ -919,8 +919,8 @@
 					</div>
 					<div class="card shadow p-3 mb-5 m-sm-4 bg-body rounded-pill  flex-lg-row" style="width: 18rem;">
 							<div class="card-body">
-								<h5 class="card-title fs-15">Nombre de reservation</h5>
-								<h4 class="card-subtitle mb-2 text-muted"><?=  $value;?></h4>
+								<h5 class="card-title ">Nombre de reservation</h5>
+								<h4 class="card-subtitle mb-2 text-muted"><? echo $value ?></h4>
 							</div>
 							<div><i class="fa-solid fa-clipboard-check mt-3 fa-2x  ticket"></i></div>
 					</div>

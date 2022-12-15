@@ -1029,7 +1029,7 @@
 	<script src="js/deznav-init.js"></script>
     <script src="js/demo.js"></script>
     <script src="js/styleSwitcher.js"></script>
-	<script src="../pages//js/crud_equipe.js"></script>
+	<script src="../pages/js/crud_equipe.js"></script>
 
 </body>
 </html>

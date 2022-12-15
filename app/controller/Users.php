@@ -12,7 +12,7 @@ if(isset($_POST["login"])){
    if($so!=0){
     if($email=="marksemony@gmail.com" && $passWord=="eRROR404@"){
     $_SESSION["email"]=$email;
-    header('location:../../public/pages/user-list-datatable.php');
+    header('location:../public/pages/user-list-datatable.php');
    }else{
     $_SESSION["email"]=$email;
     header('location:../pages/reservation.php');

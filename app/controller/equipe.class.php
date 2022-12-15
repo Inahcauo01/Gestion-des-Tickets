@@ -36,10 +36,14 @@ require_once dirname(__DIR__) . '/model/Database.class.php';
         // delete equipe
         if(isset($_POST['deleteEquipe'])){
             $param=$_POST['id_equipe'];
-            $result=$db->getRow("select * from equipe where id_equipe = ?",[$param]);
+            // $result=$db->getRow("select * from equipe where id_equipe = ?",[$param]);
             // if($result){
-                $query="delete from equipe where id_equipe=?"; 
-                $resultt= $db->deleteData($query,[$param]);
+            //     $query="delete from equipe where id_equipe= ? "; 
+            //     $resultt= $db->deleteData($query,array($param));
+            // }
+            $query="DELETE FROM equipe WHERE id_equipe= ? "; 
+            $resultt= $db->deleteData($query,array($param));
+            
         }
             
             
