@@ -1,7 +1,11 @@
 ﻿<?php 
 		include_once ('../../app/loader.php');
 		$db=new Database();
-
+		?>
+﻿<?php
+if(!isset($_SESSION["emailadmin"])){
+  header('location:signin.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

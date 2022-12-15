@@ -883,7 +883,7 @@ $nulberreservation=$dsn->numberRow("SELECT * FROM reservation  where id_utilisat
                 <div class="main-profile">
                     <div class="image-bx">
                         <img src="images/Untitled-1.jpg" alt="">
-                        <a href="javascript:void(0);"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                        <a href="#modal-profile" data-bs-toggle="modal"><i class="fa fa-cog" aria-hidden="true"></i></a>
                     </div>
                     <h5 class="name"><span class="font-w400">Hello,</span><?php echo $val["nom"] . ' ' . $val["prenom"] ?></h5>
                 </div>
@@ -917,12 +917,15 @@ $nulberreservation=$dsn->numberRow("SELECT * FROM reservation  where id_utilisat
         <div class="content-body">
             <div class="container-fluid">
                 <h3>you have <?php echo $nulberreservation  ?> reservation in your history</h3>
-                <?php foreach ($rowreservation  as $valreservation){?>
+                <?php foreach ($rowreservation  as $valreservation){
+                    $idmatch=$valreservation["id_matchr"];
+                    $match= $dsn->getAlrows("SELECT * FROM matchs m INNER JOIN stade s ON m.stade_id=s.id_stade  WHERE id_match=?",array($idmatch));
+                    foreach($match as $valmatch)?>
                 <div class="mb-2">
                     <div id="tickets" class="d-flex justify-content-between rounded" style="background-color:#8A1538">
-                        <img src="../../public/assets/images/matches/BEL_MAR_F_FWC22_THUMB_V2.webp" style="width:30%;border-radius:5px 0 0 5px" alt="">
+                        <img <?php echo 'src="../../public/pages/images/uploads/'.$valmatch["image_match"].'"'; ?> style="width:30%;border-radius:5px 0 0 5px" alt="">
                         <div class="mx-5 d-flex justify-content-center flex-column">
-                            <p class="text-light">Stade:</p>
+                            <p class="text-light">Stade:<?=  $valmatch["nom_stade"] ?></p>
                             <p class="text-light">Nom et Prenom: <?= $val["nom"] . ' ' . $val['prenom']; ?></p>
                             <p class="text-light">Numero de telephone: <?= $val['telephone']; ?></p>
                             <p class="text-light">Prix du tickets: <?= $valreservation["catégorie"] ?> $</p>
@@ -995,7 +998,51 @@ $nulberreservation=$dsn->numberRow("SELECT * FROM reservation  where id_utilisat
             </div>
         </div>
     </div>
+      
 
+    <div class="modal" tabindex="-1" id="modal-profile">
+        <div class="modal-dialog">
+        <form action="" id="form-profile" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Profile</h5>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="profile-id" value="<?php echo $val["id"]?>">
+                    <div>
+                        <label for="Profil-Nom">Nom</label>
+                        <input id="Profil-Nom" type="text" name="Profil-Nom" class="form-control" value="<?php echo $val["nom"] ?>">
+                    </div>
+                    <p class="text-danger d-none" id="firstName-erreur">Il faut entrer un nom valid</p>
+                    <div>
+                        <label for="Profil-prenom">Prenom</label>
+                        <input id="Profil-prenom" type="text" class="form-control" name="Profil-prenom" value="<?php echo $val["prenom"] ?>">
+                    </div>
+                    <p class="text-danger d-none" id="lastName-erreur">Il faut entrer un nom valid</p>
+                    <div>
+                        <label for="Profil-telephone">Telephone</label>
+                        <input id="Profil-telephone" type="tel" class="form-control" name="Profil-telephone" value="<?php echo $val["telephone"] ?>">
+                    </div>
+                    <p class="text-danger d-none" id="telephone-erreur">Il faut entrer un nom valid</p>
+                    <div>
+                        <label for="Profil-email">Email</label>
+                        <input id="Profil-email" type="email" class="form-control" name="Profil-email" value="<?php echo $val["email"] ?>">
+                    </div>
+                    <p class="text-danger d-none" id="email-erreur">Il faut entrer un nom valid</p>
+                    <div>
+                        <label for="Profil-password">Mot de pass</label>
+                        <input id="Profil-password" type="password" class="form-control" name="Profil-password" value="<?php echo $val["password"] ?>">
+                    </div>
+                    <p class="text-danger d-none" id="password-erreur">Il faut entrer un nom valid</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" name="updateinfoUser" class="btn btn-primary" value="save changes">
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
     <!--**********************************
         Scripts
     ***********************************-->
