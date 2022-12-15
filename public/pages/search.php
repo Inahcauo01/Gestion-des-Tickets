@@ -139,11 +139,12 @@ if(isset($_POST["mot"])){
     $sql="SELECT * from stade where nom_stade like ?";
     $resultE = $match_parent->getAlrows($sql,["%".$_POST["mot"]."%"]);
     $resRow = $match_parent->numberRow($sql,["%".$_POST["mot"]."%"]);
+    if($resRow>0)
+    echo "<h3>Les stades</h3>";
     foreach($resultE as $stade){
         
     $image = (!empty($stade['image'])) ? '../assets/images/stades/'.$stade["image"] : './pages/images/uploads/aucune.jpg';
-    if($resRow>0)
-    echo "<h3>Les stades</h3>";
+    
     
 ?>
     <a href="#" class="col-md-3 my-3 a-card">
