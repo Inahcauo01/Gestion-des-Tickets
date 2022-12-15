@@ -918,8 +918,11 @@
                                         <h4 class="card-title">Basic Bar Chart</h4>
                                     </div>
                                     <div class="card-body">
-                                        <canvas id="barChart_1"></canvas>
-                                    </div>
+                                        <!-- <canvas id="barChart_1"></canvas> -->
+										<canvas id="barcanvas" aria-label="chart" role="img">
+
+										</canvas>
+									</div>
                                 </div>
     
                         </div>
@@ -934,6 +937,8 @@
 
         
     </div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+
     <!--**********************************
         Main wrapper end
     ***********************************-->
@@ -945,7 +950,6 @@
     <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="vendor/global/global.min.js"></script>
 	<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
     <script src="vendor/chart.js/Chart.bundle.min.js"></script>
-
     <!-- Chart ChartJS plugin files -->
     <script src="vendor/chart.js/Chart.bundle.min.js"></script>
     <script src="js/plugins-init/chartjs-init.js"></script>
@@ -954,5 +958,6 @@
 	<script src="js/deznav-init.js"></script>
     <script src="js/demo.js"></script>
     <script src="js/styleSwitcher.js"></script>
+	<script src="../assets/js/statistique.js"></script>
 </body>
 </html>

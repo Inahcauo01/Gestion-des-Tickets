@@ -1,5 +1,7 @@
 <?php
+// require_once('../app/model/Database.class.php');
 require_once('C:\xampp\htdocs\Gestion-des-Tickets\app\model\Database.class.php');
+
 $db=new Database();
 $erreurSignin="";
 if(isset($_POST["login"])){

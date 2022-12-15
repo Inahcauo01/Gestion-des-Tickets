@@ -821,7 +821,6 @@
 						</a>
                         <ul aria-expanded="false">
 							<li><a href="index.php">Dashboard Light</a></li>
-							<li><a href="index-2.php">Dashboard Dark</a></li>
 						</ul>
 
                     </li>
