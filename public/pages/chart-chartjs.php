@@ -1,4 +1,12 @@
-﻿<!DOCTYPE html>
+﻿<?php 
+	include_once ('../../app/loader.php');
+if (!isset($_SESSION["emailadmin"])) {
+    header('location:signin.php');
+}
+		$db=new Database();
+
+?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -576,6 +584,12 @@
         <!--**********************************
             Header start
         ***********************************-->
+		<?php
+			$dsn = new Database();
+
+			$row=$dsn->getAlrows("SELECT * FROM utilisateur INNER JOIN role On utilisateur.role_u=role.id_role where email=? ",array($_SESSION["emailadmin"]));
+			foreach($row as $val)
+		?>
         <div class="header">
             <div class="header-content">
                 <nav class="navbar navbar-expand">
@@ -758,10 +772,10 @@
                             </li>
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                    <img src="images/profile/pic1.jpg" width="20" alt="">
+									<img src="images/profile/avatar_pdp.png" width="20" alt="">
 									<div class="header-info">
-										<span>Johndoe</span>
-										<small>Super Admin</small>
+										<span><?php echo $val["prenom"];?></span>
+										<small>Super <?php echo $val["nom_role"] ?></small>
 									</div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
@@ -805,11 +819,10 @@
             <div class="deznav-scroll">
 				<div class="main-profile">
 					<div class="image-bx">
-						<img src="images/Untitled-1.jpg" alt="">
+						<img src="images/avatar_pdp.png" alt="">
 						<a href="javascript:void(0);"><i class="fa fa-cog" aria-hidden="true"></i></a>
 					</div>
-					<h5 class="name"><span class="font-w400">Hello,</span> Marquez</h5>
-					<p class="email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2e434f5c5f5b4b545454546e434f4742004d4143">[email&#160;protected]</a></p>
+					<h5 class="name"><span class="font-w400">Hello,</span><?php echo $val["nom"].' '.$val["prenom"] ?></h5>
 				</div>
 				<ul class="metismenu" id="menu">
 					<li class="nav-label first">Main Menu</li>

@@ -6,9 +6,11 @@ if(isset($_POST["login"])){
    $email=$_POST["email"];
    $passWord=$_POST["password"];
    $param=[$email,$passWord];
+   $log=$db->getRow("SELECT * FROM utilisateur WHERE email=? AND password=?",$param);
    $so=$db->numberRow("SELECT * FROM utilisateur WHERE email=? AND password=?",$param);
    if($so!=0){
-    if($email=="marksemony@gmail.com" && $passWord=="eRROR404@"){
+    // echo $log["role_u"];
+    if($log["role_u"] === 1){
     $_SESSION["emailadmin"]=$email;
     header('location:../../public/pages/user-list-datatable.php');
    }else{
@@ -17,7 +19,7 @@ if(isset($_POST["login"])){
    }
    }else{
     $erreurSignin="Invalid email or password";
-   }
+  }
 }
 try{
 if(isset($_POST["update"])){

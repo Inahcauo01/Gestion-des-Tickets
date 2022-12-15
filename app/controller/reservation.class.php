@@ -17,7 +17,7 @@ if(isset($_POST["Enregistrer"])){
     }
 
     $db->insertData("INSERT INTO reservation(nombre_place,catégorie,id_utilisateur,id_matchr,qr_code) VALUES(?,?,?,?,?)",array($ticketNumber,$placeCatégorie,$idUtilisateur,$idmatch,$filename));
-   header('location:../../public/pages/userdashboard.php');
+   header('location: userdashboard.php');
 }
 }catch(Exception $e){
     $e->getMessage();
