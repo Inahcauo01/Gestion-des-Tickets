@@ -1,7 +1,7 @@
 <?php
 
 
-require_once('C:\xamp\htdocs\Gestion-des-Tickets\app\model\Database.class.php');
+require_once('C:\xampp\htdocs\Gestion-des-Tickets\app\model\Database.class.php');
 
         $db = new Database;
 		$user=$db->numberRow('SELECT * FROM `utilisateur` WHERE role_u=?',array(2));
